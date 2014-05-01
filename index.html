@@ -3,9 +3,9 @@
   <head>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
@@ -30,13 +30,39 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li>
+              <a href="/#/public/how_it_works">
+                How it Works
+              </a>
+            </li>
+            <li>
+              <a href="/#/public/pricing">
+                Pricing
+              </a>
+            </li>
+            <li>
+              <a href="/#/public/contact">
+                Contact
+              </a>
+            </li>
+            <li>
+              <a href="/#/public/career">
+                Careers
+              </a>
+            </li>
+            <li class="list_button_small">
+              <a href="/#/users/sign_in">
+                <button type="button" class="btn btn-default btn-xs">Sign In</button>
+              </a>
+            </li>
+            <li>
+              <a href="/#/users/new">
+                <button type="button" class="btn btn-primary btn-xs">Sign Up</button>
+              </a>
+            </li>
           </ul>
           <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
+            <input type="text" class="form-control" placeholder="Property search...">
           </form>
         </div>
       </div>
