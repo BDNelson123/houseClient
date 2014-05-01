@@ -1,3 +1,7 @@
-house.controller('homeController', function($scope) {
-    $scope.pageClass = 'page-home';
+house.controller('homeController', function($scope, homeTest) {
+  $scope.posts = homeTest.query();
 });
+
+
+
+
