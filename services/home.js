@@ -1,5 +1,5 @@
 house.factory('homeTest', ['$resource',
   function($resource){
-    return $resource('http://jsonplaceholder.typicode.com/posts', {}, { query: {method:'GET', isArray:true} });
+    return $resource('http://198.61.208.215:3000/users', {}, { read: {method:'GET', isArray:true} });
   }
 ]);
