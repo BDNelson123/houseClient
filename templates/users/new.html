@@ -1,6 +1,8 @@
 <form ng-submit="submitUser()" class="form-vertical">
   <div class="control-group">
-    <label class="control-label">Create User:</label>
+    <div id="alert" style="display:none; margin-bottom:10px"></div>
+
+    <label class="control-label">Sign Up:</label>
 
     <div class="controls">
       <input type="text" ng-model="user.email" placeholder="email" required/>
