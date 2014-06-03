@@ -1,16 +1,17 @@
 <form ng-submit="submitUser()" class="form-vertical">
   <div class="control-group">
+    <!-- flash alerts -->
     <div id="alert" style="display:none; margin-bottom:10px"></div>
 
-    <label class="control-label">Sign Up:</label>
-
-    <div class="controls">
-      <input type="text" ng-model="user.email" placeholder="email" required/>
-      <br><br>
-      <input type="password" ng-model="user.password" placeholder="password" required/>
-      <br><br>
-      <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" required/>
-      <br><br>
+    <!-- user - sign up -->
+    <h3>Sign Up:</h3>
+    <div class="controls user_new_form">
+      <input type="text" ng-model="user.email" placeholder="email" class="form-control user_new_input" required/>
+      <br>
+      <input type="password" ng-model="user.password" placeholder="password" class="form-control user_new_input" required/>
+      <br>
+      <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" class="form-control user_new_input" required/>
+      <br>
     </div>
   </div>
   <div class="control-group">

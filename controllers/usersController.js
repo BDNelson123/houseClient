@@ -1,4 +1,4 @@
-house.controller('usersController', function($scope, newUser, $location) {
+house.controller('usersController', function($scope, $location, newUser, indexUser) {
   $scope.submitUser = function() {
     newUser.save({ user: $scope.user }, 
       function success(){
@@ -8,5 +8,9 @@ house.controller('usersController', function($scope, newUser, $location) {
       function err() {
       }
     );
+  };
+
+  $scope.allUser = function() {
+    $scope.users = indexUser.read();
   };
 });
