@@ -6,6 +6,6 @@ house.factory('newUser', ['$resource',
 
 house.factory('indexUser', ['$resource',
   function($resource){
-    return $resource(server + '/users', {}, { read: {method:'GET', isArray:true} });
+    return $resource(server + '/users', {}, { read: {method:'GET', isArray:true, headers: {'Authorization': 'Token token="CKRfM_jv-xAL8IsA1qNGhA"'}} });
   }
 ]);
