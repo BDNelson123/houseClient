@@ -1,33 +1,20 @@
-house.factory('TokenHandler', function() {
-  var tokenHandler = {};
-  var token = "none";
-
-  tokenHandler.set = function( newToken ) {
-    token = newToken;
+house.factory('authInterceptor', function ($rootScope, $q, $window) {
+  return {
+    request: function (config) {
+      config.headers = config.headers || {};
+      if ($window.sessionStorage.token) {
+        config.headers.Authorization = 'Token token=' + $window.sessionStorage.token
+      }
+      return config;
+    },
+    response: function (response) {
+      if (response.status === 401) {
+      }
+      return response || $q.when(response);
+    }
   };
+});
 
-  tokenHandler.get = function() {
-    return token;
-  };
-
-  tokenHandler.wrapActions = function( resource, actions ) {
-    var wrappedResource = resource;
-    for (var i=0; i < actions.length; i++) {
-      tokenWrapper( wrappedResource, actions[i] );
-    };
-    return wrappedResource;
-  };
-
-  var tokenWrapper = function( resource, action ) {
-    resource['_' + action]  = resource[action];
-    resource[action] = function( data, success, error){
-      return resource['_' + action](
-        angular.extend({}, data || {}, {access_token: tokenHandler.get()}),
-        success,
-        error
-      );
-    };
-  };
-
-  return tokenHandler;
+house.config(function ($httpProvider) {
+  $httpProvider.interceptors.push('authInterceptor');
 });
