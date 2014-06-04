@@ -9,3 +9,9 @@ house.factory('indexUser', ['$resource',
     return $resource(server + '/users', {}, { read: {method:'GET', isArray:true} });
   }
 ]);
+
+house.factory('signInUser', ['$resource',
+  function($resource){
+    return $resource(server + '/sessions/show', {}, { read: {method:'GET', isArray:false} });
+  }
+]);

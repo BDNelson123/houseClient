@@ -1,5 +1,5 @@
 // ip address of rails api server
-var server = "http://198.61.208.215:3000";
+var server = "http://198.61.208.215:4000";
 
 // shows server validation errors
 function api_errors(rejection){
@@ -56,7 +56,7 @@ house.config(function ($routeProvider) {
     .when ('/public/pricing', {templateUrl: "templates/public/pricing.html"})
     .when ('/public/contact', {templateUrl: "templates/public/contact.html"})
     .when ('/public/career', {templateUrl: "templates/public/career.html"})
-    .when ('/users/sign_in', {templateUrl: "templates/users/sign_in.html"})
+    .when ('/users/sign_in', {templateUrl: "templates/users/sign_in.html", controller: 'usersController'})
     .when ('/users/new', {templateUrl: "templates/users/new.html", controller: 'usersController'})
     .when ('/users/show', {templateUrl: "templates/users/show.html", controller: 'usersController'})
     .when ('/users/index', {templateUrl: "templates/users/index.html", controller: 'usersController'})
