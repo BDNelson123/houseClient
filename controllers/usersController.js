@@ -3,7 +3,6 @@ house.controller('usersController', function($scope, $rootScope, $location, $win
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
         $window.sessionStorage.token = data.auth_token;
-        $rootScope.token = data.auth_token;
         $location.path('/users/index');
       }, 
 
@@ -20,12 +19,17 @@ house.controller('usersController', function($scope, $rootScope, $location, $win
     signInUser.get({ email: $scope.email, password: $scope.password }, 
       function success(data, status, headers, config){
         $window.sessionStorage.token = data.auth_token;
-        $rootScope.token = data.auth_token;
         $location.path('/users/index');
       }, 
 
       function err() {
       }
     );
+  };
+
+  $scope.logoutUser = function() {
+    $window.sessionStorage.token = '';
+    $rootScope.token = '';
+    $location.path('/');
   };
 });

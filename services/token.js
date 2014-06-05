@@ -3,7 +3,8 @@ house.factory('authInterceptor', function ($rootScope, $q, $window) {
     request: function (config) {
       config.headers = config.headers || {};
       if ($window.sessionStorage.token) {
-        config.headers.Authorization = 'Token token=' + $window.sessionStorage.token
+        $rootScope.token = $window.sessionStorage.token;
+        config.headers.Authorization = 'Token token=' + $window.sessionStorage.token;
       }
       return config;
     },

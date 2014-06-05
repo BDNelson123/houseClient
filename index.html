@@ -54,14 +54,19 @@
                 Careers
               </a>
             </li>
-            <li class="list_button_small">
+            <li ng-show="$root.token == ''" class="list_button_small">
               <a href="/#/users/sign_in">
                 <button type="button" class="btn btn-default btn-xs">Sign In</button>
               </a>
             </li>
-            <li>
+            <li ng-show="$root.token == ''">
               <a href="/#/users/new">
                 <button type="button" class="btn btn-primary btn-xs">Sign Up</button>
+              </a>
+            </li>
+            <li ng-hide="$root.token == ''" ng-controller="usersController">
+              <a ng-click="logoutUser()">
+                <button type="button" class="btn btn-primary btn-xs">Sign Out</button>
               </a>
             </li>
           </ul>
