@@ -58,7 +58,7 @@ house.config(function ($routeProvider) {
     .when ('/public/career', {templateUrl: "templates/public/career.html"})
     .when ('/users/sign_in', {templateUrl: "templates/users/sign_in.html", controller: 'usersController'})
     .when ('/users/new', {templateUrl: "templates/users/new.html", controller: 'usersController'})
-    .when ('/users/show', {templateUrl: "templates/users/show.html", controller: 'usersController'})
+    .when ('/users/show/:id', {templateUrl: "templates/users/show.html", controller: 'usersController'})
     .when ('/users/index', {templateUrl: "templates/users/index.html", controller: 'usersController'})
     .when ('/', {templateUrl: "templates/public/home.html", controller: 'homeController'})
     .otherwise({ redirectTo: '/' });
