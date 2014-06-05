@@ -1,4 +1,4 @@
-house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, newUser, indexUser, signInUser) {
+house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, newUser, indexUser, signInUser, showUser) {
   $scope.submitUser = function() {
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
@@ -33,8 +33,8 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
     $location.path('/');
   };
 
-  $scope.showUser = function() {
-    
-    $location.path('/');
+  $scope.singleUser = function() {
+    console.log($routeParams.id);
+    $scope.user = showUser.read({id: $routeParams.id});
   };
 });

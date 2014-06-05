@@ -10,6 +10,12 @@ house.factory('indexUser', ['$resource',
   }
 ]);
 
+house.factory('showUser', ['$resource', '$routeParams',
+  function($resource){
+    return $resource(server + '/users/:id', {}, { read: {method:'GET', isArray:false} });
+  }
+]);
+
 house.factory('signInUser', ['$resource',
   function($resource){
     return $resource(server + '/sessions/show', {}, { read: {method:'GET', isArray:false} });
