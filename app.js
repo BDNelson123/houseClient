@@ -68,6 +68,7 @@ house.config(function ($routeProvider) {
     .when ('/users/show/:id', {templateUrl: "templates/users/show.html", controller: 'usersController'})
     .when ('/users/index', {templateUrl: "templates/users/index.html", controller: 'usersController'})
     .when ('/homes/new', {templateUrl: "templates/homes/new.html", controller: 'homesController'})
+    .when ('/homes/show/:id', {templateUrl: "templates/homes/show.html", controller: 'homesController'})
     .when ('/', {templateUrl: "templates/public/home.html"})
     .otherwise({ redirectTo: '/' });
 });
