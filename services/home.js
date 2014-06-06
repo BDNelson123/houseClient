@@ -1,5 +1,5 @@
-house.factory('homeTest', ['$resource',
+house.factory('newHome', ['$resource',
   function($resource){
-    return $resource('http://198.61.208.215:3000/users', {}, { read: {method:'GET', isArray:true} });
+    return $resource(server + '/homes', {}, { post: {method:'POST', isArray:true} });
   }
 ]);

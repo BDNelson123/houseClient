@@ -1,6 +1,13 @@
 // ip address of rails api server
 var server = "http://198.61.208.215:4000";
 
+// restrict access to logged in users
+function restrict_access(location,token){
+  if(!token) {
+    location.path('/');
+  }
+}
+
 // shows server validation errors
 function api_errors(rejection){
    var values = rejection.data;
@@ -60,6 +67,7 @@ house.config(function ($routeProvider) {
     .when ('/users/new', {templateUrl: "templates/users/new.html", controller: 'usersController'})
     .when ('/users/show/:id', {templateUrl: "templates/users/show.html", controller: 'usersController'})
     .when ('/users/index', {templateUrl: "templates/users/index.html", controller: 'usersController'})
-    .when ('/', {templateUrl: "templates/public/home.html", controller: 'homeController'})
+    .when ('/homes/new', {templateUrl: "templates/homes/new.html", controller: 'homesController'})
+    .when ('/', {templateUrl: "templates/public/home.html"})
     .otherwise({ redirectTo: '/' });
 });

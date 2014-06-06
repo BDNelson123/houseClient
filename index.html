@@ -16,7 +16,7 @@
     <script src="services/token.js"></script>
     <script src="services/home.js"></script>
     <script src="services/user.js"></script>
-    <script src="controllers/homeController.js"></script>
+    <script src="controllers/homesController.js"></script>
     <script src="controllers/usersController.js"></script>
   </head>
   <body>
@@ -36,7 +36,8 @@
           </a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
+          <!-- user NOT logged in -->
+          <ul ng-show="!$root.token" class="nav navbar-nav navbar-right">
             <li>
               <a href="/#/public/how_it_works">
                 How it Works
@@ -67,7 +68,25 @@
                 <button type="button" class="btn btn-primary btn-xs">Sign Up</button>
               </a>
             </li>
-            <li ng-show="$root.token" ng-controller="usersController">
+          </ul>
+          <!-- user logged in -->
+          <ul ng-show="$root.token" class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/#/public/how_it_works">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/#/public/pricing">
+                Profile
+              </a>
+            </li>
+            <li>
+              <a href="/#/homes/new">
+                Sell House
+              </a>
+            </li>
+            <li ng-controller="usersController">
               <a ng-click="logoutUser()">
                 <button type="button" class="btn btn-primary btn-xs">Sign Out</button>
               </a>

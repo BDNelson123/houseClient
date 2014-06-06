@@ -30,11 +30,11 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   $scope.logoutUser = function() {
     delete $window.sessionStorage.token;
     delete $rootScope.token;
+    delete $rootScope.id;
     $location.path('/');
   };
 
   $scope.singleUser = function() {
-    console.log($routeParams.id);
     $scope.user = showUser.read({id: $routeParams.id});
   };
 });
