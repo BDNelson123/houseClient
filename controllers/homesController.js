@@ -1,4 +1,4 @@
-house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome) {
+house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome, showImages) {
   restrict_access($location,$rootScope.token);
 
   $scope.home = {token: $rootScope.token};
@@ -19,20 +19,24 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
     $scope.home = showHome.read({id: $routeParams.id});
   };
 
-  $scope.onFileSelect = function($files) {
+  $scope.onFileSelect = function($files,showImages) {
     for (var i = 0; i < $files.length; i++) {
       var file = $files[i];
       $scope.upload = $upload.upload({
-        url: server + '/homes/' + $routeParams.id,
-        method: 'PATCH',
-        //data: {home: {file: file}},
+        url: server + '/images?home_id=' + $routeParams.id +'&token=' + $rootScope.token,
+        method: 'POST',
         data: {file: file},
         file: file
       }).progress(function(evt) {
         console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
       }).success(function(data, status, headers, config) {
         console.log(data);
+        $scope.new_images = data.image;
       });
     }
   };
+
+  $scope.showImages = function() {
+    $scope.homeImages = showImages.read({id: $routeParams.id});
+  }
 });

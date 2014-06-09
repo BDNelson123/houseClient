@@ -1,5 +1,9 @@
 <div>
-  <input type="file" ng-file-select="onFileSelect($files)" >
   <input type="file" ng-file-select="onFileSelect($files)" multiple>
-  <button ng-click="upload.abort()">Cancel Upload</button>
+
+  <div ng-init="showImages()">
+    <div ng-repeat="homeImage in homeImages">
+      <img src="http://198.61.208.215:4000/{{homeImage.image.thumb.url}}">
+    </div>
+  </div>
 </div>
