@@ -8,10 +8,13 @@
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="directives/angular-file-upload-shim.min.js"></script> 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-resource.js"></script>
+    <script src="directives/angular-file-upload.min.js"></script> 
+    <script src="common/common.js"></script> 
     <script src="app.js"></script>
     <script src="services/token.js"></script>
     <script src="services/home.js"></script>
@@ -81,10 +84,22 @@
                 Profile
               </a>
             </li>
-            <li>
-              <a href="/#/homes/new">
-                Sell House
+            <li class="dropdown" style="cursor:pointer">
+              <a class="dropdown-toggle cursorPointer" data-toggle="dropdown">
+                Houses<b class="caret"></b>
               </a>
+              <ul class="dropdown-menu" style="margin-top:3px">
+                <li>
+                  <a href="/#/homes/index">
+                    View your houses
+                  </a>
+                </li>
+                <li>
+                  <a href="/#/homes/new">
+                    Sell your house
+                  </a>
+                </li>
+              </ul>
             </li>
             <li ng-controller="usersController">
               <a ng-click="logoutUser()">
