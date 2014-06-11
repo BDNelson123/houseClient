@@ -1,5 +1,10 @@
 <div ng-init='singleHome()'>
   <div>
-    {{home}}
+    <div ng-repeat="home in homes">
+      {{home}}
+      <div ng-repeat="image in home.images">
+        <div ng-showimage ng-image="{{image.image.thumb.url}}">
+      </div>
+    </div>
   </div>
 </div>

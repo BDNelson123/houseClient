@@ -44,9 +44,12 @@ house.config(function ($routeProvider) {
     .when ('/users/new', {templateUrl: "templates/users/new.html", controller: 'usersController'})
     .when ('/users/show/:id', {templateUrl: "templates/users/show.html", controller: 'usersController'})
     .when ('/users/index', {templateUrl: "templates/users/index.html", controller: 'usersController'})
+    .when ('/homes/index', {templateUrl: "templates/homes/index.html", controller: 'homesController'})
     .when ('/homes/new', {templateUrl: "templates/homes/new.html", controller: 'homesController'})
     .when ('/homes/new_images/:id', {templateUrl: "templates/homes/new_images.html", controller: 'homesController'})
     .when ('/homes/show/:id', {templateUrl: "templates/homes/show.html", controller: 'homesController'})
+    .when ('/searches/show/:query', {templateUrl: "templates/searches/show.html", controller: 'searchesController'})
+    .when ('/searches/index/:query', {templateUrl: "templates/searches/index.html", controller: 'searchesController'})
     .when ('/', {templateUrl: "templates/public/home.html"})
     .otherwise({ redirectTo: '/' });
 });

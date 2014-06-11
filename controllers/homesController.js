@@ -1,4 +1,4 @@
-house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome, showImages) {
+house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome, showImages, indexImages, indexHome) {
   restrict_access($location,$rootScope.token);
 
   $scope.home = {token: $rootScope.token};
@@ -17,7 +17,12 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
   };
 
   $scope.singleHome = function() {
-    $scope.home = showHome.read({id: $routeParams.id});
+    $scope.homes = showHome.read({id: $routeParams.id});
+  };
+
+  $scope.index = function() {
+    $scope.homes = indexHome.read({token: $rootScope.token});
+    $scope.images = indexImages.read({token: $rootScope.token});
   };
 
   $scope.images = function() {

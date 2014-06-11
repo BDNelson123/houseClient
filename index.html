@@ -16,9 +16,13 @@
     <script src="directives/angular-file-upload.min.js"></script> 
     <script src="common/common.js"></script> 
     <script src="app.js"></script>
+    <script src="directives/image.js"></script> 
     <script src="services/token.js"></script>
+    <script src="services/search.js"></script>
     <script src="services/home.js"></script>
     <script src="services/user.js"></script>
+    <script src="services/image.js"></script>
+    <script src="controllers/searchesController.js"></script>
     <script src="controllers/homesController.js"></script>
     <script src="controllers/usersController.js"></script>
   </head>
@@ -107,9 +111,19 @@
               </a>
             </li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Property search...">
-          </form>
+          <!-- search -->
+          <div class="navbar-right" ng-controller="searchesController">
+            <div class="input-group">
+              <form class="navbar-form" ng-submit="searchRedirect()">
+                <input type="text" class="form-control" ng-model="query" placeholder="Property search...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    Go!
+                  </button>
+                </span>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>

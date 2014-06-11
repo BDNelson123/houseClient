@@ -6,12 +6,12 @@ house.factory('newHome', ['$resource',
 
 house.factory('showHome', ['$resource', '$routeParams',
   function($resource){
-    return $resource(server + '/homes/:id', {}, { read: {method:'GET', isArray:false} });
+    return $resource(server + '/homes/:id', {}, { read: {method:'GET', isArray:true} });
   }
 ]);
 
-house.factory('showImages', ['$resource', '$routeParams',
+house.factory('indexHome', ['$resource', '$routeParams',
   function($resource){
-    return $resource(server + '/images/:id', {}, { read: {method:'GET', isArray:true} });
+    return $resource(server + '/homes', {}, { read: {method:'GET', isArray:true} });
   }
 ]);
