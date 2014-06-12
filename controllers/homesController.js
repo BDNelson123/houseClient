@@ -1,6 +1,5 @@
-house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome, showHomeNoImage, showImages, indexImages, indexHome, editHome) {
+house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome, showHomeNoImage, showImages, indexImages, indexHome, editHome, destroyHome) {
   $scope.home = {token: $rootScope.token};
-  $scope.homeImages = [];
 
   $scope.createHome = function() {
     restrict_access($location,$rootScope.token);
@@ -12,7 +11,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
         $location.path('/homes/new_images/' + data.id);
       }, 
 
-      function err() {
+      function error(data, status, headers, config) {
         $location.path('/homes/new');
       }
     );
@@ -32,23 +31,34 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
         $location.path('/homes/show/' + data.id);
       }, 
 
-      function err() {
+      function error(data, status, headers, config) {
         $location.path('/homes/edit/' + $routeParams.id);
       }
     );
   };
 
   $scope.singleHome = function() {
-    $scope.homes = showHome.read({id: $routeParams.id});
+    $scope.homes = showHome.read({id: $routeParams.id},
+      function success(data, status, headers, config){
+      }, 
+
+      function error(data, status, headers, config) {
+        $location.path('/404');
+      }
+    );
   };
 
   $scope.index = function() {
     $scope.homes = indexHome.read({token: $rootScope.token});
-    $scope.images = indexImages.read({token: $rootScope.token});
   };
 
   $scope.images = function() {
     $scope.homeImages = showImages.read({id: $routeParams.id});
+  }
+
+  $scope.deleteHome = function() {
+    destroyHome.delete({id: $routeParams.id});
+    $location.path('/homes/index');
   }
 
   $scope.onFileSelect = function($files,images) {

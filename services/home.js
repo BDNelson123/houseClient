@@ -27,3 +27,9 @@ house.factory('indexHome', ['$resource', '$routeParams',
     return $resource(server + '/homes', {}, { read: {method:'GET', isArray:true} });
   }
 ]);
+
+house.factory('destroyHome', ['$resource', '$routeParams',
+  function($resource){
+    return $resource(server + '/homes/:id', {}, { delete: {method:'DELETE', isArray:true} });
+  }
+]);
