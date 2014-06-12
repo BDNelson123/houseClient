@@ -1,8 +1,10 @@
 house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome, showImages, indexImages, indexHome) {
-  restrict_access($location,$rootScope.token);
-
   $scope.home = {token: $rootScope.token};
   $scope.homeImages = [];
+
+  $scope.createHome = function() {
+    restrict_access($location,$rootScope.token);
+  };
 
   $scope.submitHome = function() {
     newHome.save({ home: $scope.home }, 
