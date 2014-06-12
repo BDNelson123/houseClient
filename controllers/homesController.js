@@ -1,4 +1,4 @@
-house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome, showImages, indexImages, indexHome) {
+house.controller('homesController', function($scope, $location, $rootScope, $routeParams, $upload, newHome, showHome, showHomeNoImage, showImages, indexImages, indexHome, editHome) {
   $scope.home = {token: $rootScope.token};
   $scope.homeImages = [];
 
@@ -14,6 +14,26 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
 
       function err() {
         $location.path('/homes/new');
+      }
+    );
+  };
+
+  $scope.updateHome = function() {
+    $scope.homeData = showHomeNoImage.read({id: $routeParams.id});
+
+    $scope.homeData.$promise.then(function(data) {
+      $scope.home = data;
+    });
+  }
+
+  $scope.submitUpdateHome = function() {
+    editHome.update({ id: $routeParams.id },{ home: $scope.home },
+      function success(data, status, headers, config){
+        $location.path('/homes/show/' + data.id);
+      }, 
+
+      function err() {
+        $location.path('/homes/edit/' + $routeParams.id);
       }
     );
   };

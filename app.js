@@ -48,6 +48,7 @@ house.config(function ($routeProvider) {
     .when ('/homes/new', {templateUrl: "templates/homes/new.html", controller: 'homesController'})
     .when ('/homes/new_images/:id', {templateUrl: "templates/homes/new_images.html", controller: 'homesController'})
     .when ('/homes/show/:id', {templateUrl: "templates/homes/show.html", controller: 'homesController'})
+    .when ('/homes/edit/:id', {templateUrl: "templates/homes/edit.html", controller: 'homesController'})
     .when ('/searches/show/:query', {templateUrl: "templates/searches/show.html", controller: 'searchesController'})
     .when ('/searches/index/:query', {templateUrl: "templates/searches/index.html", controller: 'searchesController'})
     .when ('/', {templateUrl: "templates/public/home.html"})

@@ -4,9 +4,21 @@ house.factory('newHome', ['$resource',
   }
 ]);
 
+house.factory('editHome', ['$resource', '$routeParams',
+  function($resource){
+    return $resource(server + '/homes/:id', {id:'@id'}, { update: {method:'PUT'} });
+  }
+]);
+
 house.factory('showHome', ['$resource', '$routeParams',
   function($resource){
     return $resource(server + '/homes/:id', {}, { read: {method:'GET', isArray:true} });
+  }
+]);
+
+house.factory('showHomeNoImage', ['$resource', '$routeParams',
+  function($resource){
+    return $resource(server + '/homes/:id?image=false', {}, { read: {method:'GET', isArray:false} });
   }
 ]);
 
