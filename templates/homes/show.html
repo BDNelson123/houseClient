@@ -2,9 +2,18 @@
   <div>
     <div ng-repeat="home in homes">
       {{home}}
-      <div ng-repeat="image in home.images">
-        <div ng-showimage ng-image="{{image.image.thumb.url}}">
-      </div>
     </div>
   </div>
 </div>
+
+<div>
+  <input type="file" ng-file-select="onFileSelect($files)" multiple>
+
+  <div ng-init="images()">
+    <div ng-repeat="homeImage in homeImages">
+      <div ng-showimage ng-image="{{homeImage.image.thumb.url}}">
+    </div>
+  </div>
+</div>
+
+<button ng-click="deleteHome()">Delete Home</button>
