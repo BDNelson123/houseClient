@@ -1,0 +1,24 @@
+<div ng-init="updateUser()">
+  <form ng-submit="submitUpdateUser()" class="form-vertical">
+    <div class="control-group">
+      <!-- flash alerts -->
+      <div id="alert" style="display:none; margin-bottom:10px"></div>
+
+      <!-- user - update -->
+      <h3>Update:</h3>
+      <div class="controls user_new_form">
+        <input type="text" ng-model="user.email" placeholder="email" class="form-control user_new_input" required/>
+        <br>
+        <input type="password" ng-model="user.password" placeholder="password" class="form-control user_new_input" />
+        <br>
+        <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" class="form-control user_new_input" />
+        <br>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input class="btn btn-primary" type="submit" value="update user"/>
+      </div>
+    </div>
+  </form>
+</div>

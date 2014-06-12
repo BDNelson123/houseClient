@@ -43,6 +43,7 @@ house.config(function ($routeProvider) {
     .when ('/users/sign_in', {templateUrl: "templates/users/sign_in.html", controller: 'usersController'})
     .when ('/users/new', {templateUrl: "templates/users/new.html", controller: 'usersController'})
     .when ('/users/show/:id', {templateUrl: "templates/users/show.html", controller: 'usersController'})
+    .when ('/users/edit/:id', {templateUrl: "templates/users/edit.html", controller: 'usersController'})
     .when ('/users/index', {templateUrl: "templates/users/index.html", controller: 'usersController'})
     .when ('/homes/index', {templateUrl: "templates/homes/index.html", controller: 'homesController'})
     .when ('/homes/new', {templateUrl: "templates/homes/new.html", controller: 'homesController'})

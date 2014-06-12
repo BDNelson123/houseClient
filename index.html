@@ -83,13 +83,25 @@
                 Home
               </a>
             </li>
-            <li>
-              <a href="/#/public/pricing">
-                Profile
-              </a>
-            </li>
             <li class="dropdown" style="cursor:pointer">
               <a class="dropdown-toggle cursorPointer" data-toggle="dropdown">
+                Profile<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" style="margin-top:3px">
+                <li>
+                  <a href="/#/users/show/{{$root.token}}">
+                    View
+                  </a>
+                </li>
+                <li>
+                  <a href="/#/users/edit/{{$root.token}}">
+                    Update
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown" style="cursor:pointer">
+              <a class="dropdown-toggle" data-toggle="dropdown">
                 Houses<b class="caret"></b>
               </a>
               <ul class="dropdown-menu" style="margin-top:3px">

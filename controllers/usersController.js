@@ -1,4 +1,4 @@
-house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, newUser, indexUser, signInUser, showUser) {
+house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, newUser, indexUser, signInUser, showUser, editUser) {
   $scope.submitUser = function() {
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
@@ -19,10 +19,10 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
     signInUser.get({ email: $scope.email, password: $scope.password }, 
       function success(data, status, headers, config){
         $window.sessionStorage.token = data.auth_token;
-        $location.path('/users/show/' + data.id);
+        $location.path('/users/show/' + data.auth_token);
       }, 
 
-      function err() {
+      function error(data, status, headers, config){
       }
     );
   };
@@ -36,5 +36,25 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
 
   $scope.singleUser = function() {
     $scope.user = showUser.read({id: $routeParams.id});
+  };
+
+  $scope.updateUser = function() {
+    $scope.userData = showUser.read({id: $rootScope.token});
+
+    $scope.userData.$promise.then(function(data) {
+      $scope.user = data;
+    });
+  }
+
+  $scope.submitUpdateUser = function() {
+    editUser.update({ id: $routeParams.id },{ user: $scope.user },
+      function success(data, status, headers, config){
+        $location.path('/users/show/' + data.auth_token);
+      }, 
+
+      function error(data, status, headers, config) {
+        $location.path('/homes/edit/' + $routeParams.id);
+      }
+    );
   };
 });

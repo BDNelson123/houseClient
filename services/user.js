@@ -4,6 +4,12 @@ house.factory('newUser', ['$resource',
   }
 ]);
 
+house.factory('editUser', ['$resource', '$routeParams',
+  function($resource){
+    return $resource(server + '/users/:id', {id:'@id'}, { update: {method:'PUT'} });
+  }
+]);
+
 house.factory('indexUser', ['$resource',
   function($resource){
     return $resource(server + '/users', {}, { read: {method:'GET', isArray:true} });
