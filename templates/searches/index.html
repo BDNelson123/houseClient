@@ -1,8 +1,21 @@
 <div ng-init="searchHome()">
   <div ng-repeat="search in searches">
-    {{search}}
+    <a href="/#/homes/show/{{search.id}}">
+      Address = <span ng-bind="search.address"></span>
+    </a>
+    <br>
+    Address2 = <span ng-bind="search.address2"></span>
+    <br>
+    City = <span ng-bind="search.city"></span>
+    <br>
+    State = <span ng-bind="search.state"></span>
+    <br>
+    Zip = <span ng-bind="search.zip"></span>
     <div ng-repeat="image in search.images">
-      <div ng-showimage ng-image="{{image.image.thumb.url}}">
+      <div ng-showimage ng-image="{{image.image.thumb.url}}"></div>
     </div>
+    <br>
+    ----------------------------
+    <br><br>
   </div>
 </div>
