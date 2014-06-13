@@ -51,7 +51,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
   };
 
   $scope.index = function() {
-    $scope.homes = indexHome.read({token: $rootScope.token});
+    $scope.homes = indexHome.read();
   };
 
   $scope.images = function() {
@@ -73,7 +73,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
     for (var i = 0; i < $files.length; i++) {
       var file = $files[i];
       $scope.upload = $upload.upload({
-        url: server + '/images?home_id=' + $routeParams.id +'&token=' + $rootScope.token,
+        url: server + '/images?home_id=' + $routeParams.id,
         method: 'POST',
         data: {file: file},
         file: file
