@@ -18,6 +18,8 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
   };
 
   $scope.updateHome = function() {
+    restrict_access($location,$rootScope.token);
+
     $scope.homeData = showHomeNoImage.read({id: $routeParams.id});
 
     $scope.homeData.$promise.then(function(data) {
