@@ -57,8 +57,14 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
   }
 
   $scope.deleteHome = function() {
-    destroyHome.delete({id: $routeParams.id});
-    $location.path('/homes/index');
+    destroyHome.delete({id: $routeParams.id},
+      function success(data, status, headers, config){
+        $location.path('/homes/index');
+      }, 
+
+      function error(data, status, headers, config) {
+      }
+    );
   }
 
   $scope.onFileSelect = function($files,images) {
