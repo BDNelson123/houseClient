@@ -1,19 +1,16 @@
 <div ng-init='singleHome()'>
-  <div>
-    <div ng-repeat="home in homes">
-      {{home}}
+  <div ng-repeat="home in homes">
+    {{home}}
+
+    <div ng-show="$root.id == home.user_id">
+      <input type="file" ng-file-select="onFileSelect($files)" multiple>
+
+      <div ng-init="images()">
+        <div ng-repeat="homeImage in homeImages">
+          <div ng-showimage ng-image="{{homeImage.image.thumb.url}}">
+        </div>
+      </div>
     </div>
+    <button ng-click="deleteHome()">Delete Home</button>
   </div>
 </div>
-
-<div>
-  <input type="file" ng-file-select="onFileSelect($files)" multiple>
-
-  <div ng-init="images()">
-    <div ng-repeat="homeImage in homeImages">
-      <div ng-showimage ng-image="{{homeImage.image.thumb.url}}">
-    </div>
-  </div>
-</div>
-
-<button ng-click="deleteHome()">Delete Home</button>
