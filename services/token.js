@@ -4,6 +4,7 @@ house.factory('authInterceptor', function ($rootScope, $q, $window) {
       config.headers = config.headers || {};
       if ($window.sessionStorage.token) {
         $rootScope.token = $window.sessionStorage.token;
+        $rootScope.id = $window.sessionStorage.id;
         config.headers.Authorization = 'Token token=' + $window.sessionStorage.token;
       }
       return config;

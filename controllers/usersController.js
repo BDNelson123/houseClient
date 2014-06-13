@@ -3,6 +3,7 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
         $window.sessionStorage.token = data.auth_token;
+        $window.sessionStorage.id = data.id;
         $location.path('/users/show/' + data.id);
       }, 
 
@@ -19,6 +20,7 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
     signInUser.get({ email: $scope.email, password: $scope.password }, 
       function success(data, status, headers, config){
         $window.sessionStorage.token = data.auth_token;
+        $window.sessionStorage.id = data.id;
         $location.path('/users/show/' + data.auth_token);
       }, 
 
@@ -29,6 +31,7 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
 
   $scope.logoutUser = function() {
     delete $window.sessionStorage.token;
+    delete $window.sessionStorage.id
     delete $rootScope.token;
     delete $rootScope.id;
     $location.path('/');
