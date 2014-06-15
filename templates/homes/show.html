@@ -2,15 +2,21 @@
   <div ng-repeat="home in homes">
     {{home}}
 
+    <!-- update and delete -->
     <div ng-show="$root.id == home.user_id">
       <input type="file" ng-file-select="onFileSelect($files)" multiple>
 
       <div ng-init="images()">
         <div ng-repeat="homeImage in homeImages">
-          <div ng-showimage ng-image="{{homeImage.image.thumb.url}}">
+          <div ng-showimage ng-image="{{homeImage.image.thumb.url}}"></div>
         </div>
       </div>
+      <button ng-click="deleteHome()">Delete Home</button>
     </div>
-    <button ng-click="deleteHome()">Delete Home</button>
+
+    <!-- bid -->
+    <div ng-show="$root.id != home.user_id">
+      <button>Bid on House</button>
+    </div>
   </div>
 </div>
