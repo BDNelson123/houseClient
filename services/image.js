@@ -15,3 +15,9 @@ house.factory('indexImages', ['$resource', '$routeParams',
     return $resource(server + '/images', {}, { read: {method:'GET', isArray:true} });
   }
 ]);
+
+house.factory('updateUserImage', ['$resource', '$routeParams',
+  function($resource){
+    return $resource(server + '/images/:id?klass=user&auth_token=:token', {id:'@id', token:'@token'}, { update: {method:'PUT'} });
+  }
+]);

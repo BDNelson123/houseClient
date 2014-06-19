@@ -1,4 +1,4 @@
-house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages) {
+house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages, updateUserImage) {
   $scope.submitUser = function() {
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
@@ -52,11 +52,20 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   $scope.submitUpdateUser = function() {
     editUser.update({ id: $routeParams.id },{ user: $scope.user },
       function success(data, status, headers, config){
-        $location.path('/users/show/' + data.auth_token);
       }, 
 
       function error(data, status, headers, config) {
         $location.path('/homes/edit/' + $routeParams.id);
+      }
+    );
+  };
+
+  $scope.submitUpdateUserPrimaryImage = function(id) {
+    updateUserImage.update({ id: id },{ token: $rootScope.token },
+      function success(data, status, headers, config){
+      }, 
+
+      function error(data, status, headers, config) {
       }
     );
   };

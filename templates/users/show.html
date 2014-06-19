@@ -1,6 +1,7 @@
 <!-- flash alerts -->
 <div id="alert" style="display:none; margin-bottom:10px"></div>
 
+<!-- user data -->
 <div ng-init='singleUser()'>
   <div>
     {{user}}
@@ -8,8 +9,20 @@
   <input type="file" ng-file-select="onFileSelect($files)" multiple>
 </div>
 
-<div ng-init="images()">
+<!-- show user images -->
+<div ng-show="$root.token != user.auth_token" ng-init="images()">
   <div ng-repeat="userImage in userImages">
     <div ng-showimage ng-image="{{userImage.image.thumb.url}}"></div>
   </div>
+</div>
+
+<!-- show user images - allow to update -->
+<div ng-show="$root.token == user.auth_token">
+  <form class="form-vertical">
+    <div ng-repeat="userImage in userImages">
+      <a class="hand" ng-click="submitUpdateUserPrimaryImage(userImage.id)">
+        <span  ng-showimage ng-image="{{userImage.image.thumb.url}}"></span>
+      </a>
+    </div>
+  </form>
 </div>
