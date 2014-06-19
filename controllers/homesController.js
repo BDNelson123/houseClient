@@ -71,7 +71,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
     for (var i = 0; i < $files.length; i++) {
       var file = $files[i];
       $scope.upload = $upload.upload({
-        url: server + '/images?home_id=' + $routeParams.id,
+        url: server + '/images?klass=home&home_id=' + $routeParams.id,
         method: 'POST',
         data: {file: file},
         file: file

@@ -5,4 +5,11 @@
   <div>
     {{user}}
   </div>
+  <input type="file" ng-file-select="onFileSelect($files)" multiple>
+</div>
+
+<div ng-init="images()">
+  <div ng-repeat="userImage in userImages">
+    <div ng-showimage ng-image="{{userImage.image.thumb.url}}"></div>
+  </div>
 </div>

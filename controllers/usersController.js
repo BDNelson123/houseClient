@@ -1,4 +1,4 @@
-house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, newUser, indexUser, signInUser, showUser, editUser) {
+house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages) {
   $scope.submitUser = function() {
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
@@ -59,5 +59,26 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
         $location.path('/homes/edit/' + $routeParams.id);
       }
     );
+  };
+
+  $scope.images = function() {
+    $scope.userImages = showUserImages.read({id: $routeParams.id});
+  }
+
+  $scope.onFileSelect = function($files,images) {
+    for (var i = 0; i < $files.length; i++) {
+      var file = $files[i];
+      $scope.upload = $upload.upload({
+        url: server + '/images?klass=user',
+        method: 'POST',
+        data: {file: file},
+        file: file
+      }).progress(function(evt) {
+        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+      }).success(function(data, status, headers, config) {
+        console.log(data);
+        $scope.userImages.push(data);
+      });
+    }
   };
 });

@@ -1,20 +1,153 @@
 <div ng-init='singleHome()'>
   <div ng-repeat="home in homes">
-    {{home}}
+    <b>Home Information</b> <br>
+    home id = <span ng-bind="home.id"></span></span> <br>
+    home user id = <span ng-bind="home.user_id"></span></span> <br>
+    home address = <span ng-bind="home.address"></span></span> <br>
+    home address 2 = <span ng-bind="home.address2"></span></span> <br>
+    home city = <span ng-bind="home.city"></span></span> <br>
+    home state = <span ng-bind="home.state"></span></span> <br>
+    home zip = <span ng-bind="home.zip"></span></span> <br>
+    home created at = <span ng-bind="home.created_at"></span></span> <br>
+    home updated at = <span ng-bind="home.updated_at"></span></span> <br>
+
+    <br><br>
+    <b>Home Price</b> <br>
+    home price = <span ng-bind="home.price"></span></span> <br>
+
+    <br><br>
+    <b>Home Analytics</b> <br>
+    home zpid = <span ng-bind="home.zpid"></span></span> <br>
+    home region_id = <span ng-bind="home.region_id"></span></span> <br>
+    home region_name = <span ng-bind="home.region_name"></span></span> <br>
+    home fipsCounty = <span ng-bind="home.fipsCounty"></span></span> <br>
+    home useCode = <span ng-bind="home.useCode"></span></span> <br>
+    home taxAssessmentYear = <span ng-bind="home.taxAssessmentYear"></span></span> <br>
+    home taxAssessment = <span ng-bind="home.taxAssessment"></span></span> <br>
+    home yearBuilt = <span ng-bind="home.yearBuilt"></span></span> <br>
+    home lotSizeSqFt = <span ng-bind="home.lotSizeSqFt"></span></span> <br>
+    home finishedSqFt = <span ng-bind="home.finishedSqFt"></span></span> <br>
+    home bedrooms = <span ng-bind="home.bedrooms"></span></span> <br>
+    home bathrooms = <span ng-bind="home.bathrooms"></span></span> <br>
+    home lastSoldDate = <span ng-bind="home.lastSoldDate"></span></span> <br>
+    home lastSoldPrice = <span ng-bind="home.lastSoldPrice"></span></span> <br>
+    home zestimate_amount = <span ng-bind="home.zestimate_amount"></span></span> <br>
+    home valuationRange_low = <span ng-bind="home.valuationRange_low"></span></span> <br>
+    home valuationRange_high = <span ng-bind="home.valuationRange_high"></span></span> <br>
+    home valuationGraph_1year = <span ng-bind="home.valuationGraph_1year"></span></span> <br>
+    home valuationGraph_5years = <span ng-bind="home.valuationGraph_5years"></span></span> <br>
+
+    <br><br>
+    <b>Related House 1</b> <br>
+    home related_1_zpid = <span ng-bind="home.related_1_zpid"></span></span> <br>
+    home related_1_address = <span ng-bind="home.related_1_address"></span></span> <br>
+    home related_1_city = <span ng-bind="home.related_1_city"></span></span> <br>
+    home related_1_state = <span ng-bind="home.related_1_state"></span></span> <br>
+    home related_1_zip = <span ng-bind="home.related_1_zip"></span></span> <br>
+    home related_1_latitude = <span ng-bind="home.related_1_latitude"></span></span> <br>
+    home related_1_longitude = <span ng-bind="home.related_1_longitude"></span></span> <br>
+    home related_1_valuationRange_low = <span ng-bind="home.related_1_valuationRange_low"></span></span> <br>
+    home related_1_valuationRange_high = <span ng-bind="home.related_1_valuationRange_high"></span></span> <br>
+    home related_1_zestimate = <span ng-bind="home.related_1_zestimate"></span></span> <br>
+    home related_1_taxAssessmentYear = <span ng-bind="home.related_1_taxAssessmentYear"></span></span> <br>
+    home related_1_taxAssessment = <span ng-bind="home.related_1_taxAssessment"></span></span> <br>
+    home related_1_yearBuilt = <span ng-bind="home.related_1_yearBuilt"></span></span> <br>
+    home related_1_lotSizeSqFt = <span ng-bind="home.related_1_lotSizeSqFt"></span></span> <br>
+    home related_1_bedrooms = <span ng-bind="home.related_1_bedrooms"></span></span> <br>
+    home related_1_bathrooms = <span ng-bind="home.related_1_bathrooms"></span></span> <br>
+    home related_1_lastSoldDate = <span ng-bind="home.related_1_lastSoldDate"></span></span> <br>
+    home related_1_lastSoldPrice = <span ng-bind="home.related_1_lastSoldPrice"></span></span> <br>
+
+    <br><br>
+    <b>Related House 2</b> <br>
+    home related_1_zpid = <span ng-bind="home.related_1_zpid"></span></span> <br>
+    home related_1_address = <span ng-bind="home.related_1_address"></span></span> <br>
+    home related_1_city = <span ng-bind="home.related_1_city"></span></span> <br>
+    home related_1_state = <span ng-bind="home.related_1_state"></span></span> <br>
+    home related_1_zip = <span ng-bind="home.related_1_zip"></span></span> <br>
+    home related_1_latitude = <span ng-bind="home.related_1_latitude"></span></span> <br>
+    home related_1_longitude = <span ng-bind="home.related_1_longitude"></span></span> <br>
+    home related_1_valuationRange_low = <span ng-bind="home.related_1_valuationRange_low"></span></span> <br>
+    home related_1_valuationRange_high = <span ng-bind="home.related_1_valuationRange_high"></span></span> <br>
+    home related_1_zestimate = <span ng-bind="home.related_1_zestimate"></span></span> <br>
+    home related_1_taxAssessmentYear = <span ng-bind="home.related_1_taxAssessmentYear"></span></span> <br>
+    home related_1_taxAssessment = <span ng-bind="home.related_1_taxAssessment"></span></span> <br>
+    home related_1_yearBuilt = <span ng-bind="home.related_1_yearBuilt"></span></span> <br>
+    home related_1_lotSizeSqFt = <span ng-bind="home.related_1_lotSizeSqFt"></span></span> <br>
+    home related_1_bedrooms = <span ng-bind="home.related_1_bedrooms"></span></span> <br>
+    home related_1_bathrooms = <span ng-bind="home.related_1_bathrooms"></span></span> <br>
+    home related_1_lastSoldDate = <span ng-bind="home.related_1_lastSoldDate"></span></span> <br>
+    home related_1_lastSoldPrice = <span ng-bind="home.related_1_lastSoldPrice"></span></span> <br>
+
+    <br><br>
+    <b>Related House 3</b> <br>
+    home related_2_zpid = <span ng-bind="home.related_2_zpid"></span></span> <br>
+    home related_2_address = <span ng-bind="home.related_2_address"></span></span> <br>
+    home related_2_city = <span ng-bind="home.related_2_city"></span></span> <br>
+    home related_2_state = <span ng-bind="home.related_2_state"></span></span> <br>
+    home related_2_zip = <span ng-bind="home.related_2_zip"></span></span> <br>
+    home related_2_latitude = <span ng-bind="home.related_2_latitude"></span></span> <br>
+    home related_2_longitude = <span ng-bind="home.related_2_longitude"></span></span> <br>
+    home related_2_valuationRange_low = <span ng-bind="home.related_2_valuationRange_low"></span></span> <br>
+    home related_2_valuationRange_high = <span ng-bind="home.related_2_valuationRange_high"></span></span> <br>
+    home related_2_zestimate = <span ng-bind="home.related_2_zestimate"></span></span> <br>
+    home related_2_taxAssessmentYear = <span ng-bind="home.related_2_taxAssessmentYear"></span></span> <br>
+    home related_2_taxAssessment = <span ng-bind="home.related_2_taxAssessment"></span></span> <br>
+    home related_2_yearBuilt = <span ng-bind="home.related_2_yearBuilt"></span></span> <br>
+    home related_2_lotSizeSqFt = <span ng-bind="home.related_2_lotSizeSqFt"></span></span> <br>
+    home related_2_bedrooms = <span ng-bind="home.related_2_bedrooms"></span></span> <br>
+    home related_2_bathrooms = <span ng-bind="home.related_2_bathrooms"></span></span> <br>
+    home related_2_lastSoldDate = <span ng-bind="home.related_2_lastSoldDate"></span></span> <br>
+    home related_2_lastSoldPrice = <span ng-bind="home.related_2_lastSoldPrice"></span></span> <br>
+
+    <br><br>
+    <b>Demographics</b> <br>
+    home demographics_medianCondoValue = <span ng-bind="home.demographics_medianCondoValue"></span></span> <br>
+    home demographics_medianHomeValue = <span ng-bind="home.demographics_medianHomeValue"></span></span> <br>
+    home demographics_dollarsPerSquareFeet = <span ng-bind="home.demographics_dollarsPerSquareFeet"></span></span> <br>
+    home demographics_zillowHomeValueIndexDistribution = <span ng-bind="home.demographics_zillowHomeValueIndexDistribution"></span></span> <br>
+    home demographics_homeType = <span ng-bind="home.demographics_homeType"></span></span> <br>
+    home demographics_ownersVsRenters = <span ng-bind="home.demographics_ownersVsRenters"></span></span> <br>
+    home demographics_homeSizeInSquareFeet = <span ng-bind="home.demographics_homeSizeInSquareFeet"></span></span> <br>
+    home demographics_yearBuilt = <span ng-bind="home.demographics_yearBuilt"></span></span> <br>
+    home demographics_zillowHomeValueIndex = <span ng-bind="home.demographics_zillowHomeValueIndex"></span></span> <br>
+    home demographics_medianSingleFamilyHomeValue = <span ng-bind="home.demographics_medianSingleFamilyHomeValue"></span></span> <br>
+    home demographics_medianCondoValueAmount = <span ng-bind="home.demographics_medianCondoValueAmount"></span></span> <br>
+    home demographics_median2BedroomHomeValue = <span ng-bind="home.demographics_median2BedroomHomeValue"></span></span> <br>
+    home demographics_median3BedroomHomeValue = <span ng-bind="home.demographics_median3BedroomHomeValue"></span></span> <br>
+    home demographics_median4BedroomHomeValue = <span ng-bind="home.demographics_median4BedroomHomeValue"></span></span> <br>
+    home demographics_percentHomesDecreasing = <span ng-bind="home.demographics_percentHomesDecreasing"></span></span> <br>
+    home demographics_percentListingPriceReduction = <span ng-bind="home.demographics_percentListingPriceReduction"></span></span> <br>
+    home demographics_medianListPricePerSqFt = <span ng-bind="home.demographics_medianListPricePerSqFt"></span></span> <br>
+    home demographics_medianListPrice = <span ng-bind="home.demographics_medianListPrice"></span></span> <br>
+    home demographics_medianSalePrice = <span ng-bind="home.demographics_medianSalePrice"></span></span> <br>
+    home demographics_medianValuePerSqFt = <span ng-bind="home.demographics_medianValuePerSqFt"></span></span> <br>
+    home demographics_propertyTax = <span ng-bind="home.demographics_propertyTax"></span></span> 
+
+    <br><br><br>
+
+    <!-- images -->
+    <b>House Images</b> <br>
+    <div ng-init="images()">
+      <div ng-repeat="homeImage in homeImages">
+        <div ng-showimage ng-image="{{homeImage.image.thumb.url}}"></div>
+      </div>
+    </div>
+
+    <br><br>
 
     <!-- update and delete -->
     <div ng-show="$root.id == home.user_id">
       <input type="file" ng-file-select="onFileSelect($files)" multiple>
 
-      <div ng-init="images()">
-        <div ng-repeat="homeImage in homeImages">
-          <div ng-showimage ng-image="{{homeImage.image.thumb.url}}"></div>
-        </div>
-      </div>
+      <a href="#/homes/edit/{{home.id}}">
+        <button>Edit Home</button>
+      </a>
+      |
       <button ng-click="deleteHome()">Delete Home</button>
     </div>
 
-    <!-- bid -->
+    <!-- bid create button -->
     <div ng-show="$root.id != home.user_id">
       <a href="#/bids/new/{{home.id}}">
         <button>Bid on House</button>
@@ -22,6 +155,7 @@
     </div>
   </div>
 
+    <!-- bids view -->
   <div ng-controller="bidsController">
     <div ng-init="showBids()">
       <div ng-repeat="bid in bids">
