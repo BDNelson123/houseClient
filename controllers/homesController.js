@@ -6,7 +6,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
   $scope.submitHome = function() {
     newHome.save({ home: $scope.home }, 
       function success(data, status, headers, config){
-        $location.path('/homes/new_images/' + data.id);
+        $location.path('/homes/show/' + data.id);
       }, 
 
       function error(data, status, headers, config) {
