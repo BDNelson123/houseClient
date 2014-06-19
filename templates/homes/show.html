@@ -16,7 +16,19 @@
 
     <!-- bid -->
     <div ng-show="$root.id != home.user_id">
-      <button>Bid on House</button>
+      <a href="#/bids/new/{{home.id}}">
+        <button>Bid on House</button>
+      </a>
+    </div>
+  </div>
+
+  <div ng-controller="bidsController">
+    <div ng-init="showBids()">
+      <div ng-repeat="bid in bids">
+        <span ng-bind="bid.price"></span>
+        <br>
+        <span ng-bind="bid.email"></span>
+      </div>
     </div>
   </div>
 </div>

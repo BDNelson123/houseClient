@@ -1,0 +1,17 @@
+<form ng-submit="submitBid()" class="form-vertical">
+  <div class="control-group">
+    <!-- flash alerts -->
+    <div id="alert" style="display:none; margin-bottom:10px"></div>
+
+    <!-- bid -->
+    <h3>Bid:</h3>
+    <div class="controls user_new_form">
+      <input type="text" ng-model="bid.price" placeholder="email" class="form-control user_new_input" required/>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <input class="btn btn-primary" type="submit" value="submit bid"/>
+    </div>
+  </div>
+</form>
