@@ -17,7 +17,7 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   };
 
   $scope.loginUser = function() {
-    signInUser.get({ email: $scope.email, password: $scope.password }, 
+    signInUser.get({ email: $scope.email, password: $scope.password },
       function success(data, status, headers, config){
         $window.sessionStorage.token = data.auth_token;
         $window.sessionStorage.id = data.id;
@@ -63,6 +63,8 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   $scope.submitUpdateUserPrimaryImage = function(id) {
     updateUserImage.update({ id: id },{ token: $rootScope.token },
       function success(data, status, headers, config){
+        $rootScope.userImagePrimary = id;
+        console.log($rootScope.userImagePrimary);
       }, 
 
       function error(data, status, headers, config) {
@@ -72,6 +74,15 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
 
   $scope.images = function() {
     $scope.userImages = showUserImages.read({id: $routeParams.id});
+
+    $scope.userImages.$promise.then(function(data) {
+      data.forEach(function(image){
+        if(image.primary == true){
+          $rootScope.userImagePrimary = image.id;
+          console.log($rootScope.userImagePrimary);
+        }
+      });
+    });
   }
 
   $scope.onFileSelect = function($files,images) {
