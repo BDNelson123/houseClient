@@ -15,8 +15,7 @@ house.directive("ngUserprimaryimage", function($rootScope) {
   return {
     link: function(scope, element, attrs) {
       return $rootScope.$watch('userImagePrimary', function() {
-        if ($rootScope.userImagePrimary) {
-        }
+        if ($rootScope.userImagePrimary) {}
       });
     }
   };

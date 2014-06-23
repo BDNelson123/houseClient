@@ -1,5 +1,6 @@
 // ip address of rails api server
 var server = "http://198.61.208.215:4000";
+var client = "http://198.61.208.215";
 
 // restrict access to logged in users
 function restrict_access(location,token){

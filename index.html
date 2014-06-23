@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="house">
+<html ng-app="house" ng-controller="applicationController">
   <head>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/common.css">
@@ -24,6 +24,7 @@
     <script src="services/user.js"></script>
     <script src="services/image.js"></script>
     <script src="services/bid.js"></script>
+    <script src="controllers/applicationController.js"></script>
     <script src="controllers/searchesController.js"></script>
     <script src="controllers/homesController.js"></script>
     <script src="controllers/usersController.js"></script>
@@ -86,6 +87,7 @@
                 Home
               </a>
             </li>
+            <!-- profile -->
             <li class="dropdown" style="cursor:pointer">
               <a class="dropdown-toggle cursorPointer" data-toggle="dropdown">
                 Profile<b class="caret"></b>
@@ -103,6 +105,7 @@
                 </li>
               </ul>
             </li>
+            <!-- houses -->
             <li class="dropdown" style="cursor:pointer">
               <a class="dropdown-toggle" data-toggle="dropdown">
                 Houses<b class="caret"></b>
@@ -120,6 +123,7 @@
                 </li>
               </ul>
             </li>
+            <!-- sign out -->
             <li ng-controller="usersController">
               <a ng-click="logoutUser()">
                 <button type="button" class="btn btn-primary btn-xs">Sign Out</button>
@@ -127,7 +131,7 @@
             </li>
           </ul>
           <!-- search -->
-          <div class="navbar-right" ng-controller="searchesController">
+          <div class="navbar-right animate-if" ng-controller="searchesController" ng-if="$root.url != ''">
             <div class="input-group">
               <form class="navbar-form" ng-submit="searchRedirect()">
                 <input type="text" class="form-control" ng-model="query" placeholder="Property search...">

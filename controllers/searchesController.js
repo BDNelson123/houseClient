@@ -1,4 +1,4 @@
-house.controller('searchesController', function($scope, $location, $routeParams, indexSearch) {
+house.controller('searchesController', function($scope, $location, $routeParams, $rootScope, indexSearch) {
   $scope.searchRedirect = function() {
     $location.path('/searches/index/' + $scope.query);
   };
