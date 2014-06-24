@@ -42,7 +42,7 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   };
 
   $scope.updateUser = function() {
-    $scope.userData = showUser.read({id: $rootScope.token});
+    $scope.userData = showUser.read({id: $rootScope.id});
 
     $scope.userData.$promise.then(function(data) {
       $scope.user = data;
@@ -61,7 +61,7 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   };
 
   $scope.submitUpdateUserPrimaryImage = function(id) {
-    updateUserImage.update({ id: id },{ token: $rootScope.token },
+    updateUserImage.update({ id: id },
       function success(data, status, headers, config){
         $rootScope.userImagePrimary = id;
         console.log($rootScope.userImagePrimary);

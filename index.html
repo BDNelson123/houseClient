@@ -24,11 +24,13 @@
     <script src="services/user.js"></script>
     <script src="services/image.js"></script>
     <script src="services/bid.js"></script>
+    <script src="services/message.js"></script>
     <script src="controllers/applicationController.js"></script>
     <script src="controllers/searchesController.js"></script>
     <script src="controllers/homesController.js"></script>
     <script src="controllers/usersController.js"></script>
     <script src="controllers/bidsController.js"></script>
+    <script src="controllers/messagesController.js"></script>
   </head>
   <body>
     <!-- header -->
@@ -94,12 +96,12 @@
               </a>
               <ul class="dropdown-menu" style="margin-top:3px">
                 <li>
-                  <a href="/#/users/show/{{$root.token}}">
+                  <a href="/#/users/show/{{$root.id}}">
                     View
                   </a>
                 </li>
                 <li>
-                  <a href="/#/users/edit/{{$root.token}}">
+                  <a href="/#/users/edit/{{$root.id}}">
                     Update
                   </a>
                 </li>

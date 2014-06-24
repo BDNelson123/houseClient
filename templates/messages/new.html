@@ -1,0 +1,36 @@
+<form ng-submit="submitMessage()" class="form-vertical">
+  <div class="control-group">
+    <!-- flash alerts -->
+    <div id="alert" style="display:none; margin-bottom:10px"></div>
+
+    <!-- message -->
+    <h3>Message:</h3>
+    <div class="controls user_new_form">
+      <textarea id="message_textarea" rows="4" type="text" ng-model="message" placeholder="message" class="form-control user_new_input" required/>
+      <br>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <input class="btn btn-primary" type="submit" value="submit bid"/>
+    </div>
+  </div>
+</form>
+
+<br><br>
+
+<!-- messages list -->
+<div ng-init="show()">
+  <div ng-repeat="message in messages">
+    <div ng-show="$root.id == message.sender_id">
+      <span id="image_{{userPrimaryImage.id}}" ng-showimage ng-image="{{userPrimaryImage.image.thumb.url}}"></span>
+      <br>
+      message on left = <span ng-bind="message.message"></span>
+      <br>
+    </div>
+    <div ng-show="$root.id != message.sender_id">
+      message on right = <span ng-bind="message.message"></span>
+      <br>
+    </div>
+  </div>
+<div>

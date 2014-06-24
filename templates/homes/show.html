@@ -144,18 +144,28 @@
         <button>Edit Home</button>
       </a>
       |
-      <button ng-click="deleteHome()">Delete Home</button>
+      <button ng-click="deleteHome()">
+        Delete Home
+      </button>
     </div>
 
-    <!-- bid create button -->
+    <!-- bids | messages -->
     <div ng-show="$root.id != home.user_id">
       <a href="#/bids/new/{{home.id}}">
-        <button>Bid on House</button>
+        <button>
+          Bid on House
+        </button>
+      </a>
+      |
+      <a href="#/messages/new/{{home.user_id}}?home_id={{home.id}}">
+        <button>
+          Message Owner
+        </button>
       </a>
     </div>
   </div>
 
-    <!-- bids view -->
+  <!-- bids list -->
   <div ng-controller="bidsController">
     <div ng-init="showBids()">
       <div ng-repeat="bid in bids">

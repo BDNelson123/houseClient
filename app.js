@@ -54,6 +54,7 @@ house.config(function ($routeProvider) {
     .when ('/searches/index/:query', {templateUrl: "templates/searches/index.html", controller: 'searchesController'})
     .when ('/bids/show/:id', {templateUrl: "templates/bids/show.html", controller: 'bidsController'})
     .when ('/bids/new/:id', {templateUrl: "templates/bids/new.html", controller: 'bidsController'})
+    .when ('/messages/new/:id', {templateUrl: "templates/messages/new.html", controller: 'messagesController'})
     .when ('/404', {templateUrl: "templates/public/404.html"})
     .when ('/', {templateUrl: "templates/public/home.html"})
     .otherwise({ redirectTo: '/' });
