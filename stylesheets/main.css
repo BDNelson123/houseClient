@@ -1,4 +1,4 @@
-html { /*overflow-y:hidden*/; background:#afc1e5; }
+html { /*overflow-y:hidden; background:#afc1e5;*/ }
 
 .page { 
   margin-top:53px;
@@ -12,7 +12,7 @@ html { /*overflow-y:hidden*/; background:#afc1e5; }
 .page h1 	{ font-size:60px; }
 .page a   { margin-top:50px; }
 
-.page		{ background:#afc1e5; color:#00907c; }
+.page		{ /*background:#afc1e5; color:#00907c;*/ }
 
 .page.ng-leave 	{ z-index:9999; }
 .page.ng-enter 	{ z-index:8888; }

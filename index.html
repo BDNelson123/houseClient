@@ -84,9 +84,28 @@
           </ul>
           <!-- user logged in -->
           <ul ng-show="$root.token" class="nav navbar-nav navbar-right">
-            <li>
-              <a href="/#/public/how_it_works">
-                Home
+            <!-- houses -->
+            <li class="dropdown" style="cursor:pointer">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                Houses<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" style="margin-top:3px">
+                <li>
+                  <a href="/#/homes/index">
+                    View your houses
+                  </a>
+                </li>
+                <li>
+                  <a href="/#/homes/new">
+                    Sell your house
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- houses -->
+            <li class="dropdown" style="cursor:pointer">
+              <a class="dropdown-toggle">
+                Messages
               </a>
             </li>
             <!-- profile -->
@@ -103,24 +122,6 @@
                 <li>
                   <a href="/#/users/edit/{{$root.id}}">
                     Update
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!-- houses -->
-            <li class="dropdown" style="cursor:pointer">
-              <a class="dropdown-toggle" data-toggle="dropdown">
-                Houses<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu" style="margin-top:3px">
-                <li>
-                  <a href="/#/homes/index">
-                    View your houses
-                  </a>
-                </li>
-                <li>
-                  <a href="/#/homes/new">
-                    Sell your house
                   </a>
                 </li>
               </ul>
