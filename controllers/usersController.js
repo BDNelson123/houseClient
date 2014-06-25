@@ -21,7 +21,7 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
       function success(data, status, headers, config){
         $window.sessionStorage.token = data.auth_token;
         $window.sessionStorage.id = data.id;
-        $location.path('/users/show/' + data.auth_token);
+        $location.path('/users/show/' + data.id);
       }, 
 
       function error(data, status, headers, config){
