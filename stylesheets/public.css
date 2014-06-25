@@ -1,0 +1,10 @@
+.public_top {
+  background-color:#1d83c1;
+}
+
+.public_top_container {
+  padding-top:75px; 
+  padding-bottom:75px;
+  color:#FFFFFF; 
+  font-weight:bold
+}

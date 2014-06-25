@@ -1,176 +1,103 @@
-<style>
-/* GLOBAL STYLES */
-/* Padding below the footer and lighter body text */
-  body {
-    padding-bottom: 40px;
-  }
-
-  /* CUSTOMIZE THE NAVBAR */
-
-  /* Special class on .container surrounding .navbar, used for positioning it into place. */
-  .navbar-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    margin-top: 20px;
-    margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
-  }
-  .navbar-wrapper .navbar {}
-
-  /* Remove border and change up box shadow for more contrast */
-  .navbar .navbar-inner {
-    border: 0;
-    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-       -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-            box-shadow: 0 2px 10px rgba(0,0,0,.25);
-  }
-
-  /* Downsize the brand/project name a bit */
-  .navbar .brand {
-    padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-  }
-
-  /* Navbar links: increase padding for taller navbar */
-  .navbar .nav > li > a {
-    padding: 15px 20px;
-  }
-
-  /* Offset the responsive button for proper vertical alignment */
-  .navbar .btn-navbar {
-    margin-top: 10px;
-  }
-
-  /* CUSTOMIZE THE CAROUSEL */
-
-  /* Carousel base class */
-  .carousel {
-    margin-bottom: 60px;
-  }
-
-  .carousel .container {
-    position: relative;
-    z-index: 9;
-  }
-
-  .carousel-control {
-    height: 80px;
-    margin-top: 0;
-    font-size: 120px;
-    text-shadow: 0 1px 1px rgba(0,0,0,.4);
-    background-color: transparent;
-    border: 0;
-    z-index: 10;
-  }
-
-  .carousel .item {
-    height: 500px;
-  }
-  .carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 500px;
-  }
-
-  .carousel-caption {
-    background-color: transparent;
-    position: static;
-    max-width: 550px;
-    padding: 0 20px;
-    margin-top: 200px;
-  }
-  .carousel-caption h1,
-  .carousel-caption .lead {
-    margin: 0;
-    line-height: 1.25;
-    color: #fff;
-    text-shadow: 0 1px 1px rgba(0,0,0,.4);
-  }
-  .carousel-caption .btn {
-    margin-top: 10px;
-  }
-
-  /* MARKETING CONTENT */
-
-  /* Center align the text within the three columns below the carousel */
-  .marketing .span4 {
-    text-align: center;
-  }
-  .marketing h2 {
-    font-weight: normal;
-  }
-  .marketing .span4 p {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  /* Featurettes */
-
-  .featurette-divider {
-    margin: 80px 0; /* Space out the Bootstrap <hr> more */
-  }
-  .featurette {
-    padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
-    overflow: hidden; /* Vertically center images part 2: clear their floats. */
-  }
-  .featurette-image {
-    margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
-  }
-
-  /* Give some space on the sides of the floated elements so text doesn't run right into it. */
-  .featurette-image.pull-left {
-    margin-right: 40px;
-  }
-  .featurette-image.pull-right {
-    margin-left: 40px;
-  }
-
-  /* Thin out the marketing headings */
-  .featurette-heading {
-    font-size: 50px;
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="jumbotron" style="background: url('images/index_house_1.jpg') no-repeat; background-size:100%">
-  <div class="container" style="padding-top:100px; padding-bottom:150px">
-    <h1>Eperty</h1>
-    <p>Your House, Your Commission</p>
+<div class="home_top">
+  <!-- main -->
+  <div class="container home_top_container">
+    <img src="images/profile.png">
+    <h1>ePerty</h1>
+    <p style="font-size:18pt">Your House, Your Commission</p>
+  </div>
+  <!-- search -->
+  <div ng-controller="searchesController" class="home_search">
+    <div class="input-group home_input_group">
+      <form class="navbar-form" ng-submit="searchRedirect()">
+        <input type="text" class="form-control" ng-model="query" placeholder="Property search..." size=45>
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            Go!
+          </button>
+        </span>
+      </form>
+    </div>
   </div>
 </div>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center h2-home">
+        <h2>Why should you use ePerty to help sell your house?</h2>
+        <hr class="featurette-divider-small">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-sm-4_bottom">
+        <img src="images/money.png" class="img-responsive" alt="" />
+        <span class="image_text">It's 100% free</span>
+      </div>
+      <div class="col-sm-4 col-sm-4_bottom">
+        <img src="images/safe.png" class="img-responsive" alt="" />
+        <span class="image_text">There's nothing to lose</span>
+      </div>
+      <div class="col-sm-4 col-sm-4_bottom">
+        <img src="images/seller.png" class="img-responsive" alt="" />
+        <span class="image_text">Sellers meet interested buyers</span>
+      </div>
+      <div class="col-sm-4 col-sm-4_bottom">
+        <img src="images/buyers.png" class="img-responsive" alt="" />
+        <span class="image_text">Buyers can bid on any house</span>
+      </div>
+      <div class="col-sm-4 col-sm-4_bottom">
+        <img src="images/contract.png" class="img-responsive" alt="" />
+        <span class="image_text">Nothing is contractually binding</span>
+      </div>
+      <div class="col-sm-4 col-sm-4_bottom">
+        <img src="images/cake.png" class="img-responsive" alt="" />
+        <span class="image_text">Mmmmm...cake</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="container marketing">
-  <div class="featurette">
-    <img class="featurette-image pull-right" src="http://getbootstrap.com/2.3.2/assets/img/examples/browser-icon-chrome.png">
-    <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
-    <p class="lead">test</p>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <div class="featurette">
-    <img class="featurette-image pull-left" src="http://getbootstrap.com/2.3.2/assets/img/examples/browser-icon-firefox.png">
-    <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
-    <p class="lead">test</p>
-  </div>
   <hr class="featurette-divider">
   <div class="featurette">
-    <img class="featurette-image pull-right" src="http://getbootstrap.com/2.3.2/assets/img/examples/browser-icon-safari.png">
-    <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
-    <p class="lead">test</p>
+    <img class="featurette-image pull-left" src="images/launchpad.svg">
+    <h2 class="featurette-heading">Increase Demand for Your House</h2>
+    <p class="lead">
+      Allow interested buyers to find your house
+      <br>
+      Have them bid against one another 
+      <br>
+      Increase the price of your house 
+      <br>
+    </p>
   </div>
-
   <hr class="featurette-divider">
-
-  <footer>
-    <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer>
+  <div class="featurette">
+    <img class="featurette-image pull-right" src="images/preserver.svg">
+    <h2 class="featurette-heading">Absolutely Nothing to Lose</h2>
+    <p class="lead">
+      Its 100% free with no gotchas
+      <br>
+      All bids are not contractually obligated
+      <br>
+      ePerty helps you find the right buyer for your house
+      <br>
+    </p>
+  </div>
+  <hr class="featurette-divider">
+  <div class="featurette">
+    <img class="featurette-image pull-left" src="images/pistons.svg">
+    <h2 class="featurette-heading">The Seller is Always in Control</h2>
+    <p class="lead">
+      You determine which bidder to engage
+      <br>
+      You have access to your bidders' information
+      <br>
+      You sell your house for your price
+      <br>
+    </p>
+  </div>
+  <hr class="featurette-divider">
 </div>
+
+<div ng-footer></div>
