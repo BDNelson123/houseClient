@@ -1,21 +1,28 @@
 <div ng-init="index()">
-  <div ng-repeat="home in homes">
-    <a href="/#/homes/show/{{home.id}}">
-      Address = <span ng-bind="home.address"></span>
-    </a>
-    <br>
-    Address2 = <span ng-bind="home.address2"></span>
-    <br>
-    City = <span ng-bind="home.city"></span>
-    <br>
-    State = <span ng-bind="home.state"></span>
-    <br>
-    Zip = <span ng-bind="home.zip"></span>
-    <div ng-repeat="image in home.images">
-      <div ng-showimage ng-image="{{image.image.thumb.url}}"></div>
+  <!-- if results came back -->
+  <div ng-if="homes.length != 0">
+    <div ng-repeat="home in homes">
+      <a href="/#/homes/show/{{home.id}}">
+        Address = <span ng-bind="home.address"></span>
+      </a>
+      <br>
+      Address2 = <span ng-bind="home.address2"></span>
+      <br>
+      City = <span ng-bind="home.city"></span>
+      <br>
+      State = <span ng-bind="home.state"></span>
+      <br>
+      Zip = <span ng-bind="home.zip"></span>
+      <div ng-repeat="image in home.images">
+        <div ng-showimage ng-image="{{image.image.thumb.url}}"></div>
+      </div>
+      <br>
+      ----------------------------
+      <br><br>
     </div>
-    <br>
-    ----------------------------
-    <br><br>
+  </div>
+  <!-- if NO results came back -->
+  <div ng-if="total == 0">
+    You have no houses for sale.
   </div>
 </div>

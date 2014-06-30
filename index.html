@@ -27,6 +27,7 @@
     <script src="directives/angular-file-upload.min.js"></script> 
     <script src="common/common.js"></script> 
     <script src="app.js"></script>
+    <script src="filters/generic.js"></script> 
     <script src="directives/public.js"></script> 
     <script src="directives/image.js"></script> 
     <script src="services/token.js"></script>
@@ -153,7 +154,7 @@
           <div class="navbar-right animate-if" ng-controller="searchesController" ng-if="$root.url != ''">
             <div class="input-group">
               <form class="navbar-form" ng-submit="searchRedirect()">
-                <input type="text" class="form-control" ng-model="query" placeholder="Property search...">
+                <input type="text" class="form-control" ng-model="query" placeholder="Property search..." required>
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="submit">
                     Go!

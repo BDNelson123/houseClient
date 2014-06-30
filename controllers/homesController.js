@@ -50,6 +50,10 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
 
   $scope.index = function() {
     $scope.homes = indexHome.read();
+
+    $scope.homes.$promise.then(function(data) {
+      $scope.total = $scope.homes.length;
+    });
   };
 
   $scope.images = function() {
