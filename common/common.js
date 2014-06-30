@@ -9,6 +9,13 @@ function restrict_access(location,token){
   }
 }
 
+// restrict access to users who can update themselves
+function restrict_premission(location,root,id){
+  if(!root || root != id) {
+    location.path('/users/show/' + root);
+  }
+}
+
 // shows server validation errors
 function api_errors(rejection){
    var values = rejection.data;

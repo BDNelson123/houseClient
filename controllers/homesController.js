@@ -16,12 +16,12 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
   };
 
   $scope.updateHome = function() {
-    restrict_access($location,$rootScope.token);
-
     $scope.homeData = showHomeNoImage.read({id: $routeParams.id});
 
     $scope.homeData.$promise.then(function(data) {
       $scope.home = data;
+    }, function(error) {
+      $location.path('/users/show/' + $rootScope.id);
     });
   }
 
@@ -46,6 +46,10 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
         $location.path('/404');
       }
     );
+
+    $scope.homes.$promise.then(function(data) {
+      $scope.total = $scope.homes.length;
+    });
   };
 
   $scope.index = function() {
@@ -61,7 +65,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
   }
 
   $scope.deleteHome = function() {
-    destroyHome.delete({id: $routeParams.id},
+    editHome.update({id: $routeParams.id, active: false},
       function success(data, status, headers, config){
         $location.path('/homes/index');
       }, 

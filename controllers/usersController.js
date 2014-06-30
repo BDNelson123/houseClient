@@ -42,6 +42,8 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   };
 
   $scope.updateUser = function() {
+    restrict_premission($location,$rootScope.id,$routeParams.id);
+
     $scope.userData = showUser.read({id: $rootScope.id});
 
     $scope.userData.$promise.then(function(data) {
@@ -52,10 +54,10 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   $scope.submitUpdateUser = function() {
     editUser.update({ id: $routeParams.id },{ user: $scope.user },
       function success(data, status, headers, config){
+        $location.path('/users/show/' + $routeParams.id);
       }, 
 
       function error(data, status, headers, config) {
-        $location.path('/homes/edit/' + $routeParams.id);
       }
     );
   };
