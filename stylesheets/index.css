@@ -68,3 +68,14 @@
   font-weight:bold; 
   font-size:12pt;
 }
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -(X/2)px;
+  margin-top: -(Y/2)px;
+  -webkit-user-select: none; 
+  cursor: -webkit-zoom-in;
+  z-index: 10000000;
+}
