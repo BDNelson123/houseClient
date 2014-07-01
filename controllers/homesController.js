@@ -21,7 +21,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
     $scope.homeData.$promise.then(function(data) {
       $scope.home = data;
     }, function(error) {
-      $location.path('/404');
+      $location.path('/404').replace();
     });
   }
 
@@ -43,7 +43,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
       }, 
 
       function error(data, status, headers, config) {
-        $location.path('/404');
+        $location.path('/404').replace();
       }
     );
 

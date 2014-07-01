@@ -40,10 +40,10 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   $scope.singleUser = function() {
     $scope.user = showUser.read({id: $routeParams.id},
       function success(data, status, headers, config){
-      }, 
+      },
 
       function error(data, status, headers, config) {
-        $location.path('/404');
+        $location.path('/404').replace();
       }
     );
   };
@@ -73,7 +73,6 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
     updateUserImage.update({ id: id },
       function success(data, status, headers, config){
         $rootScope.userImagePrimary = id;
-        console.log($rootScope.userImagePrimary);
       }, 
 
       function error(data, status, headers, config) {
