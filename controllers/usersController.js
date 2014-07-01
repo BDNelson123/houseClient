@@ -38,7 +38,14 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   };
 
   $scope.singleUser = function() {
-    $scope.user = showUser.read({id: $routeParams.id});
+    $scope.user = showUser.read({id: $routeParams.id},
+      function success(data, status, headers, config){
+      }, 
+
+      function error(data, status, headers, config) {
+        $location.path('/404');
+      }
+    );
   };
 
   $scope.updateUser = function() {

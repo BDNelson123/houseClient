@@ -21,7 +21,7 @@ house.controller('homesController', function($scope, $location, $rootScope, $rou
     $scope.homeData.$promise.then(function(data) {
       $scope.home = data;
     }, function(error) {
-      $location.path('/users/show/' + $rootScope.id);
+      $location.path('/404');
     });
   }
 
