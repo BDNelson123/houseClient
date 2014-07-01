@@ -1,36 +1,5 @@
 // interceptor
-var house = angular.module('house', ['ngRoute', 'ngAnimate', 'ngResource', 'angularFileUpload'])
-.config(function ($provide, $httpProvider) {
-  $provide.factory('houseHttpInterceptor', function ($q) {
-    return {
-      request: function (config) {
-        console.log(config); 
-        $( "#alert" ).hide();
-        return config || $q.when(config);
-      },
-
-      requestError: function (rejection) {
-        console.log(rejection);
-        api_errors(rejection);
-        return $q.reject(rejection);
-      },
- 
-      response: function (response) {
-        console.log(response);
-        $( "#alert" ).hide();
-        return response || $q.when(response);
-      },
-
-      responseError: function (rejection) {
-        console.log(rejection.data);
-        api_errors(rejection);
-        return $q.reject(rejection);
-      }
-    };
-  });
- 
-  $httpProvider.interceptors.push('houseHttpInterceptor');
-});
+var house = angular.module('house', ['ngRoute', 'ngAnimate', 'ngResource', 'angularFileUpload']);
 
 // routing
 house.config(function ($routeProvider) {
