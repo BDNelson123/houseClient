@@ -1,4 +1,4 @@
-house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages, updateUserImage) {
+house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages, updateUserImage, showUserImagePrimary) {
   $scope.submitUser = function() {
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
@@ -39,6 +39,7 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
 
   $scope.singleUser = function() {
     $scope.route = $routeParams.type;
+    $scope.image = showUserImagePrimary.read({id: $routeParams.id, primary: 'true'});
 
     $scope.user = showUser.read({id: $routeParams.id},
       function success(data, status, headers, config){
