@@ -1,5 +1,5 @@
 // interceptor
-var house = angular.module('house', ['ngRoute', 'ngAnimate', 'ngResource', 'angularFileUpload']);
+var house = angular.module('house', ['ngRoute', 'ngAnimate', 'ngResource', 'ngTouch', 'angularFileUpload']);
 
 // routing
 house.config(function ($routeProvider) {

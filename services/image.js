@@ -27,3 +27,9 @@ house.factory('updateUserImage', ['$resource', '$routeParams',
     return $resource(server + '/images/:id?klass=user', {id:'@id', token:'@token'}, { update: {method:'PUT'} });
   }
 ]);
+
+house.factory('updateHomeImage', ['$resource', '$routeParams',
+  function($resource){
+    return $resource(server + '/images/:id?klass=home', {id:'@id'}, { update: {method:'PUT'} });
+  }
+]);

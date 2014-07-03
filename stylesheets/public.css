@@ -2,6 +2,18 @@
   background-color:#1d83c1;
 }
 
+.public_top_contact {
+  background-color:#ccb2a3;
+}
+
+.public_top_pricing {
+  background-color:#1fa4b6;
+}
+
+.public_top_careers {
+  background-color:#ba4c63;
+}
+
 .public_top_container {
   padding-top:75px; 
   padding-bottom:75px;

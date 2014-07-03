@@ -25,4 +25,29 @@
       </div>
     </div>
   </form>
+
+  <br><br>
+
+  <!-- main image -->
+  Main Image
+  <div" ng-init="images()" ng-userprimaryimage>
+    <div ng-repeat="userImage in userImages">
+      <div ng-show="userImage.id == $root.userImagePrimary" ng-showimage ng-image="{{userImage.image.thumb.url}}" ></div>
+    </div>
+  </div>
+
+  <!-- show user images - allow to update -->
+  <div ng-userprimaryimage>
+    <form class="form-vertical">
+      <div ng-repeat="userImage in userImages">
+        <a class="hand" ng-click="submitUpdateUserPrimaryImage(userImage.id)">
+          <span id="image_{{userImage.id}}" ng-showimage ng-image="{{userImage.image.thumb.url}}"></span>
+        </a>
+      </div>
+    </form>
+  </div>
+
+  <div>
+  <input type="file" ng-file-select="onFileSelect($files)" multiple>
+  </div>
 </div>

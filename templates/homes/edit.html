@@ -17,4 +17,33 @@
       </div>
     </div>
   </form>
+
+  <br><br>
+
+  <!-- main image -->
+  Main Image
+  <div" ng-init="images()" ng-userprimaryimage>
+    <div ng-repeat="homeImage in homeImages">
+      <div ng-show="homeImage.id == $root.homeImagePrimary" ng-showimage ng-image="{{homeImage.image.thumb.url}}" ></div>
+    </div>
+  </div>
+
+  <!-- images -->
+  <b>House Images</b> <br>
+  <!-- show home images - allow to update -->
+  <div ng-init="images()" ng-userprimaryimage>
+    <form class="form-vertical">
+      <div ng-repeat="homeImage in homeImages">
+        <a class="hand" ng-click="submitUpdateHomePrimaryImage(homeImage.id)">
+          <span id="image_{{homeImage.id}}" ng-showimage ng-image="{{homeImage.image.thumb.url}}"></span>
+        </a>
+      </div>
+    </form>
+  </div>
+
+  <br><br>
+
+  <div>
+  <input type="file" ng-file-select="onFileSelect($files)" multiple>
+  </div>
 </div>

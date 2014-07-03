@@ -2,23 +2,20 @@
   <!-- if results came back -->
   <div ng-if="searches.length != 0">
     <div ng-repeat="search in searches">
-      <a href="/#/homes/show/{{search.id}}">
-        Address = <span ng-bind="search.address"></span>
-      </a>
-      <br>
-      Address2 = <span ng-bind="search.address2"></span>
-      <br>
-      City = <span ng-bind="search.city"></span>
-      <br>
-      State = <span ng-bind="search.state"></span>
-      <br>
-      Zip = <span ng-bind="search.zip"></span>
-      <div ng-repeat="image in search.images">
-        <div ng-showimage ng-image="{{image.image.thumb.url}}"></div>
+      <div class="list-group" style="width:75%; margin:0 auto; text-align:left; font-weight:bold; font-size:14pt">
+        <a href="/#/homes/show/{{search.id}}" class="list-group-item active">
+          <span class="table_title_padding" ng-bind="search.address"></span><span ng-if="!search.address2">,</span>
+          <span ng-if="search.address2" ng-bind="search.address2">,</span>
+          <span ng-bind="search.city"></span>, 
+          <span ng-bind="search.state"></span>, 
+          <span ng-bind="search.zip"></span>
+        </a>
+        <div class="list-group-item">
+          <div ng-repeat="image in search.images">
+            <div ng-showimage ng-image="{{image.image.thumb.url}}"></div>
+          </div>
+        </div>
       </div>
-      <br>
-      ----------------------------
-      <br><br>
     </div>
   </div>
   <!-- if NO results came back -->

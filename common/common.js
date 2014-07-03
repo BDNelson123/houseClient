@@ -9,10 +9,20 @@ function restrict_access(location,token){
   }
 }
 
+// format date with leading 0
+function date_format_0(date){
+  date = date || '';
+  if(date.charAt(0) == 0) {
+    return date.charAt(1);
+  } else {
+    return date;
+  }
+}
+
 // restrict access to users who can update themselves
 function restrict_premission(location,root,id){
   if(!root || root != id) {
-    location.path('/users/show/' + root);
+    location.path('/404').replace();
   }
 }
 

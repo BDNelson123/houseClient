@@ -38,6 +38,8 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   };
 
   $scope.singleUser = function() {
+    $scope.route = $routeParams.type;
+
     $scope.user = showUser.read({id: $routeParams.id},
       function success(data, status, headers, config){
       },
