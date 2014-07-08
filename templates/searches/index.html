@@ -19,7 +19,5 @@
     </div>
   </div>
   <!-- if NO results came back -->
-  <div ng-if="total == 0">
-    Your search didn't return any houses, please try again.
-  </div>
+  <div ng-empty ng-total={{total}}></div>
 </div>

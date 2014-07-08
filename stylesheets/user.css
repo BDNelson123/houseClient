@@ -1,0 +1,16 @@
+.user_member_since {
+  float:left; 
+  padding-left:15px; 
+  font-size:14pt; 
+  text-align:left;
+}
+
+.user_image {
+  border-style: solid; 
+  border-color:#CCC; 
+  border-width: 5px;
+}
+
+.user_panel_top {
+  margin-top:50px;
+}

@@ -1,0 +1,16 @@
+.log_td {
+  padding-top:10px; 
+  padding-bottom:10px;
+}
+
+.log_heading {
+  text-align:left; 
+  padding-left:15px; 
+  font-weight:bold; 
+  font-size:14pt;
+}
+
+.log_currency {
+  text-align:left; 
+  padding-left:15px
+}

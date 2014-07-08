@@ -1,4 +1,4 @@
-house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages, updateUserImage, showUserImagePrimary) {
+house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages, updateUserImage, showUserImagePrimary, showHome, showLogs) {
   $scope.submitUser = function() {
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
@@ -40,6 +40,18 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
   $scope.singleUser = function() {
     $scope.route = $routeParams.type;
     $scope.image = showUserImagePrimary.read({id: $routeParams.id, primary: 'true'});
+
+    if($routeParams.type == 'listings'){
+      $scope.listing = showHome.read({user_id: $routeParams.id});
+    } else if($routeParams.type == 'bids'){
+    } else if($routeParams.type == 'messages'){
+    } else {
+      $scope.logs = showLogs.read({id: $routeParams.id});
+
+      $scope.logs.$promise.then(function(data) {
+        $scope.total = $scope.logs.length;
+      });
+    }
 
     $scope.user = showUser.read({id: $routeParams.id},
       function success(data, status, headers, config){

@@ -5,33 +5,103 @@
   <div class="row home_from_top">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <div style="float:left">
-        <div ng-showimage ng-image="{{image.image.medium.url}}" style="border-style: solid; border-color:#CCC; border-width: 5px;"></div>
+      <div class="float_left">
+        <div ng-showimage ng-image="{{image.image.medium.url}}" class="user_image"></div>
       </div>
-      <div style="float:left; padding-left:15px; font-size:14pt; text-align:left">
+      <div class="user_member_since">
+        <!-- user: name -->
         <b><span ng-bind="user.firstname|notAvailable"></span>&nbsp;<span ng-bind="user.lastname|notAvailable"></span></b>
         <br>
+        <!-- user: member since -->
         member since: <span ng-bind="user.created_at|dateFormat|notAvailable">
       </div>
     </div>
     <div class="col-md-3"></div>
   </div>
 
+  <!-- panel: options -->
   <div ng-useroptions ng-route={{route}} ng-user={{user.id}}></div>
 
-  <div class="row home_from_top" style="margin-top:50px">
+  <!-- panel: info -->
+  <div class="row home_from_top user_panel_top">
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="panel panel-default">
+        <!-- panel: title -->
         <div class="panel-heading">
-          <h3 class="panel-title" style="text-align:left" ng-show="!route">Activity</h3>
-          <h3 class="panel-title" style="text-align:left" ng-show="route == 'activity'">Activity</h3>
-          <h3 class="panel-title" style="text-align:left" ng-show="route == 'listings'">Listings</h3>
-          <h3 class="panel-title" style="text-align:left" ng-show="route == 'bids'">Bids</h3>
-          <h3 class="panel-title" style="text-align:left" ng-show="route == 'messages'">Messages</h3>
+          <h3 class="panel-title align_left" ng-show="!route">Activity</h3>
+          <h3 class="panel-title align_left" ng-show="route == 'activity'">Activity</h3>
+          <h3 class="panel-title align_left" ng-show="route == 'listings'">Listings</h3>
+          <h3 class="panel-title align_left" ng-show="route == 'bids'">Bids</h3>
+          <h3 class="panel-title align_left" ng-show="route == 'messages'">Messages</h3>
         </div>
         <div class="panel-body">
-          Panel content
+          <div ng-if="!route || route == 'activity'">
+            <table cellspacing=0 cellpadding=0 width="100%">
+              <tr ng-repeat="log in logs">
+                <!-- if results came back -->
+                <div ng-if="total != 0">
+                  <td class="log_td">
+                    <!-- listing: created -->
+                    <div ng-if="log.type == 'home' && log.action == 'create'" style="width:100%">
+                      <div class="float_left">
+                        <img src="/images/home_add_72.png">
+                      </div>
+                      <div class="float_left">
+                        <div class="log_heading">
+                          Listing Created
+                        </div>
+                        <div style="text-align:left; padding-left:5px">
+                          <a href="/#/homes/show/{{log.home_id}}">
+                            <span class="table_title_padding" ng-bind="log.address"></span><span ng-if="!log.address2">,</span>
+                            <span ng-if="log.address2" ng-bind="log.address2">,</span>
+                            <span ng-bind="log.city"></span>, 
+                            <span ng-bind="log.state"></span>, 
+                            <span ng-bind="log.zip"></span>
+                          </a>
+                        </div>
+                        <div class="log_currency">
+                          <span ng-bind="log.price|currency:$|notAvailable">
+                        </div>
+                      </div>
+                      <div class="float_right">
+                        <span ng-bind="log.date|dateFormat|notAvailable">
+                      </div>
+                    </div>
+
+                    <!-- listing: updated -->
+                    <div ng-if="log.type == 'home' && log.action == 'update'" style="width:100%">
+                      <div class="float_left">
+                        <img src="/images/home_edit_72.png">
+                      </div>
+                      <div class="float_left">
+                        <div class="log_heading">
+                          Listing Updated
+                        </div>
+                        <div style="text-align:left; padding-left:5px">
+                          <a href="/#/homes/show/{{log.home_id}}">
+                            <span class="table_title_padding" ng-bind="log.address"></span><span ng-if="!log.address2">,</span>
+                            <span ng-if="log.address2" ng-bind="log.address2">,</span>
+                            <span ng-bind="log.city"></span>, 
+                            <span ng-bind="log.state"></span>, 
+                            <span ng-bind="log.zip"></span>
+                          </a>
+                        </div>
+                        <div class="log_currency">
+                          Price changed to: <span ng-bind="log.price|currency:$|notAvailable">
+                        </div>
+                      </div>
+                      <div class="float_right">
+                        <span ng-bind="log.date|dateFormat|notAvailable">
+                      </div>
+                    </div>
+                  </td>
+                </div>
+                <!-- if NO results came back -->
+                <div ng-empty ng-total={{total}}></div>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </div>

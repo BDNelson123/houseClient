@@ -5,7 +5,7 @@ house.directive('ngShowimage', function() {
     scope: {
       ngImage: '@',
     },
-    template: '<img src="' + server + '{{ngImage}}">',
+    template: '<img fallback-src="/images/Bed-Head.jpg" ng-src="' + server + '{{ngImage}}">',
   }
 });
 
