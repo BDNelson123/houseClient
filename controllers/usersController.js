@@ -1,4 +1,4 @@
-house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages, updateUserImage, showUserImagePrimary, showHome, showLogs) {
+house.controller('usersController', function($scope, $rootScope, $location, $routeParams, $window, $upload, newUser, indexUser, signInUser, showUser, editUser, showUserImages, updateUserImage, showUserImagePrimary, showHome, showLogs, indexHome, indexBid) {
   $scope.submitUser = function() {
     newUser.save({ user: $scope.user }, 
       function success(data, status, headers, config){
@@ -42,15 +42,15 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
     $scope.image = showUserImagePrimary.read({id: $routeParams.id, primary: 'true'});
 
     if($routeParams.type == 'listings'){
-      $scope.listing = showHome.read({user_id: $routeParams.id});
+      $scope.listings = indexHome.read({ user_id: $routeParams.id, basic: 'true' });
+      $scope.listings.$promise.then(function(data) { $scope.total = $scope.listings.length; });
     } else if($routeParams.type == 'bids'){
+      $scope.bids = indexBid.read({ user_id: $routeParams.id });
+      $scope.bids.$promise.then(function(data) { $scope.total = $scope.bids.length; });
     } else if($routeParams.type == 'messages'){
     } else {
       $scope.logs = showLogs.read({id: $routeParams.id});
-
-      $scope.logs.$promise.then(function(data) {
-        $scope.total = $scope.logs.length;
-      });
+      $scope.logs.$promise.then(function(data) { $scope.total = $scope.logs.length; });
     }
 
     $scope.user = showUser.read({id: $routeParams.id},

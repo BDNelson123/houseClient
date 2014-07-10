@@ -11,7 +11,8 @@ house.filter('notAvailable', function() {
 house.filter('dateFormat', function() {
   return function(text) {
     text = text || '';
-    text = text.split("-");
+    text = text.split("T");
+    text = text[0].split("-");
     return date_format_0(text[1]) + '-' + date_format_0(text[2]) + '-' + text[0];
   };
 });

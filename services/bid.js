@@ -9,3 +9,9 @@ house.factory('showBid', ['$resource', '$routeParams',
     return $resource(server + '/bids/:id', {}, { read: {method:'GET', isArray:true} });
   }
 ]);
+
+house.factory('indexBid', ['$resource', '$routeParams',
+  function($resource){
+    return $resource(server + '/bids', {}, { read: {method:'GET', isArray:true} });
+  }
+]);
