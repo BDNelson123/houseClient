@@ -238,7 +238,12 @@
                     <div class="float_left user_image">
                       <div ng-showimage ng-image="{{message.image.image.thumb.url}}"></div>
                     </div>
-                    <div class="float_left" style="padding-left:15px">
+                    <div class="float_left" style="padding-left:15px; text-align:left">
+                      <div style="font-weight:bold">
+                        <a href="/#/users/show/{{message.user.id}}">
+                          <span ng-bind="message.user.firstname|notAvailable"></span>&nbsp;<span ng-bind="message.user.lastname|notAvailable"></span>
+                        </a>
+                      </div>
                       <span ng-bind="message.message"></span>
                     </div>
                     <br>

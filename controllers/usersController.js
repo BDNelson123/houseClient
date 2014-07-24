@@ -66,7 +66,6 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
         });
 
         $scope.message_images = indexImages.read({ type: 'message', id: [unique] });
-
         $scope.message_images.$promise.then(function(data) {
           angular.forEach($scope.messages, function(obj1){
             angular.forEach($scope.message_images, function(obj2){
@@ -74,6 +73,19 @@ house.controller('usersController', function($scope, $rootScope, $location, $rou
                 obj1.image = obj2;
               } else if(obj1.receiver_id != $rootScope.id && obj1.receiver_id == obj2.user_id){
                 obj1.image = obj2;
+              }
+            });
+          });
+        });
+
+        $scope.message_users = indexUser.read({ type: 'message', id: [unique] });
+        $scope.message_users.$promise.then(function(data) {
+          angular.forEach($scope.messages, function(obj1){
+            angular.forEach($scope.message_users, function(obj2){
+              if(obj1.sender_id != $rootScope.id && obj1.sender_id == obj2.id){
+                obj1.user = obj2;
+              } else if(obj1.receiver_id != $rootScope.id && obj1.receiver_id == obj2.id){
+                obj1.user = obj2;
               }
             });
           });
