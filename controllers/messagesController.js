@@ -1,4 +1,4 @@
-house.controller('messagesController', function($scope, $location, $rootScope, $routeParams, newMessage, showMessage, showUserImagePrimary) {
+house.controller('messagesController', function($scope, $location, $rootScope, $routeParams, newMessage, indexMessage, showUserImagePrimary) {
   $scope.submitMessage = function() {
     $scope.message = { home_id: $routeParams.home_id, receiver_id: $routeParams.id, message: $scope.message };
     newMessage.save({ message: $scope.message }, 
@@ -13,7 +13,7 @@ house.controller('messagesController', function($scope, $location, $rootScope, $
   };
 
   $scope.show = function() {
-    $scope.messages = showMessage.read({ home_id: $routeParams.home_id, user_id: $routeParams.id });
+    $scope.messages = indexMessage.read({ home_id: $routeParams.home_id, user_id: $routeParams.id });
     $scope.userPrimaryImage = showUserImagePrimary.read({ id: $rootScope.token, primary: 'true', type: 'hash' });
     $scope.otherPrimaryImage = showUserImagePrimary.read({ id: $routeParams.id, primary: 'true', type: 'integer'  });
   };

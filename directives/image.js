@@ -9,6 +9,12 @@ house.directive('ngShowimage', function() {
   }
 });
 
+house.directive('ngImageBlank', function() {
+  return {
+    template: '<img ng-src="/images/Bed-Head.jpg">',
+  }
+});
+
 house.directive("fallbackSrc", function() {
   var fallbackSrc = {
     link: function postLink(scope, iElement, iAttrs) {

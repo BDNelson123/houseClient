@@ -4,8 +4,8 @@ house.factory('newMessage', ['$resource',
   }
 ]);
 
-house.factory('showMessage', ['$resource',
+house.factory('indexMessage', ['$resource',
   function($resource){
-    return $resource(server + '/messages?home_id=:home_id&user_id=:user_id', {}, { read: {method:'GET', isArray:true} });
+    return $resource(server + '/messages', {}, { read: {method:'GET', isArray:true} });
   }
 ]);
