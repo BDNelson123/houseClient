@@ -72,7 +72,6 @@
                         <span ng-bind="log.date|dateFormat|notAvailable">
                       </div>
                     </div>
-
                     <!-- listing: updated -->
                     <div ng-if="log.type == 'home' && log.action == 'update'" style="width:100%">
                       <div class="float_left">
@@ -230,30 +229,64 @@
           <!----------------- MESSAGES ----------------->
           <!-------------------------------------------->
           <div ng-if="route == 'messages'">
-            <table cellspacing=0 cellpadding=0 width="100%">
-              <tr ng-repeat="message in messages">
-                <!-- if results came back -->
-                <div ng-if="total != 0">
-                  <td class="log_td">
-                    <div class="float_left user_image">
-                      <div ng-showimage ng-image="{{message.image.image.thumb.url}}"></div>
-                    </div>
-                    <div class="float_left" style="padding-left:15px; text-align:left">
-                      <div style="font-weight:bold">
-                        <a href="/#/users/show/{{message.user.id}}">
-                          <span ng-bind="message.user.firstname|notAvailable"></span>&nbsp;<span ng-bind="message.user.lastname|notAvailable"></span>
-                        </a>
+            <!-- if user is looking at his own messages -->
+            <div ng-if="$root.id == route_id">
+              <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover borderless">
+                <tr ng-repeat="message in messages" class="{{message}}">
+                  <!-- if results came back -->
+                  <div ng-if="total != 0">
+                    <td class="log_td" ng-click="go('/messages/show/{{message._id.thread_id}}')">
+                      <div class="float_left user_image">
+                        <div ng-showimage ng-image="{{message.image.image.thumb.url}}"></div>
                       </div>
-                      <span ng-bind="message.message"></span>
-                    </div>
-                    <br>
-                    </div>
-                  </td>
-                </div>
-                <!-- if NO results came back -->
-                <div ng-empty ng-total={{total}}></div>
-              </tr>
-            </table>
+                      <div class="float_left" style="padding-left:15px; text-align:left">
+                        <div style="font-weight:bold">
+                          <span ng-bind="message.user.firstname|notAvailable"></span>&nbsp;<span ng-bind="message.user.lastname|notAvailable"></span>
+                        </div>
+                        <span ng-bind="message.message"></span>
+                      </div>
+                      <br>
+                      </div>
+                    </td>
+                  </div>
+                  <!-- if NO results came back -->
+                  <div ng-empty ng-total={{total}}></div>
+                </tr>
+              </table>
+            </div>
+            <!-- if user is looking at his messages with one other user -->
+            <div ng-if="$root.id != route_id">
+              <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover">
+                <tr ng-repeat="message in messages">
+                  <!-- if results came back -->
+                  <div ng-if="total != 0">
+                    <td class="log_td">
+                      <div ng-if="$root.id == message.sender_id">
+                        <div class="float_left user_image">
+                          <div ng-showimage ng-image="{{image_primary.image.thumb.url}}"></div>
+                        </div>
+                        <div class="float_left" style="padding-left:15px">
+                          <span ng-bind="message.message"></span>
+                        </div>
+                      </div>
+
+                      <div ng-if="$root.id == message.receiver_id">
+                        <div class="float_right user_image">
+                          <div ng-showimage ng-image="{{image.image.thumb.url}}"></div>
+                        </div>
+                        <div class="float_right" style="padding-right:15px">
+                          <span ng-bind="message.message"></span>
+                        </div>
+                      </div>
+                      <br>
+                      </div>
+                    </td>
+                  </div>
+                  <!-- if NO results came back -->
+                  <div ng-empty ng-total={{total}}></div>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
