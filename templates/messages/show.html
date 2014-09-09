@@ -11,7 +11,10 @@
       </div>
       <div class="user_member_since">
         <!-- user: name -->
-        <b><span ng-bind="otherUser.firstname|notAvailable"></span>&nbsp;<span ng-bind="otherUser.lastname|notAvailable"></span></b>
+        <b>
+          <a href="#/users/show/{{otherUser.id}}">
+            <span ng-bind="otherUser.firstname|notAvailable"></span>&nbsp;<span ng-bind="otherUser.lastname|notAvailable"></span></b>
+          </a>
         <br>
         <!-- user: member since -->
         member since: <span ng-bind="otherUser.created_at|dateFormat|notAvailable">

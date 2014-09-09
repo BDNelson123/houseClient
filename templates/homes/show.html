@@ -1,451 +1,453 @@
 <div ng-init='singleHome()'>
   <!-- if results came back -->
   <div ng-if="homes.length != 0">
-    <div ng-repeat="home in homes">
-      <div class="row home_from_top">
-        <div class="col-md-1"></div>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading table_heading">
-              <i class="glyphicon glyphicon-home"></i>
-              <span class="table_title_padding" ng-bind="home.address"></span><span ng-if="!home.address2">,</span>
-              <span ng-if="home.address2" ng-bind="home.address2">,</span>
-              <span ng-bind="home.city"></span>, 
-              <span ng-bind="home.state"></span>, 
-              <span ng-bind="home.zip"></span>
-            </div>
-            <table class="table">
-              <tr>
-                <td class="table_title">Type:</td>
-                <td class="table_info"><span ng-bind="home.useCode|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Bedrooms:</td>
-                <td class="table_info"><span ng-bind="home.bedrooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Bathrooms:</td>
-                <td class="table_info"><span ng-bind="home.bathrooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Home Square Feet:</td>
-                <td class="table_info"><span ng-bind="home.lotSizeSqFt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Lot Square Feet:</td>
-                <td class="table_info"><span ng-bind="home.finishedSqFt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Year Built:</td>
-                <td class="table_info"><span ng-bind="home.yearBuilt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Last Sold:</td>
-                <td class="table_info"><span ng-bind="home.lastSoldDate|notAvailable"></span></td>
-              </tr>
-            </table>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading table_heading">
-              <i class="glyphicon glyphicon-th"></i>
-              <span class="table_title_padding">Description</span>
-            </div>
-            <table class="table">
-              <tr>
-                <td class="table_info">
-                  <span ng-bind="home.updated_homeDescription|notAvailable"></span>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading table_heading">
-              <i class="glyphicon glyphicon-plus"></i>
-              <span class="table_title_padding">Additionals</span>
-            </div>
-            <table class="table">
-              <tr>
-                <td class="table_title">Roof:</td>
-                <td class="table_info"><span ng-bind="home.updated_roof|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Exterior Material:</td>
-                <td class="table_info"><span ng-bind="home.updated_exteriorMaterial|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Heating System:</td>
-                <td class="table_info"><span ng-bind="home.updated_heatingSystem|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Cooling System:</td>
-                <td class="table_info"><span ng-bind="home.updated_coolingSystem|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Appliances:</td>
-                <td class="table_info"><span ng-bind="home.updated_appliances|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Floor Covering:</td>
-                <td class="table_info"><span ng-bind="home.updated_floorCovering|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Rooms:</td>
-                <td class="table_info"><span ng-bind="home.updated_rooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Architecture:</td>
-                <td class="table_info"><span ng-bind="home.updated_architecture|notAvailable"></span></td>
-              </tr>
-            </table>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading table_heading">
-              <i class="glyphicon glyphicon-euro"></i>
-              <span class="table_title_padding">Valuations</span>
-            </div>
-            <table class="table">
-              <tr>
-                <td class="table_title">High:</td>
-                <td class="table_info"><span ng-bind="home.home.valuationRange_high|currency:$|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Low:</td>
-                <td class="table_info"><span ng-bind="home.valuationRange_low|currency:$|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Estimate:</td>
-                <td class="table_info"><span ng-bind="home.zestimate_amount|currency:$|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Over Past Year:</td>
-                <td class="table_info">
-                  <img src="{{home.valuationGraph_1year}}">
-                </td>
-              </tr>
-              <tr>
-                <td class="table_title">Over Past 5 Years:</td>
-                <td class="table_info">
-                  <img src="{{home.valuationGraph_5years}}">
-                </td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading table_heading">
-              <i class="glyphicon glyphicon-euro"></i>
-              <span class="table_title_padding">Tax Assessment</span>
-            </div>
-            <table class="table">
-              <tr>
-                <td class="table_title">Year:</td>
-                <td class="table_info"><span ng-bind="home.taxAssessmentYear|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Amount:</td>
-                <td class="table_info"><span ng-bind="home.taxAssessment|currency:$|notAvailable"></span></td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading table_heading">
-              <i class="glyphicon glyphicon-road"></i>
-              <span class="table_title_padding">Similar Properties</span>
-            </div>
-            <div ng-if="home.related_0_zpid">
+    <div class="container-fluid">
+      <div ng-repeat="home in homes">
+        <div class="row home_from_top">
+          <div class="col-md-1"></div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading table_heading">
+                <i class="glyphicon glyphicon-home"></i>
+                <span class="table_title_padding" ng-bind="home.address"></span><span ng-if="!home.address2">,</span>
+                <span ng-if="home.address2" ng-bind="home.address2">,</span>
+                <span ng-bind="home.city"></span>, 
+                <span ng-bind="home.state"></span>, 
+                <span ng-bind="home.zip"></span>
+              </div>
               <table class="table">
                 <tr>
-                  <td colspan=2 class="table_title_large">
-                    <span ng-bind="home.related_0_address"></span>, 
-                    <span ng-bind="home.related_0_city"></span>, 
-                    <span ng-bind="home.related_0_state"></span>, 
-                    <span ng-bind="home.related_0_zip"></span>
-                  </td>
+                  <td class="table_title">Type:</td>
+                  <td class="table_info"><span ng-bind="home.useCode|notAvailable"></span></td>
                 </tr>
-              <tr>
-                <td class="table_title">Bedrooms:</td>
-                <td class="table_info"><span ng-bind="home.related_1_bedrooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Bathrooms:</td>
-                <td class="table_info"><span ng-bind="home.related_1_bathrooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Home Square Feet:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lotSizeSqFt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Year Built:</td>
-                <td class="table_info"><span ng-bind="home.related_1_yearBuilt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Last Sold:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lastSoldDate|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Last Sold Price:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lastSoldPrice|currency:$|notAvailable"></span></td>
-              </tr>
-              <tr ng-if="home.related_0_image_1">
-                <td colspan=2>
-                  <img ng-src="{{home.related_0_image_1}}">
-                  <img ng-src="{{home.related_0_image_2}}">
-                  <img ng-src="{{home.related_0_image_3}}">
-                  <img ng-src="{{home.related_0_image_4}}">
-                  <img ng-src="{{home.related_0_image_5}}">
-                </td>
-              </tr>
+                <tr>
+                  <td class="table_title">Bedrooms:</td>
+                  <td class="table_info"><span ng-bind="home.bedrooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Bathrooms:</td>
+                  <td class="table_info"><span ng-bind="home.bathrooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Home Square Feet:</td>
+                  <td class="table_info"><span ng-bind="home.lotSizeSqFt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Lot Square Feet:</td>
+                  <td class="table_info"><span ng-bind="home.finishedSqFt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Year Built:</td>
+                  <td class="table_info"><span ng-bind="home.yearBuilt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Last Sold:</td>
+                  <td class="table_info"><span ng-bind="home.lastSoldDate|notAvailable"></span></td>
+                </tr>
               </table>
             </div>
-            <div ng-if="home.related_1_zpid">
+            <div class="panel panel-default">
+              <div class="panel-heading table_heading">
+                <i class="glyphicon glyphicon-th"></i>
+                <span class="table_title_padding">Description</span>
+              </div>
               <table class="table">
                 <tr>
-                  <td colspan=2 class="table_title_large">
-                    <span ng-bind="home.related_1_address"></span>, 
-                    <span ng-bind="home.related_1_city"></span>, 
-                    <span ng-bind="home.related_1_state"></span>, 
-                    <span ng-bind="home.related_1_zip"></span>
+                  <td class="table_info">
+                    <span ng-bind="home.updated_homeDescription|notAvailable"></span>
                   </td>
                 </tr>
-              <tr>
-                <td class="table_title">Bedrooms:</td>
-                <td class="table_info"><span ng-bind="home.related_1_bedrooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Bathrooms:</td>
-                <td class="table_info"><span ng-bind="home.related_1_bathrooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Home Square Feet:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lotSizeSqFt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Year Built:</td>
-                <td class="table_info"><span ng-bind="home.related_1_yearBuilt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Last Sold:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lastSoldDate|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Last Sold Price:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lastSoldPrice|currency:$|notAvailable"></span></td>
-              </tr>
-              <tr ng-if="home.related_1_image_1">
-                <td colspan=2>
-                  <img ng-src="{{home.related_1_image_1}}">
-                  <img ng-src="{{home.related_1_image_2}}">
-                  <img ng-src="{{home.related_1_image_3}}">
-                  <img ng-src="{{home.related_1_image_4}}">
-                  <img ng-src="{{home.related_1_image_5}}">
-                </td>
-              </tr>
               </table>
             </div>
-            <div ng-if="home.related_1_zpid">
+            <div class="panel panel-default">
+              <div class="panel-heading table_heading">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span class="table_title_padding">Additionals</span>
+              </div>
               <table class="table">
                 <tr>
-                  <td colspan=2 class="table_title_large">
-                    <span ng-bind="home.related_2_address"></span>, 
-                    <span ng-bind="home.related_2_city"></span>, 
-                    <span ng-bind="home.related_2_state"></span>, 
-                    <span ng-bind="home.related_2_zip"></span>
+                  <td class="table_title">Roof:</td>
+                  <td class="table_info"><span ng-bind="home.updated_roof|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Exterior Material:</td>
+                  <td class="table_info"><span ng-bind="home.updated_exteriorMaterial|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Heating System:</td>
+                  <td class="table_info"><span ng-bind="home.updated_heatingSystem|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Cooling System:</td>
+                  <td class="table_info"><span ng-bind="home.updated_coolingSystem|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Appliances:</td>
+                  <td class="table_info"><span ng-bind="home.updated_appliances|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Floor Covering:</td>
+                  <td class="table_info"><span ng-bind="home.updated_floorCovering|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Rooms:</td>
+                  <td class="table_info"><span ng-bind="home.updated_rooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Architecture:</td>
+                  <td class="table_info"><span ng-bind="home.updated_architecture|notAvailable"></span></td>
+                </tr>
+              </table>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading table_heading">
+                <i class="glyphicon glyphicon-euro"></i>
+                <span class="table_title_padding">Valuations</span>
+              </div>
+              <table class="table">
+                <tr>
+                  <td class="table_title">High:</td>
+                  <td class="table_info"><span ng-bind="home.home.valuationRange_high|currency:$|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Low:</td>
+                  <td class="table_info"><span ng-bind="home.valuationRange_low|currency:$|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Estimate:</td>
+                  <td class="table_info"><span ng-bind="home.zestimate_amount|currency:$|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Over Past Year:</td>
+                  <td class="table_info">
+                    <img src="{{home.valuationGraph_1year}}">
                   </td>
                 </tr>
-              <tr>
-                <td class="table_title">Bedrooms:</td>
-                <td class="table_info"><span ng-bind="home.related_1_bedrooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Bathrooms:</td>
-                <td class="table_info"><span ng-bind="home.related_1_bathrooms|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Home Square Feet:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lotSizeSqFt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Year Built:</td>
-                <td class="table_info"><span ng-bind="home.related_1_yearBuilt|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Last Sold:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lastSoldDate|notAvailable"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Last Sold Price:</td>
-                <td class="table_info"><span ng-bind="home.related_1_lastSoldPrice|currency:$|notAvailable"></span></td>
-              </tr>
-              <tr ng-if="home.related_2_image_1">
-                <td colspan=2>
-                  <img ng-src="{{home.related_2_image_1}}">
-                  <img ng-src="{{home.related_2_image_2}}">
-                  <img ng-src="{{home.related_2_image_3}}">
-                  <img ng-src="{{home.related_2_image_4}}">
-                  <img ng-src="{{home.related_2_image_5}}">
-                </td>
-              </tr>
+                <tr>
+                  <td class="table_title">Over Past 5 Years:</td>
+                  <td class="table_info">
+                    <img src="{{home.valuationGraph_5years}}">
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading table_heading">
+                <i class="glyphicon glyphicon-euro"></i>
+                <span class="table_title_padding">Tax Assessment</span>
+              </div>
+              <table class="table">
+                <tr>
+                  <td class="table_title">Year:</td>
+                  <td class="table_info"><span ng-bind="home.taxAssessmentYear|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Amount:</td>
+                  <td class="table_info"><span ng-bind="home.taxAssessment|currency:$|notAvailable"></span></td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading table_heading">
+                <i class="glyphicon glyphicon-road"></i>
+                <span class="table_title_padding">Similar Properties</span>
+              </div>
+              <div ng-if="home.related_0_zpid">
+                <table class="table">
+                  <tr>
+                    <td colspan=2 class="table_title_large">
+                      <span ng-bind="home.related_0_address"></span>, 
+                      <span ng-bind="home.related_0_city"></span>, 
+                      <span ng-bind="home.related_0_state"></span>, 
+                      <span ng-bind="home.related_0_zip"></span>
+                    </td>
+                  </tr>
+                <tr>
+                  <td class="table_title">Bedrooms:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_bedrooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Bathrooms:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_bathrooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Home Square Feet:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lotSizeSqFt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Year Built:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_yearBuilt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Last Sold:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lastSoldDate|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Last Sold Price:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lastSoldPrice|currency:$|notAvailable"></span></td>
+                </tr>
+                <tr ng-if="home.related_0_image_1">
+                  <td colspan=2>
+                    <img ng-src="{{home.related_0_image_1}}">
+                    <img ng-src="{{home.related_0_image_2}}">
+                    <img ng-src="{{home.related_0_image_3}}">
+                    <img ng-src="{{home.related_0_image_4}}">
+                    <img ng-src="{{home.related_0_image_5}}">
+                  </td>
+                </tr>
+                </table>
+              </div>
+              <div ng-if="home.related_1_zpid">
+                <table class="table">
+                  <tr>
+                    <td colspan=2 class="table_title_large">
+                      <span ng-bind="home.related_1_address"></span>, 
+                      <span ng-bind="home.related_1_city"></span>, 
+                      <span ng-bind="home.related_1_state"></span>, 
+                      <span ng-bind="home.related_1_zip"></span>
+                    </td>
+                  </tr>
+                <tr>
+                  <td class="table_title">Bedrooms:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_bedrooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Bathrooms:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_bathrooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Home Square Feet:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lotSizeSqFt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Year Built:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_yearBuilt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Last Sold:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lastSoldDate|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Last Sold Price:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lastSoldPrice|currency:$|notAvailable"></span></td>
+                </tr>
+                <tr ng-if="home.related_1_image_1">
+                  <td colspan=2>
+                    <img ng-src="{{home.related_1_image_1}}">
+                    <img ng-src="{{home.related_1_image_2}}">
+                    <img ng-src="{{home.related_1_image_3}}">
+                    <img ng-src="{{home.related_1_image_4}}">
+                    <img ng-src="{{home.related_1_image_5}}">
+                  </td>
+                </tr>
+                </table>
+              </div>
+              <div ng-if="home.related_1_zpid">
+                <table class="table">
+                  <tr>
+                    <td colspan=2 class="table_title_large">
+                      <span ng-bind="home.related_2_address"></span>, 
+                      <span ng-bind="home.related_2_city"></span>, 
+                      <span ng-bind="home.related_2_state"></span>, 
+                      <span ng-bind="home.related_2_zip"></span>
+                    </td>
+                  </tr>
+                <tr>
+                  <td class="table_title">Bedrooms:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_bedrooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Bathrooms:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_bathrooms|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Home Square Feet:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lotSizeSqFt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Year Built:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_yearBuilt|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Last Sold:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lastSoldDate|notAvailable"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Last Sold Price:</td>
+                  <td class="table_info"><span ng-bind="home.related_1_lastSoldPrice|currency:$|notAvailable"></span></td>
+                </tr>
+                <tr ng-if="home.related_2_image_1">
+                  <td colspan=2>
+                    <img ng-src="{{home.related_2_image_1}}">
+                    <img ng-src="{{home.related_2_image_2}}">
+                    <img ng-src="{{home.related_2_image_3}}">
+                    <img ng-src="{{home.related_2_image_4}}">
+                    <img ng-src="{{home.related_2_image_5}}">
+                  </td>
+                </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading table_heading">
+                <i class="glyphicon glyphicon-euro"></i>
+                <span class="table_title_padding">Neighborhood Demographics</span>
+              </div>
+              <table class="table">
+                <tr>
+                  <td class="table_title">Median Condo Value:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_medianCondoValue"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median Home Value:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_medianHomeValue"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median Home Value:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_medianHomeValue"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Dollars/SqFt:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_dollarsPerSquareFeet"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Home Value Index Distribution:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_zillowHomeValueIndexDistribution"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Home Type:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_homeType"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Owners Vs Renters:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_ownersVsRenters"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Home Square Footage:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_homeSizeInSquareFeet"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Year Built:</td>
+                  <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_yearBuilt"></img></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Home Value Index:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_zillowHomeValueIndex"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median Single Family Home Value:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_medianSingleFamilyHomeValue"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median Condo Value:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_medianCondoValueAmount"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median 2-Bedroom Home:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_median2BedroomHomeValue"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median 3-Bedroom Home:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_median3BedroomHomeValue"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median 4-Bedroom Home:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_median4BedroomHomeValue"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Precent Homes Decreasing:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_percentHomesDecreasing"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Percent Listing Price Reduction:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_percentListingPriceReduction"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median List Price:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_medianListPrice"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median List Price / SqFt:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_medianListPricePerSqFt"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median Value / SqFt:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_medianValuePerSqFt"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Median Sale Price:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_medianSalePrice"></span></td>
+                </tr>
+                <tr>
+                  <td class="table_title">Property Tax:</td>
+                  <td class="table_info"><span ng-bind="home.demographics_propertyTax"></span></td>
+                </tr>
               </table>
             </div>
           </div>
+          <div class="col-md-3"></div>
+          <div class="col-md-3"></div>
+          <div class="col-md-1"></div>
+        </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading table_heading">
-              <i class="glyphicon glyphicon-euro"></i>
-              <span class="table_title_padding">Neighborhood Demographics</span>
-            </div>
-            <table class="table">
-              <tr>
-                <td class="table_title">Median Condo Value:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_medianCondoValue"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median Home Value:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_medianHomeValue"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median Home Value:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_medianHomeValue"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Dollars/SqFt:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_dollarsPerSquareFeet"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Home Value Index Distribution:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_zillowHomeValueIndexDistribution"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Home Type:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_homeType"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Owners Vs Renters:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_ownersVsRenters"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Home Square Footage:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_homeSizeInSquareFeet"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Year Built:</td>
-                <td class="table_info"><img fallback-src="http://google.com/favicon.ico" ng-src="home.demographics_yearBuilt"></img></td>
-              </tr>
-              <tr>
-                <td class="table_title">Home Value Index:</td>
-                <td class="table_info"><span ng-bind="home.demographics_zillowHomeValueIndex"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median Single Family Home Value:</td>
-                <td class="table_info"><span ng-bind="home.demographics_medianSingleFamilyHomeValue"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median Condo Value:</td>
-                <td class="table_info"><span ng-bind="home.demographics_medianCondoValueAmount"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median 2-Bedroom Home:</td>
-                <td class="table_info"><span ng-bind="home.demographics_median2BedroomHomeValue"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median 3-Bedroom Home:</td>
-                <td class="table_info"><span ng-bind="home.demographics_median3BedroomHomeValue"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median 4-Bedroom Home:</td>
-                <td class="table_info"><span ng-bind="home.demographics_median4BedroomHomeValue"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Precent Homes Decreasing:</td>
-                <td class="table_info"><span ng-bind="home.demographics_percentHomesDecreasing"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Percent Listing Price Reduction:</td>
-                <td class="table_info"><span ng-bind="home.demographics_percentListingPriceReduction"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median List Price:</td>
-                <td class="table_info"><span ng-bind="home.demographics_medianListPrice"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median List Price / SqFt:</td>
-                <td class="table_info"><span ng-bind="home.demographics_medianListPricePerSqFt"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median Value / SqFt:</td>
-                <td class="table_info"><span ng-bind="home.demographics_medianValuePerSqFt"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Median Sale Price:</td>
-                <td class="table_info"><span ng-bind="home.demographics_medianSalePrice"></span></td>
-              </tr>
-              <tr>
-                <td class="table_title">Property Tax:</td>
-                <td class="table_info"><span ng-bind="home.demographics_propertyTax"></span></td>
-              </tr>
-            </table>
+        <br><br><br>
+
+        <!-- update and delete -->
+        <div ng-show="$root.id == home.user_id">
+          <a href="#/homes/edit/{{home.id}}">
+            <button>Edit Home</button>
+          </a>
+          |
+          <button ng-click="deleteHome()">
+            Delete Home
+          </button>
+        </div>
+
+        <!-- bids | messages -->
+        <div ng-show="$root.id != home.user_id">
+          <a href="#/bids/new/{{home.id}}">
+            <button>
+              Bid on House
+            </button>
+          </a>
+          |
+          <a href="#/messages/new/{{home.user_id}}?home_id={{home.id}}">
+            <button>
+              Message Owner
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <!-- bids list -->
+      <div ng-controller="bidsController">
+        <div ng-init="showBids()">
+          <div ng-repeat="bid in bids">
+            <span ng-bind="bid.price"></span>
+            <br>
+            <span ng-bind="bid.email"></span>
           </div>
         </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-3"></div>
-        <div class="col-md-1"></div>
-      </div>
-
-      <br><br><br>
-
-      <!-- update and delete -->
-      <div ng-show="$root.id == home.user_id">
-        <a href="#/homes/edit/{{home.id}}">
-          <button>Edit Home</button>
-        </a>
-        |
-        <button ng-click="deleteHome()">
-          Delete Home
-        </button>
-      </div>
-
-      <!-- bids | messages -->
-      <div ng-show="$root.id != home.user_id">
-        <a href="#/bids/new/{{home.id}}">
-          <button>
-            Bid on House
-          </button>
-        </a>
-        |
-        <a href="#/messages/new/{{home.user_id}}?home_id={{home.id}}">
-          <button>
-            Message Owner
-          </button>
-        </a>
       </div>
     </div>
 
-    <!-- bids list -->
-    <div ng-controller="bidsController">
-      <div ng-init="showBids()">
-        <div ng-repeat="bid in bids">
-          <span ng-bind="bid.price"></span>
-          <br>
-          <span ng-bind="bid.email"></span>
-        </div>
-      </div>
+    <!--
+    <div class="container slider">
+      <img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+      <ul class="navGallery">
+        <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+          <img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+        </li>
+      </ul>
     </div>
-  </div>
+    -->
 
-  <!--
-  <div class="container slider">
-    <img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
-    <ul class="navGallery">
-      <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
-        <img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
-      </li>
-    </ul>
-  </div>
-  -->
-
-  <!-- if NO results came back -->
-  <div ng-if="total == 0">
-    This home has either been deleted or you do not have permission to view it.
+    <!-- if NO results came back -->
+    <div ng-if="total == 0">
+      This home has either been deleted or you do not have permission to view it.
+    </div>
   </div>
 </div>

@@ -3,249 +3,132 @@
   <div id="alert" style="display:none; margin-bottom:10px"></div>
 
   <!-- user -->
-  <div class="row home_from_top">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="float_left">
-        <div ng-showimage ng-image="{{image.image.medium.url}}" class="user_image"></div>
+  <div class="container-fluid">
+    <div class="row-fluid home_from_top">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="float_left">
+          <div ng-showimage ng-image="{{image.image.medium.url}}" class="user_image"></div>
+        </div>
+        <div class="user_member_since">
+          <!-- user: name -->
+          <b><span ng-bind="user.firstname|notAvailable"></span>&nbsp;<span ng-bind="user.lastname|notAvailable"></span></b>
+          <br>
+          <!-- user: member since -->
+          member since: <span ng-bind="user.created_at|dateFormat|notAvailable">
+        </div>
       </div>
-      <div class="user_member_since">
-        <!-- user: name -->
-        <b><span ng-bind="user.firstname|notAvailable"></span>&nbsp;<span ng-bind="user.lastname|notAvailable"></span></b>
-        <br>
-        <!-- user: member since -->
-        member since: <span ng-bind="user.created_at|dateFormat|notAvailable">
-      </div>
+      <div class="col-md-3"></div>
     </div>
-    <div class="col-md-3"></div>
   </div>
 
   <!-- panel: options -->
   <div ng-useroptions ng-route={{route}} ng-user={{user.id}}></div>
 
   <!-- panel: info -->
-  <div class="row home_from_top user_panel_top">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <!-- panel: title -->
-        <div class="panel-heading">
-          <h3 class="panel-title align_left" ng-show="!route">Activity</h3>
-          <h3 class="panel-title align_left" ng-show="route == 'activity'">Activity</h3>
-          <h3 class="panel-title align_left" ng-show="route == 'listings'">Listings</h3>
-          <h3 class="panel-title align_left" ng-show="route == 'bids'">Bids</h3>
-          <h3 class="panel-title align_left" ng-show="route == 'messages'">Messages</h3>
-        </div>
-        <div class="panel-body">
-          <!-------------------------------------------->
-          <!----------------- ACTIVITY ----------------->
-          <!-------------------------------------------->
-          <div ng-if="!route || route == 'activity'">
-            <table cellspacing=0 cellpadding=0 width="100%">
-              <tr ng-repeat="log in logs">
-                <!-- if results came back -->
-                <div ng-if="total != 0">
-                  <td class="log_td">
-                    <!-- listing: created -->
-                    <div ng-if="log.type == 'home' && log.action == 'create'" style="width:100%">
-                      <div class="float_left">
-                        <img src="/images/home_add_72.png">
-                      </div>
-                      <div class="float_left">
-                        <div class="log_heading">
-                          Listing Created
-                        </div>
-                        <div style="text-align:left; padding-left:5px">
-                          <a href="/#/homes/show/{{log.home_id}}">
-                            <span class="table_title_padding" ng-bind="log.address"></span><span ng-if="!log.address2">,</span>
-                            <span ng-if="log.address2" ng-bind="log.address2">,</span>
-                            <span ng-bind="log.city"></span>, 
-                            <span ng-bind="log.state"></span>, 
-                            <span ng-bind="log.zip"></span>
-                          </a>
-                        </div>
-                        <div class="log_currency">
-                          <span ng-bind="log.price|currency:$|notAvailable">
-                        </div>
-                      </div>
-                      <div class="float_right">
-                        <span ng-bind="log.date|dateFormat|notAvailable">
-                      </div>
-                    </div>
-                    <!-- listing: updated -->
-                    <div ng-if="log.type == 'home' && log.action == 'update'" style="width:100%">
-                      <div class="float_left">
-                        <img src="/images/home_edit_72.png">
-                      </div>
-                      <div class="float_left">
-                        <div class="log_heading">
-                          Listing Updated
-                        </div>
-                        <div style="text-align:left; padding-left:5px">
-                          <a href="/#/homes/show/{{log.home_id}}">
-                            <span class="table_title_padding" ng-bind="log.address"></span><span ng-if="!log.address2">,</span>
-                            <span ng-if="log.address2" ng-bind="log.address2">,</span>
-                            <span ng-bind="log.city"></span>, 
-                            <span ng-bind="log.state"></span>, 
-                            <span ng-bind="log.zip"></span>
-                          </a>
-                        </div>
-                        <div class="log_currency">
-                          Price changed to: <span ng-bind="log.price|currency:$|notAvailable"></span>
-                        </div>
-                      </div>
-                      <div class="float_right">
-                        <span ng-bind="log.date|dateFormat|notAvailable"></span>
-                      </div>
-                    </div>
-                    <!-- bid: created -->
-                    <div ng-if="log.type == 'bid' && log.action == 'create'" style="width:100%">
-                      <div class="float_left">
-                        <img src="/images/payment_add_72.png">
-                      </div>
-                      <div class="float_left">
-                        <div class="log_heading">
-                          Bid Created
-                        </div>
-                        <div style="text-align:left; padding-left:5px">
-                          <a href="/#/homes/show/{{log.home_id}}">
-                            <span class="table_title_padding" ng-bind="log.home_address"></span><span ng-if="!log.home_address2">,</span>
-                            <span ng-if="log.home_address2" ng-bind="log.home_address2">,</span>
-                            <span ng-bind="log.home_city"></span>, 
-                            <span ng-bind="log.home_state"></span>, 
-                            <span ng-bind="log.home_zip"></span>
-                          </a>
-                        </div>
-                        <div class="log_currency">
-                          <b>House Price:</b> <span ng-bind="log.home_price|currency:$|notAvailable"></span>
-                        </div>
-                        <div class="log_currency">
-                          <b>Bid:</b> <span ng-bind="log.bid_price|currency:$|notAvailable"></span>
-                        </div>
-                      </div>
-                      <div class="float_right">
-                        <span ng-bind="log.date|dateFormat|notAvailable"></span>
-                      </div>
-                    </div>
-                  </td>
-                </div>
-                <!-- if NO results came back -->
-                <div ng-empty ng-total={{total}}></div>
-              </tr>
-            </table>
+  <div class="container-fluid">
+    <div class="row-fluid home_from_top user_panel_top">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <!-- panel: title -->
+          <div class="panel-heading">
+            <h3 class="panel-title align_left" ng-show="!route">Activity</h3>
+            <h3 class="panel-title align_left" ng-show="route == 'activity'">Activity</h3>
+            <h3 class="panel-title align_left" ng-show="route == 'listings'">Listings</h3>
+            <h3 class="panel-title align_left" ng-show="route == 'bids'">Bids</h3>
+            <h3 class="panel-title align_left" ng-show="route == 'messages'">Messages</h3>
           </div>
-          <!-------------------------------------------->
-          <!----------------- LISTINGS ----------------->
-          <!-------------------------------------------->
-          <div ng-if="route == 'listings'">
-            <table cellspacing=0 cellpadding=0 width="100%">
-              <tr ng-repeat="listing in listings">
-                <!-- if results came back -->
-                <div ng-if="total != 0">
-                  <td class="log_td">
-                    <!-- home image -->
-                    <div class="float_left">
-                      <div ng-if="listing.images.length > 0">
-                        <div ng-repeat="imagex in listing.images">
-                          <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
-                        </div>
-                      </div>
-                      <div ng-if="listing.images.length == 0">
-                        <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
-                      </div>
-                    </div>
-                    <div class="float_left">
-                      <div class="log_heading">
-                        <a href="/#/homes/show/{{listing.id}}">
-                          <span class="table_title_padding" ng-bind="listing.address"></span><span ng-if="!listing.address2">,</span>
-                          <span ng-if="listing.address2" ng-bind="listing.address2">,</span>
-                          <span ng-bind="listing.city"></span>, 
-                          <span ng-bind="listing.state"></span>, 
-                          <span ng-bind="listing.zip"></span>
-                        </a>
-                      </div>
-                      <div class="log_currency">
-                        <span ng-bind="listing.price|currency:$|notAvailable"></span>
-                      </div>
-                    </div>
-                    <div class="float_right">
-                      <span ng-bind="listing.created_at|dateFormat|notAvailable"></span>
-                    </div>
-                  </td>
-                </div>
-                <!-- if NO results came back -->
-                <div ng-empty ng-total={{total}}></div>
-              </tr>
-            </table>
-          </div>
-          <!-------------------------------------------->
-          <!------------------- BIDS ------------------->
-          <!-------------------------------------------->
-          <div ng-if="route == 'bids'">
-            <table cellspacing=0 cellpadding=0 width="100%">
-              <tr ng-repeat="bid in bids">
-                <!-- if results came back -->
-                <div ng-if="total != 0">
-                  <td class="log_td">
-                    <!-- home image -->
-                    <div class="float_left">
-                      <div ng-if="bid.image.length > 0">
-                        <div ng-repeat="imagex in bid.image">
-                          <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
-                        </div>
-                      </div>
-                      <div ng-if="bid.image.length == 0">
-                        <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
-                      </div>
-                    </div>
-                    <div class="float_left">
-                      <div class="log_heading_small">
-                        <a href="/#/homes/show/{{bid.homes_id}}">
-                          <span class="table_title_padding" ng-bind="bid.address"></span><span ng-if="!bid.address2">,</span>
-                          <span ng-if="bid.address2" ng-bind="bid.address2">,</span>
-                          <span ng-bind="bid.city"></span>, 
-                          <span ng-bind="bid.state"></span>, 
-                          <span ng-bind="bid.zip"></span>
-                        </a>
-                      </div>
-                      <div class="log_currency">
-                        <b>House Price:</b> <span ng-bind="bid.homes_price|currency:$|notAvailable"></span>
-                      </div>
-                      <div class="log_currency">
-                        <b>Bid:</b> <span ng-bind="bid.bids_price|currency:$|notAvailable"></span>
-                      </div>
-                    </div>
-                    <div class="float_right">
-                      <span ng-bind="bid.bids_created_at|dateFormat|notAvailable"></span>
-                    </div>
-                  </td>
-                </div>
-                <!-- if NO results came back -->
-                <div ng-empty ng-total={{total}}></div>
-              </tr>
-            </table>
-          </div>
-          <!-------------------------------------------->
-          <!----------------- MESSAGES ----------------->
-          <!-------------------------------------------->
-          <div ng-if="route == 'messages'">
-            <!-- if user is looking at his own messages -->
-            <div ng-if="$root.id == route_id">
-              <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover borderless">
-                <tr ng-repeat="message in messages" class="{{message}}">
+          <div class="panel-body">
+            <!-------------------------------------------->
+            <!----------------- ACTIVITY ----------------->
+            <!-------------------------------------------->
+            <div ng-if="!route || route == 'activity'">
+              <table cellspacing=0 cellpadding=0 width="100%">
+                <tr ng-repeat="log in logs">
                   <!-- if results came back -->
                   <div ng-if="total != 0">
-                    <td class="log_td" ng-click="go('/messages/show/{{message._id.thread_id}}')">
-                      <div class="float_left user_image">
-                        <div ng-showimage ng-image="{{message.image.image.thumb.url}}"></div>
-                      </div>
-                      <div class="float_left" style="padding-left:15px; text-align:left">
-                        <div style="font-weight:bold">
-                          <span ng-bind="message.user.firstname|notAvailable"></span>&nbsp;<span ng-bind="message.user.lastname|notAvailable"></span>
+                    <td class="log_td">
+                      <!-- listing: created -->
+                      <div ng-if="log.type == 'home' && log.action == 'create'" style="width:100%">
+                        <div class="float_left">
+                          <img src="/images/home_add_72.png">
                         </div>
-                        <span ng-bind="message.message"></span>
+                        <div class="float_left">
+                          <div class="log_heading">
+                            Listing Created
+                          </div>
+                          <div style="text-align:left; padding-left:5px">
+                            <a href="/#/homes/show/{{log.home_id}}">
+                              <span class="table_title_padding" ng-bind="log.address"></span><span ng-if="!log.address2">,</span>
+                              <span ng-if="log.address2" ng-bind="log.address2">,</span>
+                              <span ng-bind="log.city"></span>, 
+                              <span ng-bind="log.state"></span>, 
+                              <span ng-bind="log.zip"></span>
+                            </a>
+                          </div>
+                          <div class="log_currency">
+                            <span ng-bind="log.price|currency:$|notAvailable">
+                          </div>
+                        </div>
+                        <div class="float_right">
+                          <span ng-bind="log.date|dateFormat|notAvailable">
+                        </div>
                       </div>
-                      <br>
+                      <!-- listing: updated -->
+                      <div ng-if="log.type == 'home' && log.action == 'update'" style="width:100%">
+                        <div class="float_left">
+                          <img src="/images/home_edit_72.png">
+                        </div>
+                        <div class="float_left">
+                          <div class="log_heading">
+                            Listing Updated
+                          </div>
+                          <div style="text-align:left; padding-left:5px">
+                            <a href="/#/homes/show/{{log.home_id}}">
+                              <span class="table_title_padding" ng-bind="log.address"></span><span ng-if="!log.address2">,</span>
+                              <span ng-if="log.address2" ng-bind="log.address2">,</span>
+                              <span ng-bind="log.city"></span>, 
+                              <span ng-bind="log.state"></span>, 
+                              <span ng-bind="log.zip"></span>
+                            </a>
+                          </div>
+                          <div class="log_currency">
+                            Price changed to: <span ng-bind="log.price|currency:$|notAvailable"></span>
+                          </div>
+                        </div>
+                        <div class="float_right">
+                          <span ng-bind="log.date|dateFormat|notAvailable"></span>
+                        </div>
+                      </div>
+                      <!-- bid: created -->
+                      <div ng-if="log.type == 'bid' && log.action == 'create'" style="width:100%">
+                        <div class="float_left">
+                          <img src="/images/payment_add_72.png">
+                        </div>
+                        <div class="float_left">
+                          <div class="log_heading">
+                            Bid Created
+                          </div>
+                          <div style="text-align:left; padding-left:5px">
+                            <a href="/#/homes/show/{{log.home_id}}">
+                              <span class="table_title_padding" ng-bind="log.home_address"></span><span ng-if="!log.home_address2">,</span>
+                              <span ng-if="log.home_address2" ng-bind="log.home_address2">,</span>
+                              <span ng-bind="log.home_city"></span>, 
+                              <span ng-bind="log.home_state"></span>, 
+                              <span ng-bind="log.home_zip"></span>
+                            </a>
+                          </div>
+                          <div class="log_currency">
+                            <b>House Price:</b> <span ng-bind="log.home_price|currency:$|notAvailable"></span>
+                          </div>
+                          <div class="log_currency">
+                            <b>Bid:</b> <span ng-bind="log.bid_price|currency:$|notAvailable"></span>
+                          </div>
+                        </div>
+                        <div class="float_right">
+                          <span ng-bind="log.date|dateFormat|notAvailable"></span>
+                        </div>
                       </div>
                     </td>
                   </div>
@@ -254,31 +137,42 @@
                 </tr>
               </table>
             </div>
-            <!-- if user is looking at his messages with one other user -->
-            <div ng-if="$root.id != route_id">
-              <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover">
-                <tr ng-repeat="message in messages">
+            <!-------------------------------------------->
+            <!----------------- LISTINGS ----------------->
+            <!-------------------------------------------->
+            <div ng-if="route == 'listings'">
+              <table cellspacing=0 cellpadding=0 width="100%">
+                <tr ng-repeat="listing in listings">
                   <!-- if results came back -->
                   <div ng-if="total != 0">
                     <td class="log_td">
-                      <div ng-if="$root.id == message.sender_id">
-                        <div class="float_left user_image">
-                          <div ng-showimage ng-image="{{image_primary.image.thumb.url}}"></div>
+                      <!-- home image -->
+                      <div class="float_left">
+                        <div ng-if="listing.images.length > 0">
+                          <div ng-repeat="imagex in listing.images">
+                            <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
+                          </div>
                         </div>
-                        <div class="float_left" style="padding-left:15px">
-                          <span ng-bind="message.message"></span>
-                        </div>
-                      </div>
-
-                      <div ng-if="$root.id == message.receiver_id">
-                        <div class="float_right user_image">
-                          <div ng-showimage ng-image="{{image.image.thumb.url}}"></div>
-                        </div>
-                        <div class="float_right" style="padding-right:15px">
-                          <span ng-bind="message.message"></span>
+                        <div ng-if="listing.images.length == 0">
+                          <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
                         </div>
                       </div>
-                      <br>
+                      <div class="float_left">
+                        <div class="log_heading">
+                          <a href="/#/homes/show/{{listing.id}}">
+                            <span class="table_title_padding" ng-bind="listing.address"></span><span ng-if="!listing.address2">,</span>
+                            <span ng-if="listing.address2" ng-bind="listing.address2">,</span>
+                            <span ng-bind="listing.city"></span>, 
+                            <span ng-bind="listing.state"></span>, 
+                            <span ng-bind="listing.zip"></span>
+                          </a>
+                        </div>
+                        <div class="log_currency">
+                          <span ng-bind="listing.price|currency:$|notAvailable"></span>
+                        </div>
+                      </div>
+                      <div class="float_right">
+                        <span ng-bind="listing.created_at|dateFormat|notAvailable"></span>
                       </div>
                     </td>
                   </div>
@@ -286,6 +180,116 @@
                   <div ng-empty ng-total={{total}}></div>
                 </tr>
               </table>
+            </div>
+            <!-------------------------------------------->
+            <!------------------- BIDS ------------------->
+            <!-------------------------------------------->
+            <div ng-if="route == 'bids'">
+              <table cellspacing=0 cellpadding=0 width="100%">
+                <tr ng-repeat="bid in bids">
+                  <!-- if results came back -->
+                  <div ng-if="total != 0">
+                    <td class="log_td">
+                      <!-- home image -->
+                      <div class="float_left">
+                        <div ng-if="bid.image.length > 0">
+                          <div ng-repeat="imagex in bid.image">
+                            <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
+                          </div>
+                        </div>
+                        <div ng-if="bid.image.length == 0">
+                          <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
+                        </div>
+                      </div>
+                      <div class="float_left">
+                        <div class="log_heading_small">
+                          <a href="/#/homes/show/{{bid.homes_id}}">
+                            <span class="table_title_padding" ng-bind="bid.address"></span><span ng-if="!bid.address2">,</span>
+                            <span ng-if="bid.address2" ng-bind="bid.address2">,</span>
+                            <span ng-bind="bid.city"></span>, 
+                            <span ng-bind="bid.state"></span>, 
+                            <span ng-bind="bid.zip"></span>
+                          </a>
+                        </div>
+                        <div class="log_currency">
+                          <b>House Price:</b> <span ng-bind="bid.homes_price|currency:$|notAvailable"></span>
+                        </div>
+                        <div class="log_currency">
+                          <b>Bid:</b> <span ng-bind="bid.bids_price|currency:$|notAvailable"></span>
+                        </div>
+                      </div>
+                      <div class="float_right">
+                        <span ng-bind="bid.bids_created_at|dateFormat|notAvailable"></span>
+                      </div>
+                    </td>
+                  </div>
+                  <!-- if NO results came back -->
+                  <div ng-empty ng-total={{total}}></div>
+                </tr>
+              </table>
+            </div>
+            <!-------------------------------------------->
+            <!----------------- MESSAGES ----------------->
+            <!-------------------------------------------->
+            <div ng-if="route == 'messages'">
+              <!-- if user is looking at his own messages -->
+              <div ng-if="$root.id == route_id">
+                <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover borderless">
+                  <tr ng-repeat="message in messages" class="{{message}}">
+                    <!-- if results came back -->
+                    <div ng-if="total != 0">
+                      <td class="log_td" ng-click="go('/messages/show/{{message._id.thread_id}}')">
+                        <div class="float_left user_image">
+                          <div ng-showimage ng-image="{{message.image.image.thumb.url}}"></div>
+                        </div>
+                        <div class="float_left" style="padding-left:15px; text-align:left">
+                          <div style="font-weight:bold">
+                            <span ng-bind="message.user.firstname|notAvailable"></span>&nbsp;<span ng-bind="message.user.lastname|notAvailable"></span>
+                          </div>
+                          <span ng-bind="message.message"></span>
+                        </div>
+                        <br>
+                        </div>
+                      </td>
+                    </div>
+                    <!-- if NO results came back -->
+                    <div ng-empty ng-total={{total}}></div>
+                  </tr>
+                </table>
+              </div>
+              <!-- if user is looking at his messages with one other user -->
+              <div ng-if="$root.id != route_id">
+                <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover">
+                  <tr ng-repeat="message in messages">
+                    <!-- if results came back -->
+                    <div ng-if="total != 0">
+                      <td class="log_td">
+                        <div ng-if="$root.id == message.sender_id">
+                          <div class="float_left user_image">
+                            <div ng-showimage ng-image="{{image_primary.image.thumb.url}}"></div>
+                          </div>
+                          <div class="float_left" style="padding-left:15px">
+                            <span ng-bind="message.message"></span>
+                          </div>
+                        </div>
+
+                        <div ng-if="$root.id == message.receiver_id">
+                          <div class="float_right user_image">
+                            <div ng-showimage ng-image="{{image.image.thumb.url}}"></div>
+                          </div>
+                          <div class="float_right" style="padding-right:15px">
+                            <span ng-bind="message.message"></span>
+                          </div>
+                        </div>
+                        <br>
+                        </div>
+                      </td>
+                    </div>
+                    <!-- if NO results came back -->
+                    <div ng-empty ng-total={{total}}></div>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
