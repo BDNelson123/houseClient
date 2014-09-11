@@ -1,20 +1,21 @@
-<form ng-submit="loginUser()" class="form-vertical">
-  <div class="control-group">
-    <!-- flash alerts -->
-    <div id="alert" style="display:none; margin-bottom:10px"></div>
-
-    <!-- user - sign up -->
-    <h3>Sign In:</h3>
-    <div class="controls user_new_form">
-      <input type="text" ng-model="email" placeholder="email" class="form-control user_new_input" required/>
-      <br>
-      <input type="password" ng-model="password" placeholder="password" class="form-control user_new_input" required/>
-      <br>
-    </div>
+<div class="container marketing">
+  <div class="row">
+    <form ng-submit="loginUser()" class="form-vertical">
+      <div class="control-group">
+        <!-- user - sign up -->
+        <h3>Sign In:</h3>
+        <div>
+          <input type="text" ng-model="email" placeholder="email" class="form-control user_new_input" required/>
+          <br>
+          <input type="password" ng-model="password" placeholder="password" class="form-control user_new_input" required/>
+          <br>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <input class="btn btn-primary" type="submit" value="Sign In"/>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="control-group">
-    <div class="controls">
-      <input class="btn btn-primary" type="submit" value="Sign In"/>
-    </div>
-  </div>
-</form>
+</div>

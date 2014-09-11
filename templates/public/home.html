@@ -1,21 +1,27 @@
 <div class="home_top">
   <!-- main -->
   <div class="container home_top_container">
-    <img src="images/profile.png">
-    <h1>ePerty</h1>
-    <p style="font-size:18pt">Your House, Your Commission</p>
+    <div class="row">
+      <img src="images/profile.png">
+      <h1>ePerty</h1>
+      <p style="font-size:18pt">Your House, Your Commission</p>
+    </div>
   </div>
   <!-- search -->
-  <div ng-controller="searchesController" class="home_search">
-    <div class="input-group home_input_group">
-      <form class="navbar-form" role="search" ng-submit="searchRedirect()">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Property search..." name="srch-term" id="srch-term" ng-model="query" size=45>
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div ng-controller="searchesController" class="home_search">
+        <div class="input-group home_input_group">
+          <form id="navbar_search_form" class="navbar-form" role="search" ng-submit="searchRedirect()">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Property search..." name="srch-term" id="srch-term" size=45 ng-model="query">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -59,88 +65,91 @@
 </section>
 
 <div class="container marketing">
-  <hr class="featurette-divider">
-  <!-- view: desktop, tablet -->
-  <div class="featurette visible-md visible-lg">
-    <img class="featurette-image pull-left" src="images/launchpad.svg">
-    <h2 class="featurette-heading">Increase Demand for Your House</h2>
-    <p class="lead">
-      &#149; Allow interested buyers to find your house
-      <br>
-      &#149; Have them bid against one another 
-      <br>
-      &#149; Increase the price of your house 
-      <br>
-    </p>
+  <div class="row">
+    <hr class="featurette-divider">
+    <!-- view: desktop, tablet -->
+    <div class="featurette visible-md visible-lg">
+      <img class="featurette-image pull-left" src="images/launchpad.svg">
+      <h2 class="featurette-heading">Increase Demand for Your House</h2>
+      <p class="lead">
+        &#149; Allow interested buyers to find your house
+        <br>
+        &#149; Have them bid against one another 
+        <br>
+        &#149; Increase the price of your house 
+        <br>
+      </p>
+    </div>
+    <!-- view: phone -->
+    <div class="featurette visible-sm visible-xs">
+      <img class="featurette-image" src="images/launchpad.svg">
+      <h2 class="featurette-heading">Increase Demand</h2>
+      <p class="lead">
+        &#149; Allow buyers to find your house
+        <br>
+        &#149; Have them bid against one another 
+        <br>
+        &#149; Increase the price of your house 
+        <br>
+      </p>
+    </div>
+    <hr class="featurette-divider">
+    <!-- view: desktop, tablet -->
+    <div class="featurette visible-md visible-lg">
+      <img class="featurette-image pull-right" src="images/preserver.svg">
+      <h2 class="featurette-heading">Absolutely Nothing to Lose</h2>
+      <p class="lead">
+        &#149; Its 100% free with no gotchas
+        <br>
+        &#149; All bids are not contractually obligated
+        <br>
+        &#149; ePerty helps you find the right buyer for your house
+        <br>
+      </p>
+    </div>
+    <!-- view: phone -->
+    <div class="featurette visible-sm visible-xs">
+      <img class="featurette-image" src="images/preserver.svg">
+      <h2 class="featurette-heading">Nothing to Lose</h2>
+      <p class="lead">
+        &#149; 100% free with no gotchas
+        <br>
+        &#149; All bids not contractually obligated
+        <br>
+        &#149; ePerty helps you find the right buyer
+        <br>
+      </p>
+    </div>
+    <hr class="featurette-divider">
+    <!-- view: desktop, tablet -->
+    <div class="featurette visible-md visible-lg">
+      <img class="featurette-image pull-left" src="images/pistons.svg">
+      <h2 class="featurette-heading">The Seller is Always in Control</h2>
+      <p class="lead">
+        &#149; You determine which bidder to engage
+        <br>
+        &#149; You have access to your bidders' information
+        <br>
+        &#149; You sell your house for your price
+        <br>
+      </p>
+    </div>
+    <!-- view: phone -->
+    <div class="featurette visible-sm visible-xs">
+      <img class="featurette-image" src="images/pistons.svg">
+      <h2 class="featurette-heading">Your in Control</h2>
+      <p class="lead">
+        &#149; You chose the bidders to engage
+        <br>
+        &#149; Access your bidders' information
+        <br>
+        &#149; You sell your house for your price
+        <br>
+      </p>
+    </div>
+    <hr class="featurette-divider">
   </div>
-  <!-- view: phone -->
-  <div class="featurette visible-sm visible-xs">
-    <img class="featurette-image" src="images/launchpad.svg">
-    <h2 class="featurette-heading">Increase Demand</h2>
-    <p class="lead">
-      &#149; Allow buyers to find your house
-      <br>
-      &#149; Have them bid against one another 
-      <br>
-      &#149; Increase the price of your house 
-      <br>
-    </p>
-  </div>
-  <hr class="featurette-divider">
-  <!-- view: desktop, tablet -->
-  <div class="featurette visible-md visible-lg">
-    <img class="featurette-image pull-right" src="images/preserver.svg">
-    <h2 class="featurette-heading">Absolutely Nothing to Lose</h2>
-    <p class="lead">
-      &#149; Its 100% free with no gotchas
-      <br>
-      &#149; All bids are not contractually obligated
-      <br>
-      &#149; ePerty helps you find the right buyer for your house
-      <br>
-    </p>
-  </div>
-  <!-- view: phone -->
-  <div class="featurette visible-sm visible-xs">
-    <img class="featurette-image" src="images/preserver.svg">
-    <h2 class="featurette-heading">Nothing to Lose</h2>
-    <p class="lead">
-      &#149; 100% free with no gotchas
-      <br>
-      &#149; All bids not contractually obligated
-      <br>
-      &#149; ePerty helps you find the right buyer
-      <br>
-    </p>
-  </div>
-  <hr class="featurette-divider">
-  <!-- view: desktop, tablet -->
-  <div class="featurette visible-md visible-lg">
-    <img class="featurette-image pull-left" src="images/pistons.svg">
-    <h2 class="featurette-heading">The Seller is Always in Control</h2>
-    <p class="lead">
-      &#149; You determine which bidder to engage
-      <br>
-      &#149; You have access to your bidders' information
-      <br>
-      &#149; You sell your house for your price
-      <br>
-    </p>
-  </div>
-  <!-- view: phone -->
-  <div class="featurette visible-sm visible-xs">
-    <img class="featurette-image" src="images/pistons.svg">
-    <h2 class="featurette-heading">Your in Control</h2>
-    <p class="lead">
-      &#149; You chose the bidders to engage
-      <br>
-      &#149; Access your bidders' information
-      <br>
-      &#149; You sell your house for your price
-      <br>
-    </p>
-  </div>
-  <hr class="featurette-divider">
 </div>
 
+<!-- footer -->
 <div ng-footer></div>

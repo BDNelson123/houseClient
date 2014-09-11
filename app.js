@@ -8,7 +8,6 @@ house.config(function ($routeProvider) {
     .when ('/public/how_it_works', {templateUrl: "templates/public/how_it_works.html"})
     .when ('/public/pricing', {templateUrl: "templates/public/pricing.html"})
     .when ('/public/contact', {templateUrl: "templates/public/contact.html"})
-    .when ('/public/career', {templateUrl: "templates/public/career.html"})
     .when ('/users/sign_in', {templateUrl: "templates/users/sign_in.html", controller: 'usersController'})
     .when ('/users/new', {templateUrl: "templates/users/new.html", controller: 'usersController'})
     .when ('/users/show/:id', {templateUrl: "templates/users/show.html", controller: 'usersController'})

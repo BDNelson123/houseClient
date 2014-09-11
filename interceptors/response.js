@@ -5,6 +5,7 @@ house.config(function ($provide, $httpProvider) {
         console.log(config); 
         $( "#alert" ).hide();
         $('#loading').show();
+        $('html, body').animate({ scrollTop: 0 }, 0);
         return config || $q.when(config);
       },
 
@@ -19,6 +20,7 @@ house.config(function ($provide, $httpProvider) {
         console.log(response);
         $( "#alert" ).hide();
         $('#loading').hide();
+        $('html, body').animate({ scrollTop: 0 }, 0);
         return response || $q.when(response);
       },
 

@@ -31,10 +31,11 @@ function api_errors(rejection){
    var values = rejection.data;
    var flash = [];
    angular.forEach(values, function(value, key) {
-     this.push('<p>' + key + ': ' + value + '</p>');
+     this.push('<p>' + value + '</p>');
    }, flash);
 
   $( "#alert" ).fadeIn( "fast", function() {
     $( this ).html(flash);
+    $( "#alert" ).fadeOut( 5000 );
   });
 }

@@ -1,7 +1,8 @@
+// this code makes sure the navbar slides up on mobile devices when you click on a link
 $(document).ready(function() {
   if ($(this).width() <= 767) {
     $('.navbar a').on('click', function(){
-      if($( this ).hasClass( "dropdown-toggle" ) == false){
+      if($( this ).is( ".dropdown-toggle, .navbar-brand" ) == false){
         $(".navbar-toggle").click();
       }
     });
@@ -14,7 +15,7 @@ $(document).ready(function() {
   $(window).resize(function() {
     if ($(this).width() <= 767) {
       $('.navbar a').on('click', function(){
-        if($( this ).hasClass( "dropdown-toggle" ) == false){
+        if($( this ).is( ".dropdown-toggle, .navbar-brand" ) == false){
           $(".navbar-toggle").click();
         }
       });

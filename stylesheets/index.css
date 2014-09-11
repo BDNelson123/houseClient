@@ -31,3 +31,18 @@
   cursor: -webkit-zoom-in;
   z-index: 10000000;
 }
+
+.alert {
+  position: absolute;
+  width:50%;
+  top: 50%;
+  left: 25%;
+  margin-top: -(Y/2)px;
+  margin-right: auto;
+  background-color:#e20b00;
+  text-align:center;
+  z-index: 10000000;
+  padding: 20px 0 10px 20;
+  color:#FFFFFF;
+  font-weight:bold;
+}
