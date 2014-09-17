@@ -1,26 +1,123 @@
-<form ng-submit="submitUser()" class="form-vertical">
-  <div class="control-group">
-    <!-- flash alerts -->
-    <div id="alert" style="display:none; margin-bottom:10px"></div>
+<div class="user_auth_container">
+  <!-- view: desktop -->
+  <div class="container user_center_panel_new visible-lg">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <!-- user - sign up -->
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <!-- header -->
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Sign Up to Use ePerty
+            </h3>
+          </div>
+          <div class="panel-body">
+            <!-- sign up form -->
+            <form ng-submit="submitUser()" class="form-vertical">
+              <div class="control-group user_panel_margin_top">
+                <!-- field: first name -->
+                <div class="input-group">
+                  <input type="text" ng-model="user.firstname" placeholder="first name" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <br>
+                <!-- field: last name -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="text" ng-model="user.lastname" placeholder="last name" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <br>
+                <!-- field: email -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="text" ng-model="user.email" placeholder="email" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                </div>
+                <br>
+                <!-- field: password -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="password" ng-model="user.password" placeholder="password" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                </div>
+                <br>
+                <!-- field: password confirm -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></span>
+                </div>
+              </div>
+              <br>
+              <!-- field: submit -->
+              <div class="control-group user_panel_margin_top">
+                <div class="controls">
+                  <input class="btn btn-primary" type="submit" value="Sign Up" style="width:100%"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
 
-    <!-- user - sign up -->
-    <h3>Sign Up:</h3>
-    <div class="controls user_new_form">
-      <input type="text" ng-model="user.firstname" placeholder="first name" class="form-control user_new_input" required/>
-      <br>
-      <input type="text" ng-model="user.lastname" placeholder="last name" class="form-control user_new_input" required/>
-      <br>
-      <input type="text" ng-model="user.email" placeholder="email" class="form-control user_new_input" required/>
-      <br>
-      <input type="password" ng-model="user.password" placeholder="password" class="form-control user_new_input" required/>
-      <br>
-      <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" class="form-control user_new_input" required/>
-      <br>
+  <!-- view: tablet, phone -->
+  <div class="container user_center_panel_mobile_new visible-md visible-sm visible-xs">
+    <div class="row">
+      <!-- user - sign up -->
+      <div class="col-md-10">
+        <div class="panel panel-default">
+          <!-- header -->
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Sign Up to Use ePerty
+            </h3>
+          </div>
+          <div class="panel-body">
+            <!-- sign in form -->
+            <form ng-submit="submitUser()" class="form-vertical">
+              <div class="control-group user_panel_margin_top">
+                <!-- field: first name -->
+                <div class="input-group">
+                  <input type="text" ng-model="user.firstname" placeholder="first name" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <br>
+                <!-- field: last name -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="text" ng-model="user.lastname" placeholder="last name" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <br>
+                <!-- field: email -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="text" ng-model="user.email" placeholder="email" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                </div>
+                <br>
+                <!-- field: password -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="password" ng-model="user.password" placeholder="password" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                </div>
+                <br>
+                <!-- field: password confirm -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></span>
+                </div>
+              </div>
+              <br>
+              <!-- field: submit -->
+              <div class="control-group user_panel_margin_top">
+                <div class="controls">
+                  <input class="btn btn-primary" type="submit" value="Sign Up" style="width:100%"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="control-group">
-    <div class="controls">
-      <input class="btn btn-primary" type="submit" value="create user"/>
-    </div>
-  </div>
-</form>
+</div>

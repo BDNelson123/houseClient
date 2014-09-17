@@ -24,7 +24,7 @@
 .loading {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: calc(50% - 25px);
   margin-left: -(X/2)px;
   margin-top: -(Y/2)px;
   -webkit-user-select: none; 

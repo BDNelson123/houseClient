@@ -28,14 +28,8 @@ function restrict_premission(location,root,id){
 
 // shows server validation errors
 function api_errors(rejection){
-   var values = rejection.data;
-   var flash = [];
-   angular.forEach(values, function(value, key) {
-     this.push('<p>' + value + '</p>');
-   }, flash);
-
   $( "#alert" ).fadeIn( "fast", function() {
-    $( this ).html(flash);
+    $( this ).html(rejection.data);
     $( "#alert" ).fadeOut( 5000 );
   });
 }

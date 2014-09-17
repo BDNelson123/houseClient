@@ -12,6 +12,10 @@
 }
 
 .lead {
-  color: #e20b00;
+  color: #a1a1a1;
   font-size:15pt;
+}
+
+.input-group-addon {
+  background-color:#FFFFFF;
 }

@@ -26,5 +26,5 @@ house.config(function ($routeProvider) {
     .when ('/messages/show/:id', {templateUrl: "templates/messages/show.html", controller: 'messagesController'})
     .when ('/404', {templateUrl: "templates/public/404.html"})
     .when ('/', {templateUrl: "templates/public/home.html"})
-    .otherwise({ redirectTo: '/' });
+    .otherwise({ redirectTo: '/404' });
 });
