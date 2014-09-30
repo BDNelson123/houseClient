@@ -1,49 +1,34 @@
-<div ng-init="updateHome()">
-  <form ng-submit="submitUpdateHome()" class="form-vertical">
-    <div class="control-group">
-      <!-- flash alerts -->
-      <div id="alert" style="display:none; margin-bottom:10px"></div>
-
-      <!-- user - sign up -->
-      <h3>Update Your House</h3>
-      <div class="controls">
-        <input type="text" ng-model="home.price" placeholder="price" class="form-control user_new_input" required/>
-        <br>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <input class="btn btn-primary" type="submit" value="submit"/>
-      </div>
-    </div>
-  </form>
-
-  <br><br>
-
-  <!-- main image -->
-  Main Image
-  <div" ng-init="images()" ng-userprimaryimage>
-    <div ng-repeat="homeImage in homeImages">
-      <div ng-show="homeImage.id == $root.homeImagePrimary" ng-showimage ng-image="{{homeImage.image.thumb.url}}" ></div>
+<div class="container-fluid marketing">
+  <div class="row-fluid home_from_top">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary btn-md" style="font-size:18pt; width:500px">
+        <div style="float:left">
+          <span><span class="glyphicon glyphicon-lock"></span></span>
+        </div>
+        <div style="float:left; padding-left:25px">
+          Update the Price of Your House
+        </div>
+      </button>
     </div>
   </div>
+</div>
 
-  <!-- images -->
-  <b>House Images</b> <br>
-  <!-- show home images - allow to update -->
-  <div ng-init="images()" ng-userprimaryimage>
-    <form class="form-vertical">
-      <div ng-repeat="homeImage in homeImages">
-        <a class="hand" ng-click="submitUpdateHomePrimaryImage(homeImage.id)">
-          <span id="image_{{homeImage.id}}" ng-showimage ng-image="{{homeImage.image.thumb.url}}"></span>
-        </a>
-      </div>
-    </form>
+<div class="container-fluid marketing">
+  <div class="row-fluid home_from_top">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary btn-md" style="font-size:18pt; width:500px">
+        Upload Images of Your House
+      </button>
+    </div>
   </div>
+</div>
 
-  <br><br>
-
-  <div>
-  <input type="file" ng-file-select="onFileSelect($files)" multiple>
+<div class="container-fluid marketing">
+  <div class="row-fluid home_from_top">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary btn-md" style="font-size:18pt; width:500px">
+        Select the Primary Image for Your House
+      </button>
+    </div>
   </div>
 </div>

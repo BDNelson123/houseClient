@@ -1,78 +1,77 @@
 <div ng-init='show_thread()'>
-  <!-- flash alerts -->
-  <div id="alert" style="display:none; margin-bottom:10px"></div>
-
-  <!-- user -->
-  <div class="row home_from_top">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="float_left">
-        <div ng-showimage ng-image="{{otherPrimaryImage.image.medium.url}}" class="user_image"></div>
-      </div>
-      <div class="user_member_since">
-        <!-- user: name -->
-        <b>
-          <a href="#/users/show/{{otherUser.id}}">
-            <span ng-bind="otherUser.firstname|notAvailable"></span>&nbsp;<span ng-bind="otherUser.lastname|notAvailable"></span></b>
-          </a>
-        <br>
-        <!-- user: member since -->
-        member since: <span ng-bind="otherUser.created_at|dateFormat|notAvailable">
-      </div>
-    </div>
-    <div class="col-md-3"></div>
-  </div>
-
-  <!-- if user is looking at his messages with one other user -->
-  <!-- panel: info -->
-  <div class="row home_from_top user_panel_top">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <!-- panel: title -->
-        <div class="panel-heading">
-          <h3 class="panel-title align_left">Messages</h3>
+  <div class="container-fluid">
+    <!-- user -->
+    <div class="row home_from_top">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="float_left">
+          <div ng-showimage ng-type="user" ng-image="{{otherPrimaryImage.image.medium.url}}" class="user_image"></div>
         </div>
-        <div class="panel-body">
-          <div ng-if="$root.id != route_id">
-            <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover">
-              <tr ng-repeat="message in messages">
-                <!-- if results came back -->
-                <div ng-if="total != 0">
-                  <td class="log_td">
-                    <!-- if user sent message -->
-                    <div ng-if="$root.id == message.sender_id">
-                      <div class="float_left user_image">
-                        <div ng-showimage ng-image="{{userPrimaryImage.image.thumb.url}}"></div>
-                      </div>
-                      <div class="float_left" style="padding-left:15px">
-                        <span ng-bind="message.message"></span>
-                      </div>
-                      <div class="float_right" style="padding-right:15px">
-                        <span ng-bind="message._id.$oid|timeStamp"></span>
-                      </div>
-                    </div>
+        <div class="user_member_since">
+          <!-- user: name -->
+          <b>
+            <a href="#/users/show/{{otherUser.id}}">
+              <span ng-bind="otherUser.firstname|notAvailable"></span>&nbsp;<span ng-bind="otherUser.lastname|notAvailable"></span></b>
+            </a>
+          <br>
+          <!-- user: member since -->
+          member since: <span ng-bind="otherUser.created_at|dateFormat|notAvailable">
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
 
-                    <!-- if user received message -->
-                    <div ng-if="$root.id == message.receiver_id">
-                      <div class="float_right user_image">
-                        <div ng-showimage ng-image="{{otherPrimaryImage.image.thumb.url}}"></div>
+    <!-- if user is looking at his messages with one other user -->
+    <!-- panel: info -->
+    <div class="row home_from_top user_panel_top">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <!-- panel: title -->
+          <div class="panel-heading">
+            <h3 class="panel-title align_left">Messages</h3>
+          </div>
+          <div class="panel-body">
+            <div ng-if="$root.id != route_id">
+              <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover">
+                <tr ng-repeat="message in messages">
+                  <!-- if results came back -->
+                  <div ng-if="total != 0">
+                    <td class="log_td">
+                      <!-- if user sent message -->
+                      <div ng-if="$root.id == message.sender_id">
+                        <div class="float_left user_image">
+                          <div ng-showimage ng-type="user" ng-image="{{userPrimaryImage.image.thumb.url}}"></div>
+                        </div>
+                        <div class="float_left" style="padding-left:15px">
+                          <span ng-bind="message.message"></span>
+                        </div>
+                        <div class="float_right" style="padding-right:15px">
+                          <span ng-bind="message._id.$oid|timeStamp"></span>
+                        </div>
                       </div>
-                      <div class="float_right" style="padding-right:15px">
-                        <span ng-bind="message.message"></span>
+
+                      <!-- if user received message -->
+                      <div ng-if="$root.id == message.receiver_id">
+                        <div class="float_right user_image">
+                          <div ng-showimage ng-type="user" ng-image="{{otherPrimaryImage.image.thumb.url}}"></div>
+                        </div>
+                        <div class="float_right" style="padding-right:15px">
+                          <span ng-bind="message.message"></span>
+                        </div>
+                        <div class="float_left" style="padding-left:15px">
+                          <span ng-bind="message._id.$oid|timeStamp"></span>
+                        </div>
                       </div>
-                      <div class="float_left" style="padding-left:15px">
-                        <span ng-bind="message._id.$oid|timeStamp"></span>
+                      <br>
                       </div>
-                    </div>
-                    <br>
-                    </div>
-                  </td>
-                </div>
-                <!-- if NO results came back -->
-                <div ng-empty ng-total={{total}}></div>
-              </tr>
-            </table>
+                    </td>
+                  </div>
+                  <!-- if NO results came back -->
+                  <div ng-empty ng-total={{total}}></div>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>

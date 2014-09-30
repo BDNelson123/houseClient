@@ -1,0 +1,94 @@
+<div ng-if="!route || route == 'activity'">
+  <table cellspacing=0 cellpadding=0 width="100%">
+    <tr ng-repeat="log in logs">
+      <!-- if results came back -->
+      <div ng-if="total != 0">
+        <td class="log_td">
+          <!-- listing: created -->
+          <div ng-if="log.type == 'home' && log.action == 'create'" style="width:100%">
+            <div class="float_left">
+              <img src="/images/home_add_72.png">
+            </div>
+            <div class="float_left">
+              <div class="log_heading">
+                Listing Created
+              </div>
+              <div style="text-align:left; padding-left:5px">
+                <a href="/#/homes/show/{{log.home_id}}">
+                  <span class="table_title_padding" ng-bind="log.address"></span><span ng-if="!log.address2">,</span>
+                  <span ng-if="log.address2" ng-bind="log.address2">,</span>
+                  <span ng-bind="log.city"></span>, 
+                  <span ng-bind="log.state"></span>, 
+                  <span ng-bind="log.zip"></span>
+                </a>
+              </div>
+              <div class="log_currency">
+                <span ng-bind="log.price|currency:$|notAvailable">
+              </div>
+            </div>
+            <div class="float_right">
+              <span ng-bind="log.date|dateFormat|notAvailable">
+            </div>
+          </div>
+          <!-- listing: updated -->
+          <div ng-if="log.type == 'home' && log.action == 'update'" style="width:100%">
+            <div class="float_left">
+              <img src="/images/home_edit_72.png">
+            </div>
+            <div class="float_left">
+              <div class="log_heading">
+                Listing Updated
+              </div>
+              <div style="text-align:left; padding-left:5px">
+                <a href="/#/homes/show/{{log.home_id}}">
+                  <span class="table_title_padding" ng-bind="log.address"></span><span ng-if="!log.address2">,</span>
+                  <span ng-if="log.address2" ng-bind="log.address2">,</span>
+                  <span ng-bind="log.city"></span>, 
+                  <span ng-bind="log.state"></span>, 
+                  <span ng-bind="log.zip"></span>
+                </a>
+              </div>
+              <div class="log_currency">
+                Price changed to: <span ng-bind="log.price|currency:$|notAvailable"></span>
+              </div>
+            </div>
+            <div class="float_right">
+              <span ng-bind="log.date|dateFormat|notAvailable"></span>
+            </div>
+          </div>
+          <!-- bid: created -->
+          <div ng-if="log.type == 'bid' && log.action == 'create'" style="width:100%">
+            <div class="float_left">
+              <img src="/images/payment_add_72.png">
+            </div>
+            <div class="float_left">
+              <div class="log_heading">
+                Bid Created
+              </div>
+              <div style="text-align:left; padding-left:5px">
+                <a href="/#/homes/show/{{log.home_id}}">
+                  <span class="table_title_padding" ng-bind="log.home_address"></span><span ng-if="!log.home_address2">,</span>
+                  <span ng-if="log.home_address2" ng-bind="log.home_address2">,</span>
+                  <span ng-bind="log.home_city"></span>, 
+                  <span ng-bind="log.home_state"></span>, 
+                  <span ng-bind="log.home_zip"></span>
+                </a>
+              </div>
+              <div class="log_currency">
+                <b>House Price:</b> <span ng-bind="log.home_price|currency:$|notAvailable"></span>
+              </div>
+              <div class="log_currency">
+                <b>Bid:</b> <span ng-bind="log.bid_price|currency:$|notAvailable"></span>
+              </div>
+            </div>
+            <div class="float_right">
+              <span ng-bind="log.date|dateFormat|notAvailable"></span>
+            </div>
+          </div>
+        </td>
+      </div>
+      <!-- if NO results came back -->
+      <div ng-empty ng-total={{total}}></div>
+    </tr>
+  </table>
+</div>

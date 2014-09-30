@@ -35,8 +35,7 @@
     <script src="common/navbar.js"></script>
     <script src="app.js"></script>
     <script src="interceptors/response.js"></script>
-    <script src="filters/generic.js"></script> 
-    <script src="directives/public.js"></script> 
+    <script src="filters/generic.js"></script>  
     <script src="directives/image.js"></script> 
     <script src="directives/user.js"></script>
     <script src="directives/empty.js"></script> 
@@ -63,117 +62,7 @@
   </head>
   <body>
     <!-- header -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- main link -->
-          <a class="navbar-brand" href="/#/" ng-if="$root.url == ''"> <!-- purpose: send user to main page if not logged in -->
-          <a class="navbar-brand" href="/#/users/show/{{$root.id}}" ng-if="$root.url != ''"> <!-- purpose: send user to profile page if logged in -->
-            <div class="navbar-header-name">ePerty</div>
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <!-- user NOT logged in -->
-          <ul ng-show="!$root.token" class="nav navbar-nav navbar-right">
-            <li>
-              <a href="/#/public/how_it_works">
-                How it Works
-              </a>
-            </li>
-            <li>
-              <a href="/#/public/pricing">
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a href="/#/public/contact">
-                Contact
-              </a>
-            </li>
-            <li ng-show="!$root.token" class="list_button_small">
-              <a href="/#/users/sign_in">
-                <button type="button" class="btn btn-default btn-xs">Sign In</button>
-              </a>
-            </li>
-            <li ng-show="!$root.token">
-              <a href="/#/users/new">
-                <button type="button" class="btn btn-primary btn-xs">Sign Up</button>
-              </a>
-            </li>
-          </ul>
-          <!-- user logged in -->
-          <ul ng-show="$root.token" class="nav navbar-nav navbar-right">
-            <!-- houses -->
-            <li class="dropdown hand">
-              <a class="dropdown-toggle" data-toggle="dropdown">
-                Houses<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu" style="margin-top:3px">
-                <li>
-                  <a href="/#/homes/index">
-                    View your houses
-                  </a>
-                </li>
-                <li>
-                  <a href="/#/homes/new">
-                    Sell your house
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!-- houses -->
-            <li class="dropdown hand">
-              <a href="/#/users/show/{{$root.id}}?type=messages">
-                Messages
-              </a>
-            </li>
-            <!-- profile -->
-            <li class="dropdown hand">
-              <a class="dropdown-toggle cursorPointer" data-toggle="dropdown">
-                Profile<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu" style="margin-top:3px">
-                <li>
-                  <a href="/#/users/show/{{$root.id}}">
-                    View
-                  </a>
-                </li>
-                <li>
-                  <a href="/#/users/edit/{{$root.id}}">
-                    Update
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!-- sign out -->
-            <li ng-controller="usersController">
-              <a ng-click="logoutUser()">
-                <button type="button" class="btn btn-primary btn-xs">Sign Out</button>
-              </a>
-            </li>
-          </ul>
-          <!-- search -->
-          <div class="navbar-right animate-if" ng-controller="searchesController" ng-if="$root.url != ''">
-            <div class="input-group">
-              <form id="navbar_search_form" class="navbar-form" role="search" ng-submit="searchRedirect()">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Property search..." name="srch-term" id="srch-term" size=15 ng-model="query">
-                  <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div ng-include src="'/templates/public/partials/header.html'"></div>
 
     <!-- loading image -->
     <div id="loading">
