@@ -1,0 +1,47 @@
+.search_image {
+  width:75%; 
+  margin:0 auto; 
+  text-align:left; 
+  font-weight:bold; 
+  font-size:14pt;
+}
+
+.search_panel_heading {
+  text-align:left; 
+  font-weight:bold; 
+  color:#FFFFFF; 
+  font-size:18pt;
+}
+
+.search_wrapper {
+  width:100%; 
+  overflow:hidden;
+}
+
+.search_home_image {
+  float: left; 
+  width: 25%; 
+  border-right:solid 1px #CCC; 
+  text-align:center; 
+  padding-top:10px; 
+  background-color:#EEE; 
+  padding-bottom:calc(100% + 10px); 
+  margin-bottom:-100%;
+}
+
+.search_home_info {
+  float: left; 
+  width: 75%;
+}
+
+.search_home_info_top {
+  padding:10px 0px 0px 10px;
+}
+
+.search_home_info_middle {
+  padding:0px 0px 0px 10px;
+}
+
+.search_home_info_bottom {
+  padding:0px 0px 10px 10px;
+}

@@ -89,3 +89,14 @@
   font-weight:bold; 
   font-size:14pt;
 }
+
+.user_new_form {
+  width:800px; 
+  margin:0 auto;
+  text-align:center;
+}
+
+.user_new_input {
+  width:200px;
+  margin : 0 auto;
+}
