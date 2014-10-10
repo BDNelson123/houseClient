@@ -19,3 +19,11 @@ a.noHover, a.noHover:hover, a:link {
   font-weight:normal;
   color:#000000;
 }
+
+.oddRow {
+  background-color:#FFFFFF;
+}
+
+.evenRow {
+  background-color:#f5f5f5;
+}

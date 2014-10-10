@@ -1,35 +1,52 @@
 <div ng-if="route == 'listings'">
-  <table cellspacing=0 cellpadding=0 width="100%">
-    <tr ng-repeat="listing in listings">
+  <table id="listings_table" width="100%" class="table borderless user_table_border_bottom">
+    <tr ng-repeat="listing in listings" ng-click="go('/homes/show/{{listing.id}}')" class="hand">
       <!-- if results came back -->
       <div ng-if="total != 0">
-        <td class="log_td">
+        <td ng-class="{oddRow: !($index%2), evenRow: ($index%2)}">
           <!-- home image -->
-          <div class="user_listings_left">
+          <div>
             <div ng-if="listing.images.length > 0">
               <div ng-repeat="imagex in listing.images">
-                <div ng-showimage ng-type=house ng-image="{{imagex.image.medium.url}}"></div>
+                <div ng-showimage ng-size=thumb ng-type=house ng-image="{{imagex.image.medium.url}}"></div>
               </div>
             </div>
             <div ng-if="listing.images.length == 0">
-              <div ng-showimage ng-type=house ng-image="{{imagex.image.medium.url}}"></div>
+              <div ng-showimage ng-size=thumb ng-type=house ng-image="{{imagex.image.medium.url}}"></div>
             </div>
           </div>
+        </td>
+        <td ng-class="{oddRow: !($index%2), evenRow: ($index%2)}">
           <div class="float_left">
             <div class="user_listings_house">
-              <a href="/#/homes/show/{{listing.id}}">
-                <span class="table_title_padding" ng-bind="listing.address"></span><span ng-if="!listing.address2">,</span>
-                <span ng-if="listing.address2" ng-bind="listing.address2">,</span>
-                <span ng-bind="listing.city"></span>, 
-                <span ng-bind="listing.state"></span>, 
-                <span ng-bind="listing.zip"></span>
-              </a>
+              <span class="table_title_padding" ng-bind="listing.address"></span><span ng-if="!listing.address2">,</span>
+              <span ng-if="listing.address2" ng-bind="listing.address2">,</span>
+              <span ng-bind="listing.city"></span>, 
+              <span ng-bind="listing.state"></span>, 
+              <span ng-bind="listing.zip"></span>
             </div>
+            <!-- price -->
             <div class="user_listings_price">
-              <span ng-bind="listing.price|currency:$|notAvailable"></span>
+              <div class="float_left" style="width:50px">
+                Price: 
+              </div>
+              <div class="float_left">
+                <span ng-bind="listing.price|currency:$|notAvailable"></span>
+              </div>
+            </div>
+            <br>
+            <!-- bids -->
+            <div class="user_listings_price">
+              <div class="float_left" style="width:50px">
+                Bids: 
+              </div>
+              <div class="float_left">
+                <span ng-if="!listing.bidders[0]">none</span>
+                <span ng-if="listing.bidders[0]" ng-bind="listing.bidders.length"></span>
+              </div>
             </div>
           </div>
-          <div class="float_right">
+          <div class="float_right user_listing_date">
             <span ng-bind="listing.created_at|dateFormat|notAvailable"></span>
           </div>
         </td>

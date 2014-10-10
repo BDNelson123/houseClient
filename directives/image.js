@@ -3,12 +3,15 @@ house.directive('ngShowimage', function() {
     restrict: 'A',
     require: '^ngImage',
     require: '^ngType',
+    require: '^ngSize',
     scope: {
       ngImage: '@',
       ngType: '@',
+      ngSize: '@',
     },
     template:
-      '<img ng-if="ngType == \'user\'" fallback-src="/images/Bed-Head.jpg" ng-src="' + server + '{{ngImage}}">' +
+      '<img ng-if="ngType == \'user\' && ngSize == \'thumb\'" fallback-src="/images/Bed-Head-thumb.jpg" ng-src="' + server + '{{ngImage}}">' +
+      '<img ng-if="ngType == \'user\' && ngSize == \'medium\'" fallback-src="/images/Bed-Head-medium.jpg" ng-src="' + server + '{{ngImage}}">' +
       '<img ng-if="ngType == \'house\'" fallback-src="/images/home_72.png" ng-src="' + server + '{{ngImage}}">',
   }
 });

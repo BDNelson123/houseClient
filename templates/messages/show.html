@@ -5,7 +5,7 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <div class="float_left">
-          <div ng-showimage ng-type="user" ng-image="{{otherPrimaryImage.image.medium.url}}" class="user_image"></div>
+          <div ng-showimage ng-type="user" ng-size=thumb ng-image="{{otherPrimaryImage.image.medium.url}}" class="user_image"></div>
         </div>
         <div class="user_member_since">
           <!-- user: name -->
@@ -41,7 +41,7 @@
                       <!-- if user sent message -->
                       <div ng-if="$root.id == message.sender_id">
                         <div class="float_left user_image">
-                          <div ng-showimage ng-type="user" ng-image="{{userPrimaryImage.image.thumb.url}}"></div>
+                          <div ng-showimage ng-size=thumb ng-type="user" ng-image="{{userPrimaryImage.image.thumb.url}}"></div>
                         </div>
                         <div class="float_left" style="padding-left:15px">
                           <span ng-bind="message.message"></span>
@@ -54,7 +54,7 @@
                       <!-- if user received message -->
                       <div ng-if="$root.id == message.receiver_id">
                         <div class="float_right user_image">
-                          <div ng-showimage ng-type="user" ng-image="{{otherPrimaryImage.image.thumb.url}}"></div>
+                          <div ng-showimage ng-size=thumb ng-type="user" ng-image="{{otherPrimaryImage.image.thumb.url}}"></div>
                         </div>
                         <div class="float_right" style="padding-right:15px">
                           <span ng-bind="message.message"></span>

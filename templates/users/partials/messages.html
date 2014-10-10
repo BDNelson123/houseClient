@@ -7,7 +7,7 @@
         <div ng-if="total != 0">
           <td class="log_td" ng-click="go('/messages/show/{{message._id.thread_id}}')">
             <div class="float_left user_image">
-              <div ng-showimage ng-type=user ng-image="{{message.image.image.thumb.url}}"></div>
+              <div ng-showimage ng-type=user ng-size=thumb ng-image="{{message.image.image.thumb.url}}"></div>
             </div>
             <div class="float_left" style="padding-left:15px; text-align:left">
               <div style="font-weight:bold">
@@ -33,16 +33,15 @@
           <td class="log_td">
             <div ng-if="$root.id == message.sender_id">
               <div class="float_left user_image">
-                <div ng-showimage ng-type=user ng-image="{{image_primary.image.thumb.url}}"></div>
+                <div ng-showimage ng-type=user ng-size=thumb ng-image="{{image_primary.image.thumb.url}}"></div>
               </div>
               <div class="float_left" style="padding-left:15px">
                 <span ng-bind="message.message"></span>
               </div>
             </div>
-
             <div ng-if="$root.id == message.receiver_id">
               <div class="float_right user_image">
-                <div ng-showimage ng-type=user ng-image="{{image.image.thumb.url}}"></div>
+                <div ng-showimage ng-type=user ng-size=thumb ng-image="{{image.image.thumb.url}}"></div>
               </div>
               <div class="float_right" style="padding-right:15px">
                 <span ng-bind="message.message"></span>

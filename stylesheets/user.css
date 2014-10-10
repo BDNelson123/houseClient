@@ -100,3 +100,40 @@
   width:200px;
   margin : 0 auto;
 }
+
+.user_table_border_bottom {
+  border-top:solid 1px #CCC;
+}
+
+#listings_table td:nth-child(1) { 
+  text-align:center; 
+  border-right:solid 1px #CCC; 
+  border-bottom:solid 1px #CCC; 
+  border-left:solid 1px #CCC 
+}
+
+#listings_table td:nth-child(2) { 
+  border-right:solid 1px #CCC; 
+  border-bottom:solid 1px #CCC; 
+  vertical-align:top 
+}
+
+.user_listing_table {
+  background-color:#EEE; 
+  text-align:center; 
+  border-right:solid 1px #CCC; 
+  border-bottom:solid 1px #CCC; 
+  border-left:solid 1px #CCC;
+}
+
+.user_listing_table_td {
+  border-right:solid 1px #CCC; 
+  border-bottom:solid 1px #CCC; 
+  vertical-align:top;
+}
+
+.user_listing_date {
+  padding-right:15px; 
+  color:#AAAAAA;
+  float:right;
+}

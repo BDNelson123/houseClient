@@ -23,7 +23,7 @@
 <div ng-init="show()">
   <div ng-repeat="message in messages">
     <div ng-show="$root.id == message.sender_id">
-      <span id="image_{{userPrimaryImage.id}}" ng-showimage ng-image="{{userPrimaryImage.image.thumb.url}}"></span>
+      <span id="image_{{userPrimaryImage.id}}" ng-showimage ng-size=thumb ng-image="{{userPrimaryImage.image.thumb.url}}"></span>
       <br>
       message on left = <span ng-bind="message.message"></span>
       <br>

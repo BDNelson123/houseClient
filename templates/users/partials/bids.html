@@ -8,11 +8,11 @@
           <div class="float_left">
             <div ng-if="bid.image.length > 0">
               <div ng-repeat="imagex in bid.image">
-                <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
+                <div ng-showimage ng-size=thumb ng-image="{{imagex.image.medium.url}}"></div>
               </div>
             </div>
             <div ng-if="bid.image.length == 0">
-              <div ng-showimage ng-image="{{imagex.image.medium.url}}"></div>
+              <div ng-showimage ng-size=thumb ng-image="{{imagex.image.medium.url}}"></div>
             </div>
           </div>
           <div class="float_left">
