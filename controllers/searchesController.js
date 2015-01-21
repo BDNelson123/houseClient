@@ -7,9 +7,6 @@ house.controller('searchesController', function($scope, $location, $routeParams,
 
   $scope.searchHome = function() {
     $scope.searches = indexSearch.read({query: $routeParams.query});
-
-    $scope.searches.$promise.then(function(data) {
-      $scope.total = $scope.searches.length;
-    });
+    $scope.count = indexSearch.read({query: $routeParams.query, count: "true"});
   };
 });
