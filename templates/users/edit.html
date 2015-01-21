@@ -1,50 +1,123 @@
-<div ng-init="updateUser()">
-  <form ng-submit="submitUpdateUser()" class="form-vertical">
-    <div class="control-group">
-      <!-- user - update -->
-      <h3>Update:</h3>
-      <div class="controls user_new_form">
-        <input type="text" ng-model="user.firstname" placeholder="first name" class="form-control user_new_input" required/>
-        <br>
-        <input type="text" ng-model="user.lastname" placeholder="last name" class="form-control user_new_input" required/>
-        <br>
-        <input type="text" ng-model="user.email" placeholder="email" class="form-control user_new_input" required/>
-        <br>
-        <input type="password" ng-model="user.password" placeholder="password" class="form-control user_new_input" />
-        <br>
-        <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" class="form-control user_new_input" />
-        <br>
+<div class="user_auth_container" ng-init="updateUser()">
+  <!-- view: desktop -->
+  <div class="container user_center_panel_new visible-lg">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <!-- user - sign up -->
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <!-- header -->
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Update your profile
+            </h3>
+          </div>
+          <div class="panel-body">
+            <!-- sign up form -->
+            <form ng-submit="submitUpdateUser()" class="form-vertical">
+              <div class="control-group user_panel_margin_top">
+                <!-- field: first name -->
+                <div class="input-group">
+                  <input type="text" ng-model="user.firstname" placeholder="first name" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <br>
+                <!-- field: last name -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="text" ng-model="user.lastname" placeholder="last name" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <br>
+                <!-- field: email -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="text" ng-model="user.email" placeholder="email" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                </div>
+                <br>
+                <!-- field: password -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="password" ng-model="user.password" placeholder="password" class="form-control user_new_input" />
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                </div>
+                <br>
+                <!-- field: password confirm -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" class="form-control user_new_input" />
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></span>
+                </div>
+              </div>
+              <br>
+              <!-- field: submit -->
+              <div class="control-group user_panel_margin_top">
+                <div class="controls">
+                  <input class="btn btn-primary" type="submit" value="Sign Up" style="width:100%"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <input class="btn btn-primary" type="submit" value="update user"/>
-      </div>
-    </div>
-  </form>
-
-  <br><br>
-
-  <!-- main image -->
-  Main Image
-  <div" ng-init="images()" ng-userprimaryimage>
-    <div ng-repeat="userImage in userImages">
-      <div ng-show="userImage.id == $root.userImagePrimary" ng-showimage ng-image="{{userImage.image.thumb.url}}" ></div>
+      <div class="col-md-3"></div>
     </div>
   </div>
 
-  <!-- show user images - allow to update -->
-  <div ng-userprimaryimage>
-    <form class="form-vertical">
-      <div ng-repeat="userImage in userImages">
-        <a class="hand" ng-click="submitUpdateUserPrimaryImage(userImage.id)">
-          <span id="image_{{userImage.id}}" ng-showimage ng-image="{{userImage.image.thumb.url}}"></span>
-        </a>
+  <!-- view: tablet, phone -->
+  <div class="container user_center_panel_mobile_new visible-md visible-sm visible-xs">
+    <div class="row">
+      <!-- user - sign up -->
+      <div class="col-md-10">
+        <div class="panel panel-default">
+          <!-- header -->
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Update your profile
+            </h3>
+          </div>
+          <div class="panel-body">
+            <!-- sign in form -->
+            <form ng-submit="submitUpdateUser()" class="form-vertical">
+              <div class="control-group user_panel_margin_top">
+                <!-- field: first name -->
+                <div class="input-group">
+                  <input type="text" ng-model="user.firstname" placeholder="first name" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <br>
+                <!-- field: last name -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="text" ng-model="user.lastname" placeholder="last name" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <br>
+                <!-- field: email -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="text" ng-model="user.email" placeholder="email" class="form-control user_new_input" required/>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                </div>
+                <br>
+                <!-- field: password -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="password" ng-model="user.password" placeholder="password" class="form-control user_new_input" />
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                </div>
+                <br>
+                <!-- field: password confirm -->
+                <div class="input-group user_panel_margin_top">
+                  <input type="password" ng-model="user.password_confirmation" placeholder="confirm password" class="form-control user_new_input" />
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></span>
+                </div>
+              </div>
+              <br>
+              <!-- field: submit -->
+              <div class="control-group user_panel_margin_top">
+                <div class="controls">
+                  <input class="btn btn-primary" type="submit" value="submit" style="width:100%"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </form>
-  </div>
-
-  <div>
-  <input type="file" ng-file-select="onFileSelect($files)" multiple>
+    </div>
   </div>
 </div>

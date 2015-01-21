@@ -4,7 +4,15 @@
       <!-- if results came back -->
       <div class="col-md-2"></div>
       <div class="col-md-8">
-        <div ng-if="searches.length != 0">
+        <!-- heading title -->
+        <div class="user_panel_heading">
+          <i class="glyphicon glyphicon-search"></i>
+          <span class="padding_left_5">Search Results</span>
+        </div>
+        <div class="align_left">
+          <span ng-bind="total"></span> results were found.
+        </div>
+        <div ng-if="searches.length != 0" class="heading_from_top">
           <div ng-repeat="search in searches">
             <a class="noHover" href="/#/homes/show/{{search.id}}">
               <div class="panel panel-primary">

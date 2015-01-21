@@ -1,11 +1,11 @@
 <div ng-if="route == 'messages'">
   <!-- if user is looking at his own messages -->
   <div ng-if="$root.id == route_id">
-    <table cellspacing=0 cellpadding=0 width="100%" class="table table-hover borderless">
+    <table cellspacing=0 cellpadding=0 width="100%" class="user_activity_table">
       <tr ng-repeat="message in messages" class="{{message}}">
         <!-- if results came back -->
         <div ng-if="total != 0">
-          <td class="log_td" ng-click="go('/messages/show/{{message._id.thread_id}}')">
+          <td class="log_td" style="padding-left:10px; padding-right:10px" ng-click="go('/messages/show/{{message._id.thread_id}}')">
             <div class="float_left user_image">
               <div ng-showimage ng-type=user ng-size=thumb ng-image="{{message.image.image.thumb.url}}"></div>
             </div>

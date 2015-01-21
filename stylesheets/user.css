@@ -12,7 +12,14 @@
 }
 
 .user_panel_top {
-  margin-top:50px;
+  margin-top:25px;
+}
+
+.user_panel_heading {
+  font-size:20pt; 
+  text-align:left; 
+  font-weight:bold; 
+  color:#000;
 }
 
 .user_center_panel {
@@ -135,5 +142,68 @@
 .user_listing_date {
   padding-right:15px; 
   color:#AAAAAA;
+  float:right;
+}
+
+.user_listing_thumbnail_hover_blue:hover {
+  background-color:#d9edf7;
+}
+
+.user_listing_thumbnail_hover_yellow:hover {
+  background-color:#fcf8e3;
+}
+
+.user_thumbnail {
+  height:225px; 
+  position: relative;
+}
+
+.user_price_bids {
+  padding-bottom:10px; 
+  padding-top:10px;
+  background-color:#428bca; 
+  position: absolute; 
+  bottom:0; 
+  left:0; 
+  width:100%; 
+  text-align:center; 
+  border-bottom-left-radius: 3px; 
+  border-bottom-right-radius: 3px; 
+  border: 2px solid #428bca; 
+  color:#FFF;
+}
+
+.user_activity_table {
+  background-color:#FFF; 
+  border-radius:5px;
+}
+
+.user_activity_table tr:hover { 
+  background-color: #d9edf7;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+.user_activity_description {
+  text-align:left; 
+  padding-left:5px;
+}
+
+.user_activity_td {
+  padding-left:10px; 
+  padding-right:10px; 
+  padding-top:10px; 
+  padding-bottom:10px;
+  border-bottom:solid 1px #CCC;
+  cursor:pointer;
+}
+
+.user_activity_icon {
+  text-align:left; 
+  padding-left:5px;
+}
+
+.user_activity_date {
+  color:#AAA;
   float:right;
 }

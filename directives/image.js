@@ -11,7 +11,7 @@ house.directive('ngShowimage', function() {
     },
     template:
       '<img ng-if="ngType == \'user\' && ngSize == \'thumb\'" fallback-src="/images/Bed-Head-thumb.jpg" ng-src="' + server + '{{ngImage}}">' +
-      '<img ng-if="ngType == \'user\' && ngSize == \'medium\'" fallback-src="/images/Bed-Head-medium.jpg" ng-src="' + server + '{{ngImage}}">' +
+      '<img ng-if="ngType == \'user\' && ngSize == \'medium\'" fallback-src="/images/Bed-Head-medium.jpg" width="75" height="75" ng-src="' + server + '{{ngImage}}">' +
       '<img ng-if="ngType == \'house\'" fallback-src="/images/home_72.png" ng-src="' + server + '{{ngImage}}">',
   }
 });

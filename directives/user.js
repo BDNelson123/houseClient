@@ -9,37 +9,27 @@ house.directive('ngUseroptions', function() {
     },
     template: '\
     <div class="container-fluid">\
-      <div class="row-fluid home_from_top" style="margin-top:50px">\
-        <div class="col-md-3"></div>\
-        <div class="col-md-6">\
-          <div class="btn-group btn-group-justified">\
-            <div class="btn-group">\
-              <a href="/#/users/show/{{ngUser}}?type=activity">\
-                <button type="button" class="btn btn-primary active" ng-show="ngRoute == \'activity\'">Activity</button>\
-                <button type="button" class="btn btn-primary active" ng-if="!ngRoute">Activity</button>\
-                <button type="button" class="btn btn-default" ng-if="ngRoute" ng-show="ngRoute != \'activity\'">Activity</button>\
-              </a>\
-            </div>\
-            <div class="btn-group">\
-              <a href="/#/users/show/{{ngUser}}?type=listings">\
-                <button type="button" class="btn btn-primary active" ng-show="ngRoute == \'listings\'">Listings</button>\
-                <button type="button" class="btn btn-default" ng-hide="ngRoute == \'listings\'">Listings</button>\
-              </a>\
-            </div>\
-            <div class="btn-group">\
-              <a href="/#/users/show/{{ngUser}}?type=bids">\
-                <button type="button" class="btn btn-primary active" ng-show="ngRoute == \'bids\'">Bids</button>\
-                <button type="button" class="btn btn-default" ng-hide="ngRoute == \'bids\'">Bids</button>\
-              </a>\
-            </div>\
-            <div class="btn-group">\
-              <a href="/#/users/show/{{ngUser}}?type=messages">\
-                <button type="button" class="btn btn-primary active" ng-show="ngRoute == \'messages\'">Messages</button>\
-                <button type="button" class="btn btn-default" ng-hide="ngRoute == \'messages\'">Messages</button>\
-              </a>\
-            </div>\
+      <div class="row-fluid" style="margin-top:25px">\
+        <div class="col-md-2"></div>\
+        <div class="col-md-8">\
+          <div ng-if="ngRoute == \'listings\'" class="user_panel_heading">\
+            <i class="glyphicon glyphicon-th-list"></i>\
+            <span class="padding_left_5">Your Listings</span>\
+          </div>\
+          <div ng-if="ngRoute == \'activity\' || ngRoute == \'\'" class="user_panel_heading">\
+            <i class="glyphicon glyphicon-stats"></i>\
+            <span class="padding_left_5">Your Activity</span>\
+          </div>\
+          <div ng-if="ngRoute == \'bids\'" class="user_panel_heading">\
+            <i class="glyphicon glyphicon-tags"></i>\
+            <span class="padding_left_5">Your Bids</span>\
+          </div>\
+          <div ng-if="ngRoute == \'messages\'" class="user_panel_heading">\
+            <i class="glyphicon glyphicon-comment"></i>\
+            <span class="padding_left_5">Your Messages</span>\
           </div>\
         </div>\
+        <div class="col-md-2"></div>\
       </div>\
     </div>',
   }
