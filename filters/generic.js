@@ -8,11 +8,25 @@ house.filter('notAvailable', function() {
   };
 });
 
+house.filter('numberComma', function() {
+  return function(integer) {
+    return integer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+});
+
 house.filter('dateFormat', function() {
   return function(text) {
     text = text || '';
     text = text.split("T");
     text = text[0].split("-");
+    return date_format_0(text[1]) + '-' + date_format_0(text[2]) + '-' + text[0];
+  };
+});
+
+house.filter('dateFormatZillow', function() {
+  return function(text) {
+    text = text || '';
+    text = text.split("-");
     return date_format_0(text[1]) + '-' + date_format_0(text[2]) + '-' + text[0];
   };
 });
