@@ -6,32 +6,19 @@ house.controller('searchesController', function($scope, $location, $routeParams,
   };
 
   $scope.searchHome = function() {
-    // total number of search results (not paginated)
-    $scope.count = indexSearch.read({query: $routeParams.query, count: "true"});
-    $scope.query = $routeParams.query;
+    // search is going to be paginated
+    // need count, query (what user is searching), pages number (pages), currentPage, searches (ajax call), pages array, lastPage, prevPage, and nextPage
+    $scope.count = indexSearch.read({query: $routeParams.query, count: "true"}); // total number of search results (not paginated)
 
     // get total number of search results
     $scope.count.$promise.then(function(data) {
-      var pages = Math.ceil($scope.count[0][0] / 10);
-
-      // actual search query && pagination
-      if($routeParams.page != null && $routeParams.page <= pages){
-        $scope.currentPage = parseInt($routeParams.page); // get the current page user is on
-        $scope.searches = indexSearch.read({query: $routeParams.query, page: $routeParams.page});
-      } else {
-        $scope.currentPage = 1; // get the current page user is on
-        $scope.searches = indexSearch.read({query: $routeParams.query, page: 1});
-      }
-
-      // this loop builds the pages array we loop over in the view to see how many pages we have
-      var pages_array = [];
-      for (i = 0; i < pages; i++) {
-        pages_array.push(i + 1);
-      }
-      $scope.pages = pages_array;
-      $scope.lastPage = Math.max.apply(Math, pages_array);
-      $scope.prevPage = $scope.currentPage - 1;
-      $scope.nextPage = $scope.currentPage + 1;
+      $scope.query = $routeParams.query; // what the user searched for
+      $scope.searches = pagination_search_query($routeParams.query,$routeParams.page,Math.ceil($scope.count[0][0] / 10),indexSearch) // actual ajax query against API
+      $scope.currentPage = pagination_search_currentPage($routeParams.query,$routeParams.page,Math.ceil($scope.count[0][0] / 10)) // gets the current page the user is on
+      $scope.pages = pagination_search_pagesArray(Math.ceil($scope.count[0][0] / 10)); // creates an array with all pages to loop over
+      $scope.lastPage = Math.max.apply(Math, pagination_search_pagesArray(Math.ceil($scope.count[0][0] / 10))); // gets last page in 
+      $scope.prevPage = $scope.currentPage - 1; // gets the previous page in the pages list
+      $scope.nextPage = $scope.currentPage + 1; // gets the next page in the pages list
     });
   };
 });
