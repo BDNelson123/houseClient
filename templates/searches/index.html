@@ -9,10 +9,12 @@
           <i class="glyphicon glyphicon-search"></i>
           <span class="padding_left_5">Search Results</span>
         </div>
+        <!-- results explained: how many and what was searched -->
         <div class="align_left">
-          <span ng-bind="count[0][0]"></span> results were found.
+          <span ng-bind="count[0][0]"></span> results were found for "<span ng-bind="query"></span>".
         </div>
         <div ng-if="count[0][0] != 0" class="heading_from_top">
+          <!-- search results loop -->
           <div ng-repeat="search in searches">
             <a class="noHover" href="/#/homes/show/{{search.id}}">
               <div class="panel panel-primary">
@@ -34,6 +36,7 @@
                       <div ng-showimage ng-size=medium ng-type=user ng-image="{{image.image.medium.url}}"></div>
                     </div>
                   </div>
+                  <!-- housing information: number of bedrooms, etc. -->
                   <div class="search_home_info">
                     <div class="align_left search_home_info_top">
                       Bedrooms: <span ng-bind="search.bedrooms"></span>
@@ -53,26 +56,8 @@
               </div>
             </a>
           </div>
-          <div style="text-align:right; margin-bottom:10px">
-            <b>Pages:</b> &nbsp; 
-            <span ng-if="currentPage > 1">  <!-- only show "Prev" if user is not on first page -->
-              <a href="/#/searches/index/{{query}}?page={{prevPage}}">
-                Prev &nbsp;</span>
-              </a>
-            </span>
-            <!-- pages loop -->
-            <span ng-repeat="page in pages">
-              <a href="/#/searches/index/{{query}}?page={{page}}">
-                <span ng-bind="page" ng-class="{'pagination_currentPage': page == currentPage}"></span>
-              </a>
-              &nbsp;
-            </span>
-            <span ng-if="currentPage < lastPage"> <!-- only show "Next" if user is not on last page -->
-              <a href="/#/searches/index/{{query}}?page={{nextPage}}">
-                Next &nbsp;
-              </a>
-            </span>
-          </div>
+          <!-- pagination: bottom -->
+          <div ng-include src="'/templates/searches/partials/pagination_bottom.html'"></div>
         </div>
         <div class="col-md-2"></div>
       </div>

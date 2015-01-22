@@ -1,0 +1,20 @@
+<div class="search_pagination_top">
+  <b>Pages:</b> &nbsp; 
+  <span ng-if="currentPage > 1">  <!-- only show "Prev" if user is not on first page -->
+    <a href="/#/searches/index/{{query}}?page={{prevPage}}">
+      Prev &nbsp;</span>
+    </a>
+  </span>
+  <!-- pages loop -->
+  <span ng-repeat="page in pages">
+    <a href="/#/searches/index/{{query}}?page={{page}}">
+      <span ng-bind="page" ng-class="{'pagination_currentPage': page == currentPage}"></span>
+    </a>
+    &nbsp;
+  </span>
+  <span ng-if="currentPage < lastPage"> <!-- only show "Next" if user is not on last page -->
+    <a href="/#/searches/index/{{query}}?page={{nextPage}}">
+      Next &nbsp;
+    </a>
+  </span>
+</div>

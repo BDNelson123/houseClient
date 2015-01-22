@@ -45,3 +45,18 @@
 .search_home_info_bottom {
   padding:0px 0px 10px 10px;
 }
+
+.search_pagination_top {
+  width:100%;
+  text-align:left;
+  margin-top:10px;
+}
+
+.search_pagination_bottom {
+  text-align:right; 
+  margin-bottom:10px;
+}
+
+.search_heading_from_top {
+  margin-top:15px;
+}
